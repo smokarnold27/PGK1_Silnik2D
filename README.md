@@ -14,8 +14,9 @@ potem w sekcji Linker -> General -> Additional Library Directories - wklej cał�
 C:\Users\smoka\OneDrive\Desktop\raylib-5.5_win64_msvc16\raylib-5.5_win64_msvc16\lib
 
 i na koniec w sekcji Linker -> Input -> Additional Dependencies - jeśli masz tam cokolwiek wpisane to NIE usuwaj, kliknij w pole, z boku po prawej pojawi się 
-kwadracik ze strzałką w dół, kliknij ją -> <Edit...> -> uzupełnij pole wklejając przed wszystkim dokładnie to:
+kwadracik ze strzałką w dół, kliknij ją -> <Edit...> -> powinno być tak:
 raylib.lib;
 winmm.lib;
+$(CoreLibraryDependencies);%(AdditionalDependencies)
 
 kliknij OK i spróbuj odpalić projekt skrótem klawiszowym ctrl + F5
