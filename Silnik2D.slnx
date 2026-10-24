@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Silnik2D/Silnik2D.vcxproj" Id="91857d40-bf68-4200-ad34-698e0a03b4f9" />
+</Solution>
