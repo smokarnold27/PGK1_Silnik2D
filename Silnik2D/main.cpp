@@ -1,16 +1,13 @@
-#include <iostream>
 #include "Engine.h"
-#include "raylib.h"
-
-using namespace std;
-
-
 
 int main()
 {
-	float time = 0.0f;
-	Engine engine;
-	engine.Inicjuj(800, 600, false, 60);
+	//float time = 0.0f;
+	Engine& engine = Engine::GetInstance(); // Pobranie instancji silnika (referencji do jedynego obiektu klasy Engine (singleton))
+	if (engine.Init(800, 600, false, 60)) {
+		engine.Run();
+	}
+	engine.Shutdown();
 
 	return 0;
 }

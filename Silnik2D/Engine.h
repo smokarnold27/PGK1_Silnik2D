@@ -1,41 +1,35 @@
 #pragma once
-#include <iostream>
 #include "raylib.h"
-#include "Renderer.h"
+#include <iostream>
 
 using namespace std;
 
 class Engine
 {
+private:
+	// Konstruktor prywatny, aby uniemożliwić tworzenie obiektów klasy Engine z zewnątrz
+	Engine();
+	~Engine();
+
+	bool is_running;
+	int screen_width;
+	int screen_height;
+	bool is_fullscreen;
+	int target_fps;
 
 public:
+	// Usunięcie konstruktora kopiującego i operatora przypisania, aby uniemożliwić tworzenie kopii obiektu Engine (wzorzec singleton)
+	Engine(const Engine&) = delete; // usunięcie konstruktora kopiującego
+	Engine& operator=(const Engine&) = delete; // usunięcie operatora przypisania
+	
+	static Engine& GetInstance(); // metoda statyczna zwracająca referencję do jedynego obiektu klasy Engine
 
-	void Inicjuj(int screen_width, int screen_height, bool fullscreen, int fps)
-	{
-		if (fullscreen)
-		{
-			SetConfigFlags(FLAG_FULLSCREEN_MODE);
-		}
-		else
-		{
-			SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-		}
+	bool Init(int width, int height, bool fullscreen, int fps);
 
-		InitWindow(screen_width, screen_height, "OKNO");
-		SetTargetFPS(fps);
-		Vector2 mouse = GetMousePosition();
-		// if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	void Run();
 
-		while (!WindowShouldClose())
-		{
-			BeginDrawing();
-			ClearBackground(WHITE);
-			Renderer renderer;
-			renderer.PutPixel(200, 200);
-			//renderer.Draw_line({ 100, 100 }, { 300, 300 });
-			renderer.Draw_triangle({ 10, 400 }, { 600, 500 }, { 300, 40 });
-			EndDrawing();
+	void Shutdown();
 
-		}
-	}
+	int GetScreenWidth() const { return screen_width; }
+	int GetScreenHeight() const { return screen_height; }
 };
