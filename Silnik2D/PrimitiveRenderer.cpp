@@ -68,3 +68,25 @@ void PrimitiveRenderer::DrawLine(const Point2D& p1, const Point2D& p2, Color col
 		}
     }
 }
+
+void PrimitiveRenderer::DrawTriangle(const Point2D& p1, const Point2D& p2, const Point2D& p3, Color color) const
+{
+	DrawLine(p1,p2,color);
+	DrawLine(p1,p3,color);
+	DrawLine(p2,p3,color);
+};
+
+void PrimitiveRenderer::DrawRectangle(const Point2D& p1, int width, int height, Color color) const
+{
+	Point2D p2(p1.GetX() + width, p1.GetY());
+	Point2D p3(p1.GetX() + width, p1.GetY() + height);
+	Point2D p4(p1.GetX(), p1.GetY() + height);
+
+	DrawLine(p1, p2, color);
+	DrawLine(p2, p3, color);
+	DrawLine(p3, p4, color);
+	DrawLine(p4, p1, color);
+
+	
+	
+}

@@ -12,4 +12,7 @@ public:
 	void PutPixel(int x, int y, Color color) const;
 
 	void DrawLine(const Point2D& p1, const Point2D& p2, Color color) const;
+	void DrawTriangle(const Point2D& p1, const Point2D& p2, const Point2D& p3, Color color) const;
+	void DrawRectangle(const Point2D& p1, int width, int height, Color color) const;
+
 };

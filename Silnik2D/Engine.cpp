@@ -42,8 +42,15 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 void Engine::Run() 
 {
 	PrimitiveRenderer renderer;
-	Point2D p1(100, 100);
-	Point2D p2(500, 300);
+	Point2D p1(500, 100);
+	Point2D p2(100, 400);
+
+	Point2D p3(150, 300);
+	Point2D p4(700, 500);
+	Point2D p5(280, 180);
+
+	Point2D p6(200, 400);
+	
 
 	while (is_running && !WindowShouldClose())
 	{
@@ -65,6 +72,8 @@ void Engine::Run()
 		ClearBackground(WHITE); //do zmiany na własne wypełnienie tła
 		//rysowanie
 		renderer.DrawLine(p1, p2, RED);
+		renderer.DrawTriangle(p3, p4, p5, BLUE);
+		renderer.DrawRectangle(p6, 300, 100, GREEN);
 		EndDrawing();
 	}
 }
