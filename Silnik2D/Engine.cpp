@@ -49,7 +49,7 @@ void Engine::Run()
 	Point2D p4(700, 500);
 	Point2D p5(280, 180);
 
-	Point2D p6(200, 400);
+	Point2D p6(200, 50);
 	
 
 	while (is_running && !WindowShouldClose())
@@ -57,23 +57,24 @@ void Engine::Run()
 		/*if (IsWindowResized()) {
             screen_width = GetScreenWidth();
             screen_height = GetScreenHeight();
-            cout << "[Info] Zmieniono rozdzielczość okna na: " << screen_width << "x" << screen_height << endl;
+            cout << "Zmieniono rozdzielczość okna na: " << screen_width << "x" << screen_height << endl;
         }*/
 		float delta_time = GetFrameTime();
 		if (IsKeyPressed(KEY_ESCAPE)) {
 			is_running = false;
 		}
 		//obsługa myszy i klawiatury
-		/*if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
             Vector2 mouse = GetMousePosition();
             //kliknięcie myszką w danym punkcie (x, y)
-        }*/
+        }
 		BeginDrawing();
 		ClearBackground(WHITE); //do zmiany na własne wypełnienie tła
 		//rysowanie
 		renderer.DrawLine(p1, p2, RED);
 		renderer.DrawTriangle(p3, p4, p5, BLUE);
-		renderer.DrawRectangle(p6, 300, 100, GREEN);
+		renderer.DrawRectangle(p6, 100, 200, GREEN);
+		renderer.DrawCircle(Point2D(400, 300), 50, PURPLE);
 		EndDrawing();
 	}
 }

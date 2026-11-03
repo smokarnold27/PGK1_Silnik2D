@@ -10,4 +10,6 @@ int main()
 	engine.Shutdown();
 
 	return 0;
+
+	//okrąg, elipsa, wypełnianie kolorem (dowolna metoda z instrukcji), obsługa kliknięć
 }
