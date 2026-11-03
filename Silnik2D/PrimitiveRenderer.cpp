@@ -1,18 +1,30 @@
 #include "PrimitiveRenderer.h"
 #include <cmath>
 #include <algorithm>
+#include <stack>
+
 using namespace std;
 
-PrimitiveRenderer::PrimitiveRenderer() {}
+PrimitiveRenderer::PrimitiveRenderer()
+{
+	bufferWidth = GetScreenWidth();
+	bufferHeight = GetScreenHeight();
+
+	pixels.resize(bufferWidth * bufferHeight, WHITE);
+}
 PrimitiveRenderer ::~PrimitiveRenderer() {}
 
 void PrimitiveRenderer::PutPixel(const Point2D& point, Color color) const {
-    DrawPixel(point.GetX(), point.GetY(), color);
+	PutPixel(point.GetX(), point.GetY(), color);
 }
 
 void PrimitiveRenderer::PutPixel(int x, int y, Color color) const
 {
-	DrawPixel(x, y, color);
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
+		return;
+
+	pixels[y * bufferWidth + x] = color;
 }
 
 void PrimitiveRenderer::DrawLine(const Point2D& p1, const Point2D& p2, Color color) const
@@ -86,7 +98,124 @@ void PrimitiveRenderer::DrawRectangle(const Point2D& p1, int width, int height, 
 	DrawLine(p2, p3, color);
 	DrawLine(p3, p4, color);
 	DrawLine(p4, p1, color);
+	
+}
 
-	
-	
+void PrimitiveRenderer::DrawCircle(const Point2D& p, int r, Color color) const
+{
+	float a, step;
+	int x, y;
+
+	step = 1.0 / r;
+
+	for (a = 0; a < PI / 2; a += step) {
+		x = r * cos(a) + 0.5;
+		y = r * sin(a) + 0.5;
+
+		PutPixel(p.GetX() + x, p.GetY() + y, color);
+		PutPixel(p.GetX() - x, p.GetY() + y, color);
+		PutPixel(p.GetX() + x, p.GetY() - y, color);
+		PutPixel(p.GetX() - x, p.GetY() - y, color);
+	}
+	//Dorysowanie pikseli na srodku na gorze i na dole zeby zalatac dziury
+	PutPixel(p.GetX(), p.GetY() + r, color);
+	PutPixel(p.GetX(), p.GetY() - r, color);
+}
+
+void PrimitiveRenderer::DrawElipse(const Point2D& p, int xr, int yr, Color color) const
+{
+	if (xr <= 0 || yr <= 0) return;
+
+	float a, step;
+	int x, y;
+
+	step = 1.0 / max(xr, yr);
+
+	for (a = 0; a < PI / 2; a += step) {
+		x = xr * cos(a) + 0.5;
+		y = yr * sin(a) + 0.5;
+
+		PutPixel(p.GetX() + x, p.GetY() + y, color);
+		PutPixel(p.GetX() - x, p.GetY() + y, color);
+		PutPixel(p.GetX() + x, p.GetY() - y, color);
+		PutPixel(p.GetX() - x, p.GetY() - y, color);
+	}
+
+	// Skrajne punkty elipsy
+	PutPixel(p.GetX(), p.GetY() + yr, color);
+	PutPixel(p.GetX(), p.GetY() - yr, color);
+	PutPixel(p.GetX() + xr, p.GetY(), color);
+	PutPixel(p.GetX() - xr, p.GetY(), color);
+}
+
+Color PrimitiveRenderer::GetPixelColor(int x, int y) const
+{
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
+		return BLANK;
+
+	return pixels[y * bufferWidth + x];
+}
+
+void PrimitiveRenderer::ClearBuffer(Color color) const
+{
+	std::fill(pixels.begin(), pixels.end(), color);
+}
+
+void PrimitiveRenderer::RenderBuffer() const
+{
+	for (int y = 0; y < bufferHeight; y++)
+	{
+		for (int x = 0; x < bufferWidth; x++)
+		{
+			DrawPixel(x, y, pixels[y * bufferWidth + x]);
+		}
+	}
+}
+
+void PrimitiveRenderer::FloodFill(int x, int y, Color color) const
+{
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
+		return;
+
+	Color oldColor = GetPixelColor(x, y);
+
+	auto sameColor = [](Color a, Color b)
+		{
+			return a.r == b.r &&
+				a.g == b.g &&
+				a.b == b.b &&
+				a.a == b.a;
+		};
+
+	if (sameColor(oldColor, color))
+		return;
+
+	std::stack<Point2D> points;
+	points.push(Point2D(x, y));
+
+	while (!points.empty())
+	{
+		Point2D p = points.top();
+		points.pop();
+
+		int px = p.GetX();
+		int py = p.GetY();
+
+		if (px < 0 || px >= bufferWidth ||
+			py < 0 || py >= bufferHeight)
+			continue;
+
+		if (!sameColor(GetPixelColor(px, py), oldColor))
+			continue;
+
+		PutPixel(px, py, color);
+
+		
+		points.push(Point2D(px + 1, py));
+		points.push(Point2D(px - 1, py));
+		points.push(Point2D(px, py + 1));
+		points.push(Point2D(px, py - 1));
+	}
 }
