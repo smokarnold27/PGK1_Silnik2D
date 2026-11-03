@@ -49,7 +49,15 @@ void Engine::Run()
 	Point2D p4(700, 500);
 	Point2D p5(280, 180);
 
-	Point2D p6(200, 50);
+	Point2D p6(200, 600);
+
+	renderer.ClearBuffer(WHITE);
+
+	renderer.DrawLine(p1, p2, RED);
+	renderer.DrawTriangle(p3, p4, p5, BLUE);
+	renderer.DrawRectangle(p6, 300, 100, GREEN);
+	renderer.DrawCircle({ 200,200 }, 50, PINK);
+	renderer.DrawEllipse({ 400,350 }, 100, 40, BLACK);
 	
 
 	while (is_running && !WindowShouldClose())
@@ -64,17 +72,26 @@ void Engine::Run()
 			is_running = false;
 		}
 		//obsługa myszy i klawiatury
-		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+		/*if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
             Vector2 mouse = GetMousePosition();
             //kliknięcie myszką w danym punkcie (x, y)
-        }
+        }*/
+
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		{
+			Vector2 mouse = GetMousePosition();
+
+			renderer.FloodFill(
+				static_cast<int>(mouse.x),
+				static_cast<int>(mouse.y),
+				YELLOW
+			);
+		}
+
 		BeginDrawing();
 		ClearBackground(WHITE); //do zmiany na własne wypełnienie tła
 		//rysowanie
-		renderer.DrawLine(p1, p2, RED);
-		renderer.DrawTriangle(p3, p4, p5, BLUE);
-		renderer.DrawRectangle(p6, 100, 200, GREEN);
-		renderer.DrawCircle(Point2D(400, 300), 50, PURPLE);
+		renderer.RenderBuffer();
 		EndDrawing();
 	}
 }

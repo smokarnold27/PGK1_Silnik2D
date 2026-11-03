@@ -1,18 +1,29 @@
 #include "PrimitiveRenderer.h"
 #include <cmath>
 #include <algorithm>
+#include <stack>
+
 using namespace std;
 
-PrimitiveRenderer::PrimitiveRenderer() {}
+PrimitiveRenderer::PrimitiveRenderer() {
+	bufferWidth = GetScreenWidth();
+	bufferHeight = GetScreenHeight();
+
+	pixels.resize(bufferWidth * bufferHeight, WHITE);
+}
 PrimitiveRenderer ::~PrimitiveRenderer() {}
 
 void PrimitiveRenderer::PutPixel(const Point2D& point, Color color) const {
-    DrawPixel(point.GetX(), point.GetY(), color);
+	PutPixel(point.GetX(), point.GetY(), color);
 }
 
 void PrimitiveRenderer::PutPixel(int x, int y, Color color) const
 {
-	DrawPixel(x, y, color);
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
+		return;
+
+	pixels[y * bufferWidth + x] = color;
 }
 
 void PrimitiveRenderer::DrawLine(const Point2D& p1, const Point2D& p2, Color color) const
@@ -103,8 +114,8 @@ void PrimitiveRenderer::DrawCircle(const Point2D& center, int radius, Color colo
 	int x, y;
 
 	step = 1.0f / radius;
-	int x0 = p.GetX();
-	int y0 = p.GetY();
+	int x0 = center.GetX();
+	int y0 = center.GetY();
 
 	for (a = 0; a <= PI / 4; a += step) {
 		x = static_cast<int>(radius * cos(a) + 0.5f);
@@ -153,18 +164,74 @@ void PrimitiveRenderer::DrawEllipse(const Point2D& center, int radiusX, int radi
 	PutPixel(x0 - radiusX, y0, color);
 }
 
-void PrimitiveRenderer::FillWithColor(const Point2D& p1, Color color, Color bgcolor) const
+Color PrimitiveRenderer::GetPixelColor(int x, int y) const
 {
-	Image screenImage = LoadImageFromTexture(LoadRenderTexture(800, 600).texture);
-	Color pixelColor = GetImageColor(screenImage, p1.GetX(), p1.GetY());
-	UnloadImage(screenImage);
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
+		return BLANK;
 
-	if (color.r == pixelColor.r && color.g == pixelColor.g && color.b == pixelColor.b && color.a == pixelColor.a)
+	return pixels[y * bufferWidth + x];
+}
+
+void PrimitiveRenderer::ClearBuffer(Color color) const
+{
+	std::fill(pixels.begin(), pixels.end(), color);
+}
+
+void PrimitiveRenderer::RenderBuffer() const
+{
+	for (int y = 0; y < bufferHeight; y++)
 	{
-		return;
+		for (int x = 0; x < bufferWidth; x++)
+		{
+			DrawPixel(x, y, pixels[y * bufferWidth + x]);
+		}
 	}
-	if (bgcolor.r != pixelColor.r && bgcolor.g != pixelColor.g && bgcolor.b != pixelColor.b && bgcolor.a != pixelColor.a)
-	{
+}
+
+void PrimitiveRenderer::FloodFill(int x, int y, Color color) const
+{
+	if (x < 0 || x >= bufferWidth ||
+		y < 0 || y >= bufferHeight)
 		return;
+
+	Color oldColor = GetPixelColor(x, y);
+
+	auto sameColor = [](Color a, Color b)
+		{
+			return a.r == b.r &&
+				a.g == b.g &&
+				a.b == b.b &&
+				a.a == b.a;
+		};
+
+	if (sameColor(oldColor, color))
+		return;
+
+	std::stack<Point2D> points;
+	points.push(Point2D(x, y));
+
+	while (!points.empty())
+	{
+		Point2D p = points.top();
+		points.pop();
+
+		int px = p.GetX();
+		int py = p.GetY();
+
+		if (px < 0 || px >= bufferWidth ||
+			py < 0 || py >= bufferHeight)
+			continue;
+
+		if (!sameColor(GetPixelColor(px, py), oldColor))
+			continue;
+
+		PutPixel(px, py, color);
+
+
+		points.push(Point2D(px + 1, py));
+		points.push(Point2D(px - 1, py));
+		points.push(Point2D(px, py + 1));
+		points.push(Point2D(px, py - 1));
 	}
 }
