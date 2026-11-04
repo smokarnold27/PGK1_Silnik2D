@@ -88,6 +88,17 @@ void Engine::Run()
 			);
 		}
 
+		if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
+		{
+			Vector2 mouse = GetMousePosition();
+
+			renderer.FloodFill(
+				static_cast<int>(mouse.x),
+				static_cast<int>(mouse.y),
+				RED
+			);
+		}
+
 		BeginDrawing();
 		ClearBackground(WHITE); //do zmiany na własne wypełnienie tła
 		//rysowanie
