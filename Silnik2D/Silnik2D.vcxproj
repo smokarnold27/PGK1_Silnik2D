@@ -144,19 +144,37 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CircleObject.cpp" />
+    <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="EllipseObject.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
+    <ClCompile Include="RectangleObject.cpp" />
+    <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="TransformableObject.cpp" />
+    <ClCompile Include="TriangleObject.cpp" />
+    <ClCompile Include="UpdatableObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleObject.h" />
+    <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="EllipseObject.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="Point2D.h" />
+    <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
+    <ClInclude Include="RectangleObject.h" />
+    <ClInclude Include="ShapeObject.h" />
+    <ClInclude Include="TransformableObject.h" />
+    <ClInclude Include="TriangleObject.h" />
+    <ClInclude Include="UpdatableObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

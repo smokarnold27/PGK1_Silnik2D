@@ -1,6 +1,14 @@
 #include "Engine.h"
 #include "PrimitiveRenderer.h"
 #include "Point2D.h"
+#include "LineSegment.h"
+#include "TriangleObject.h"
+#include "RectangleObject.h"
+#include "CircleObject.h"
+#include "EllipseObject.h"
+#include "PolygonObject.h"
+
+using namespace std;
 
 Engine::Engine() : is_running(false), screen_width(800), screen_height(600), is_fullscreen(false), target_fps(60) {}
 
@@ -36,76 +44,73 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	}
 	SetTargetFPS(target_fps);
 	is_running = true;
-	return true;
-}
 
-void Engine::Run() 
-{
-	PrimitiveRenderer renderer;
-	Point2D p1(500, 100);
-	Point2D p2(100, 400);
+	objects.clear(); // Czyszczenie listy obiektów przy inicjalizacji silnika
 
-	Point2D p3(150, 300);
-	Point2D p4(700, 500);
-	Point2D p5(280, 180);
+	// Punkt
+	objects.push_back(std::make_unique<Point2D>(400.0f, 300.0f, PURPLE));
 
-	Point2D p6(200, 600);
+	// Odcinek (Bresenham)
+	objects.push_back(std::make_unique<LineSegment>(Point2D(100, 400), Point2D(500, 100), RED, LineAlgorithm::Bresenham));
 
-	renderer.ClearBuffer(WHITE);
+	// Odcinek (DDA)
+	objects.push_back(std::make_unique<LineSegment>(Point2D(50, 100), Point2D(300, 150), GREEN, LineAlgorithm::DDA));
 
+	// Trójkąt (konturowy)
+	objects.push_back(std::make_unique<TriangleObject>(Point2D(150, 200), Point2D(350, 350), Point2D(200, 380), BLUE, false));
+
+	// Trójkąt (wypełniony)
+	objects.push_back(std::make_unique<TriangleObject>(Point2D(450, 200), Point2D(600, 300), Point2D(500, 350), SKYBLUE, true));
+
+	// Prostokąt (konturowy)
+	objects.push_back(std::make_unique<RectangleObject>(Point2D(500, 400), 150.0f, 90.0f, BLACK, false));
+
+	// Prostokąt (wypełniony)
+	objects.push_back(std::make_unique<RectangleObject>(Point2D(50, 450), 120.0f, 80.0f, ORANGE, true));
+
+	// Okrąg (konturowy)
+	objects.push_back(std::make_unique<CircleObject>(Point2D(200, 200), 50, PINK, false));
+
+	// Okrąg (wypełniony)
+	objects.push_back(std::make_unique<CircleObject>(Point2D(450, 490), 45, MAROON, true));
+
+	// Elipsa (konturowa)
+	objects.push_back(std::make_unique<EllipseObject>(Point2D(400, 200), 70, 35, BLACK, false));
+
+	// Elipsa (wypełniona)
+	objects.push_back(std::make_unique<EllipseObject>(Point2D(630, 490), 80, 40, MAGENTA, true));
+
+	// Wielokąt (konturowy)
 	std::vector<Point2D> polyPoints = {
-	Point2D(100, 100),
-	Point2D(250, 80),
-	Point2D(300, 200),
-	Point2D(120, 220)
-	};
-	renderer.DrawPolyline(polyPoints, PURPLE, true); // true = linia zamknięta
-	renderer.DrawLine(p1, p2, RED);
-
-	renderer.DrawTriangle(p3, p4, p5, BLUE);
-	renderer.DrawRectangle(p6, 300, 100, GREEN);
-	renderer.DrawCircle({ 200,200 }, 50, PINK);
-	renderer.DrawEllipse({ 400,350 }, 100, 40, BLACK);
-	std::vector<Point2D> validPolygon = {
 		Point2D(520, 80),
 		Point2D(680, 60),
 		Point2D(720, 180),
-		Point2D(610, 140), // wklęsły wierzchołek
+		Point2D(610, 140),
 		Point2D(540, 200)
 	};
-	renderer.DrawPolygon(validPolygon, DARKGREEN);
-	// 2. Test łamanej wiązanej (krawędzie się przecinają - metoda przerwie działanie i NIC nie narysuje)
-	std::vector<Point2D> intersectingPolygon = {
-		Point2D(550, 250),
-		Point2D(700, 380), // przekątna 1
-		Point2D(700, 250),
-		Point2D(550, 380)  // przekątna 2 (przecina pierwszą)
-	};
-	renderer.DrawPolygon(intersectingPolygon, MAROON);
+	objects.push_back(std::make_unique<PolygonObject>(polyPoints, DARKGREEN, false, true));
 
-	renderer.DrawFilledTriangle(Point2D(220, 530), Point2D(320, 450), Point2D(350, 530), SKYBLUE);
-	renderer.DrawFilledRectangle(Point2D(50, 450), 120, 80, ORANGE);
-	renderer.DrawFilledCircle(Point2D(450, 490), 45, MAROON);
-	renderer.DrawFilledEllipse(Point2D(630, 490), 80, 40, MAGENTA);
-	std::vector<Point2D> filledPoly = {
+	// Wielokąt (wypełniony)
+	std::vector<Point2D> filledPolyPoints = {
 		Point2D(60, 260),
 		Point2D(160, 240),
 		Point2D(130, 310),
 		Point2D(170, 370),
 		Point2D(50, 350)
 	};
-	renderer.DrawFilledPolygon(filledPoly, LIME);
-	std::vector<Point2D> parityTestPolygon = {
-		Point2D(380, 120), // lokalne maksimum (szczyt)
-		Point2D(440, 220),
-		Point2D(480, 150), // drugi szczyt
-		Point2D(520, 260),
-		Point2D(440, 260), // krawędź pozioma na dole
-		Point2D(410, 220), // wklęsły wierzchołek dokładnie na tej samej wysokości y=220 co punkt (440, 220)
-		Point2D(350, 280)
-	};
-	renderer.DrawFilledPolygon(parityTestPolygon, BEIGE);
-	
+	objects.push_back(std::make_unique<PolygonObject>(filledPolyPoints, LIME, true, true));
+
+	return true;
+}
+
+void Engine::Run() 
+{
+	PrimitiveRenderer renderer;
+	renderer.ClearBuffer(WHITE);
+	// 2. Polimorficzne rysowanie wszystkich obiektów z listy do bufora
+	for (const auto& obj : objects) {
+		obj->Draw(renderer);
+	}
 
 	while (is_running && !WindowShouldClose())
 	{
@@ -118,11 +123,6 @@ void Engine::Run()
 		if (IsKeyPressed(KEY_ESCAPE)) {
 			is_running = false;
 		}
-		//obsługa myszy i klawiatury
-		/*if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-            Vector2 mouse = GetMousePosition();
-            //kliknięcie myszką w danym punkcie (x, y)
-        }*/
 
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 		{

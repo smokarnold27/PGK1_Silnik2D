@@ -6,5 +6,5 @@ public:
     virtual ~GameObject() = default;
 
     // Przykładowa metoda czysto wirtualna (opcjonalna, np. inicjalizacja obiektu)
-    virtual void Init() = 0;
+    virtual void Init() {}
 };

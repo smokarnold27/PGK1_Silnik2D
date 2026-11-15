@@ -593,4 +593,3 @@ void PrimitiveRenderer::BorderFill(int x, int y, Color fillColor, Color borderCo
 		points.push(Point2D(px + 1, py)); // E
 	}
 }
-
