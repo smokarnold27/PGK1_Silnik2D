@@ -20,6 +20,7 @@ private:
 	bool is_fullscreen;
 	int target_fps;
 
+	//vector<unique_ptr<ShapeObject>> objects; 
 	vector<unique_ptr<ShapeObject>> objects; 
 
 public:

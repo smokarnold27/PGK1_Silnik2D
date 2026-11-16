@@ -151,6 +151,7 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
@@ -167,6 +168,7 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PrimitiveRenderer.h" />

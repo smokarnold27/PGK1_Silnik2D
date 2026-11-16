@@ -7,6 +7,7 @@
 #include "CircleObject.h"
 #include "EllipseObject.h"
 #include "PolygonObject.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -22,6 +23,8 @@ Engine& Engine::GetInstance()
 	static Engine instance;
 	return instance;
 }
+
+Player player_object(Point2D(0, 0), 50);
 
 bool Engine::Init(int width, int height, bool fullscreen, int fps)
 {
@@ -107,13 +110,20 @@ void Engine::Run()
 {
 	PrimitiveRenderer renderer;
 	renderer.ClearBuffer(WHITE);
-	// 2. Polimorficzne rysowanie wszystkich obiektów z listy do bufora
-	for (const auto& obj : objects) {
-		obj->Draw(renderer);
-	}
+	
+
+	
 
 	while (is_running && !WindowShouldClose())
 	{
+		//RENDEROWANIE PRZENIESIONE DO GLOWNEJ PETLI ABY PRZEMIESZCZONE OBIEKTY NIE WYSWIETLALY SIE W SWOJEJ STAREJ LOKACJI
+		renderer.ClearBuffer(WHITE);
+		// 2. Polimorficzne rysowanie wszystkich obiektów z listy do bufora
+		for (const auto& obj : objects) {
+			obj->Draw(renderer);
+		}
+
+		player_object.Draw(renderer);
 		/*if (IsWindowResized()) {
             screen_width = GetScreenWidth();
             screen_height = GetScreenHeight();
@@ -122,6 +132,24 @@ void Engine::Run()
 		float delta_time = GetFrameTime();
 		if (IsKeyPressed(KEY_ESCAPE)) {
 			is_running = false;
+		}
+
+		//STEROWANIE GRACZEM
+		if (IsKeyDown(KEY_RIGHT))
+		{
+			player_object.Translate(1, 0);
+		}
+		if (IsKeyDown(KEY_LEFT))
+		{
+			player_object.Translate(-1, 0);
+		}
+		if (IsKeyDown(KEY_UP))
+		{
+			player_object.Translate(0, -1);
+		}
+		if (IsKeyDown(KEY_DOWN))
+		{
+			player_object.Translate(0, 1);
 		}
 
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
