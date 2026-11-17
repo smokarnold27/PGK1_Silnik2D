@@ -8,6 +8,7 @@
 #include "EllipseObject.h"
 #include "PolygonObject.h"
 #include "Player.h"
+#include "BitmapObject.h"
 
 using namespace std;
 
@@ -111,7 +112,9 @@ void Engine::Run()
 	PrimitiveRenderer renderer;
 	renderer.ClearBuffer(WHITE);
 	
+	BitmapObject bitmap_test;
 
+	bitmap_test.AddBitmap("../BITMAPA.png", Point2D(200, 75));
 	
 
 	while (is_running && !WindowShouldClose())
@@ -122,6 +125,8 @@ void Engine::Run()
 		for (const auto& obj : objects) {
 			obj->Draw(renderer);
 		}
+
+		bitmap_test.Draw(renderer);
 
 		player_object.Draw(renderer);
 		/*if (IsWindowResized()) {

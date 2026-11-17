@@ -144,6 +144,8 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BitmapHandler.cpp" />
+    <ClCompile Include="BitmapObject.cpp" />
     <ClCompile Include="CircleObject.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="EllipseObject.cpp" />
@@ -157,11 +159,15 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="PrimitiveRenderer.cpp" />
     <ClCompile Include="RectangleObject.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
     <ClCompile Include="TriangleObject.cpp" />
     <ClCompile Include="UpdatableObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedObject.h" />
+    <ClInclude Include="BitmapHandler.h" />
+    <ClInclude Include="BitmapObject.h" />
     <ClInclude Include="CircleObject.h" />
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="EllipseObject.h" />
@@ -174,6 +180,7 @@ $(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="PrimitiveRenderer.h" />
     <ClInclude Include="RectangleObject.h" />
     <ClInclude Include="ShapeObject.h" />
+    <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="TriangleObject.h" />
     <ClInclude Include="UpdatableObject.h" />

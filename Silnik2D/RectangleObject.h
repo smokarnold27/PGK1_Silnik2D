@@ -21,6 +21,9 @@ public:
 	Color GetColor() const { return color; }
 	RectangleObject& SetColor(Color color) { this->color = color; return *this; }
 
+	float GetWidth() const { return width; }
+	float GetHeight() const { return height; }
+
 	void Draw(class PrimitiveRenderer& renderer) const override;
 	void Translate(float tx, float ty) override;
 	void Rotate(float angle) override;

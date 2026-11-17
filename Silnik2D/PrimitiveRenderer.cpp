@@ -1,4 +1,6 @@
 #include "PrimitiveRenderer.h"
+#include "BitmapHandler.h"
+#include "RectangleObject.h"
 #include <cmath>
 #include <algorithm>
 #include <stack>
@@ -591,5 +593,96 @@ void PrimitiveRenderer::BorderFill(int x, int y, Color fillColor, Color borderCo
 		points.push(Point2D(px, py + 1)); // S
 		points.push(Point2D(px - 1, py)); // W
 		points.push(Point2D(px + 1, py)); // E
+	}
+
+
+}
+
+void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source, const Point2D& topLeft, const Point2D& topRight, const Point2D& bottomLeft) const
+{
+	if (!bitmap.isValid())
+		return;
+
+	int width = static_cast<int>(source.GetWidth());
+	int height = static_cast<int>(source.GetHeight());
+
+	if (width <= 0 || height <= 0)
+		return;
+
+	Point2D sourcePosition = source.GetTopLeft();
+
+	int sourceX = sourcePosition.GetX();
+	int sourceY = sourcePosition.GetY();
+
+	// Wektory wyznaczajace krawedzie bitmapy
+	float ax = topRight.GetExactX() - topLeft.GetExactX();
+	float ay = topRight.GetExactY() - topLeft.GetExactY();
+
+	float bx = bottomLeft.GetExactX() - topLeft.GetExactX();
+	float by = bottomLeft.GetExactY() - topLeft.GetExactY();
+
+	// Wyznacznik macierzy transformacji
+	float det = ax * by - ay * bx;
+
+	if (std::abs(det) < 0.000001f)
+		return;
+
+	float x0 = topLeft.GetExactX();
+	float y0 = topLeft.GetExactY();
+
+	// Prostokat ograniczajacy przeksztalcona bitmape
+	int minX = std::max(0, static_cast<int>(std::floor(std::min({x0, x0 + ax, x0 + bx, x0 + ax + bx}))));
+
+	int maxX = std::min(bufferWidth, static_cast<int>(std::ceil(std::max({x0, x0 + ax, x0 + bx, x0 + ax + bx}))));
+
+	int minY = std::max(0, static_cast<int>(std::floor(std::min({y0, y0 + ay, y0 + by, y0 + ay + by}))));
+
+	int maxY = std::min(bufferHeight, static_cast<int>(std::ceil(std::max({y0, y0 + ay, y0 + by, y0 + ay + by}))));
+
+	// Przejscie po pikselach obszaru docelowego
+	for (int y = minY; y < maxY; ++y)
+	{
+		for (int x = minX; x < maxX; ++x)
+		{
+			float dx = x + 0.5f - x0;
+			float dy = y + 0.5f - y0;
+
+			// Transformacja odwrotna
+			float u = (dx * by - dy * bx) / det;
+			float v = (ax * dy - ay * dx) / det;
+
+			if (u < 0.0f || u >= 1.0f ||
+				v < 0.0f || v >= 1.0f)
+				continue;
+
+			int sx = sourceX + std::min(
+				width - 1, static_cast<int>(u * width));
+
+			int sy = sourceY + std::min(
+				height - 1, static_cast<int>(v * height));
+
+			Color color = bitmap.getPixel(sx, sy);
+
+			// Pomijanie przezroczystych pikseli
+			if (color.a == 0)
+				continue;
+
+			// Obsluga czesciowej przezroczystosci
+			if (color.a < 255)
+			{
+				Color background = GetPixelColor(x, y);
+				float alpha = color.a / 255.0f;
+
+				color.r = static_cast<unsigned char>(color.r * alpha + background.r * (1.0f - alpha));
+
+				color.g = static_cast<unsigned char>(color.g * alpha + background.g * (1.0f - alpha));
+
+				color.b = static_cast<unsigned char>(color.b * alpha + background.b * (1.0f - alpha));
+
+				color.a = 255;
+			}
+
+			PutPixel(x, y, color);
+		}
 	}
 }
