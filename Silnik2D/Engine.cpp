@@ -9,8 +9,11 @@
 #include "PolygonObject.h"
 #include "Player.h"
 #include "BitmapObject.h"
+#include <vector>
 
 using namespace std;
+
+static Player* player_ptr = nullptr; // Wskaźnik na obiekt gracza
 
 Engine::Engine() : is_running(false), screen_width(800), screen_height(600), is_fullscreen(false), target_fps(60) {}
 
@@ -24,8 +27,6 @@ Engine& Engine::GetInstance()
 	static Engine instance;
 	return instance;
 }
-
-Player player_object(Point2D(0, 0), 50);
 
 bool Engine::Init(int width, int height, bool fullscreen, int fps)
 {
@@ -49,7 +50,8 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	SetTargetFPS(target_fps);
 	is_running = true;
 
-	objects.clear(); // Czyszczenie listy obiektów przy inicjalizacji silnika
+	objects.clear();
+	player_ptr = nullptr;
 
 	// Punkt
 	objects.push_back(std::make_unique<Point2D>(400.0f, 300.0f, PURPLE));
@@ -104,84 +106,85 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	};
 	objects.push_back(std::make_unique<PolygonObject>(filledPolyPoints, LIME, true, true));
 
+	// Dodanie obiektu gracza (fioletowy kwadrat) na początkowej pozycji (380, 280) z rozmiarem 40 i prędkością 4
+	auto player = std::make_unique<Player>(Point2D(380, 280), 40, PURPLE, 4);
+	player_ptr = player.get();
+	objects.push_back(std::move(player));
+
 	return true;
 }
 
-void Engine::Run() 
+void Engine::Run()
 {
 	PrimitiveRenderer renderer;
-	renderer.ClearBuffer(WHITE);
-	
 	BitmapObject bitmap_test;
-
 	bitmap_test.AddBitmap("../BITMAPA.png", Point2D(200, 75));
-	
+
+	// Inicjalizacja bufora i jednorazowe narysowanie wszystkich figur statycznych na starcie
+	renderer.ClearBuffer(WHITE);
+	for (const auto& obj : objects) {
+		if (!dynamic_cast<Player*>(obj.get())) {
+			obj->Draw(renderer);
+		}
+	}
+
+	// Rysowanie bitmapy testowej do bufora tła (jednorazowo)
+	bitmap_test.Draw(renderer);
+
+	// Bufor pomocniczy przechowujący wycinek tła pod graczem
+	const int player_size = 40;
+	std::vector<Color> underPlayerBuffer(player_size * player_size, WHITE);
 
 	while (is_running && !WindowShouldClose())
 	{
-		//RENDEROWANIE PRZENIESIONE DO GLOWNEJ PETLI ABY PRZEMIESZCZONE OBIEKTY NIE WYSWIETLALY SIE W SWOJEJ STAREJ LOKACJI
-		renderer.ClearBuffer(WHITE);
-		// 2. Polimorficzne rysowanie wszystkich obiektów z listy do bufora
-		for (const auto& obj : objects) {
-			obj->Draw(renderer);
-		}
-
-		bitmap_test.Draw(renderer);
-
-		player_object.Draw(renderer);
-		/*if (IsWindowResized()) {
-            screen_width = GetScreenWidth();
-            screen_height = GetScreenHeight();
-            cout << "Zmieniono rozdzielczość okna na: " << screen_width << "x" << screen_height << endl;
-        }*/
 		float delta_time = GetFrameTime();
 		if (IsKeyPressed(KEY_ESCAPE)) {
 			is_running = false;
 		}
 
-		//STEROWANIE GRACZEM
-		if (IsKeyDown(KEY_RIGHT))
-		{
-			player_object.Translate(1, 0);
+		// Obsługa wypełnień (w tym momencie w buforze nie ma gracza, więc wypełniamy czyste tło/figury)
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+			Vector2 mouse = GetMousePosition();
+			renderer.FloodFill(static_cast<int>(mouse.x), static_cast<int>(mouse.y), YELLOW);
 		}
-		if (IsKeyDown(KEY_LEFT))
-		{
-			player_object.Translate(-1, 0);
-		}
-		if (IsKeyDown(KEY_UP))
-		{
-			player_object.Translate(0, -1);
-		}
-		if (IsKeyDown(KEY_DOWN))
-		{
-			player_object.Translate(0, 1);
+		if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
+			Vector2 mouse = GetMousePosition();
+			renderer.BorderFill(static_cast<int>(mouse.x), static_cast<int>(mouse.y), SKYBLUE, BLACK);
 		}
 
-		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-		{
-			Vector2 mouse = GetMousePosition();
-			renderer.FloodFill(
-				static_cast<int>(mouse.x),
-				static_cast<int>(mouse.y),
-				YELLOW
-			);
-		}
-		if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
-		{
-			Vector2 mouse = GetMousePosition();
-			renderer.BorderFill(
-				static_cast<int>(mouse.x),
-				static_cast<int>(mouse.y),
-				SKYBLUE, // kolor wypełnienia
-				BLACK    // kolor konturu (granicy)
-			);
+		// Aktualizacja pozycji gracza
+		int px = 0, py = 0;
+		if (player_ptr) {
+			player_ptr->Update(delta_time);
+			Point2D pos = player_ptr->GetPosition();
+			px = pos.GetX();
+			py = pos.GetY();
+
+			// Zapisanie fragmentu tła, na którym zaraz narysujemy gracza
+			for (int dy = 0; dy < player_size; ++dy) {
+				for (int dx = 0; dx < player_size; ++dx) {
+					underPlayerBuffer[dy * player_size + dx] = renderer.GetPixelColor(px + dx, py + dy);
+				}
+			}
+
+			// Narysowanie gracza do bufora pikseli PRZED wywołaniem RenderBuffer()
+			player_ptr->Draw(renderer);
 		}
 
+		// Wyświetlenie bufora (tło + gracz) na ekranie
 		BeginDrawing();
-		ClearBackground(WHITE); //do zmiany na własne wypełnienie tła
-		//rysowanie
+		ClearBackground(WHITE);
 		renderer.RenderBuffer();
 		EndDrawing();
+
+		// Przywrócenie oryginalnego tła pod graczem (usuwa ślad gracza przed kolejną klatką)
+		if (player_ptr) {
+			for (int dy = 0; dy < player_size; ++dy) {
+				for (int dx = 0; dx < player_size; ++dx) {
+					renderer.PutPixel(px + dx, py + dy, underPlayerBuffer[dy * player_size + dx]);
+				}
+			}
+		}
 	}
 }
 

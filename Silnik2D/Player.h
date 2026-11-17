@@ -1,28 +1,31 @@
 #pragma once
-#include "DrawableObject.h"
-#include "TransformableObject.h"
+#include "ShapeObject.h"
 #include "UpdatableObject.h"
-#include "RectangleObject.h"
 #include "Point2D.h"
+#include "raylib.h"
 
-
-
-class Player : public virtual GameObject
+class Player : public ShapeObject, public UpdatableObject
 {
-	public:
-		Point2D pos; //POZYCJA GRACZA
+private:
+	Point2D pos; //POZYCJA GRACZA
+	int speed; //PREDKOSC/O ILE PIKSELI GRACZ PRZESUWA SIE PRZY POJEDYNCZYM RUCHU
+	int size; //ROZMIAR GRACZA
+	Color color; //KOLOR GRACZA
 
-		int speed = 2; //PREDKOSC/O ILE PIKSELI GRACZ PRZESUWA SIE PRZY POJEDYNCZYM RUCHU
-		int size; //ROZMIAR GRACZA
+public:
 
-		Player(Point2D pos, int size);
+	Player(const Point2D& pos, int size, Color color = BLACK, int speed = 2);
 
-		void Draw(PrimitiveRenderer& renderer) const;
-		void Translate(float tx, float ty);
-		void Rotate(float angle);
-		void Rotate(float angle, const Point2D& origin);
-		void Scale(float kx, float ky);
-		void Scale(float kx, float ky, const Point2D& origin);
+	Point2D GetPosition() const { return pos; }
+	void SetPosition(const Point2D& pos) { this->pos = pos; }
 
+	void Draw(class PrimitiveRenderer& renderer) const override;
 
+	void Update(float deltaTime) override;
+
+	void Translate(float tx, float ty) override;
+	void Rotate(float angle) override;
+	void Rotate(float angle, const Point2D& origin) override;
+	void Scale(float kx, float ky) override;
+	void Scale(float kx, float ky, const Point2D& origin) override;
 };
