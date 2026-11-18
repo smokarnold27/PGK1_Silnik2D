@@ -18,7 +18,12 @@ public:
 	Player(const Point2D& pos, int size, Color color = BLACK, int speed = 2);
 
 	Point2D GetPosition() const { return pos; }
-	void SetPosition(const Point2D& pos) { this->pos = pos; }
+	void SetPosition(const Point2D& newPos) {
+		float dx = newPos.GetExactX() - pos.GetExactX();
+		float dy = newPos.GetExactY() - pos.GetExactY();
+		pos = newPos;
+		BitmapObject::Translate(dx, dy);
+	}
 
 	void Draw(class PrimitiveRenderer& renderer) const override;
 

@@ -15,6 +15,10 @@ using namespace std;
 
 static Player* player_ptr = nullptr; // Wskaźnik na obiekt gracza
 
+// Siatka rzeki: 10 kolumn (X: 80..720), 9 wierszy (Y: 12..588)
+static bool lily_grid[10][9] = { false };
+static const Point2D START_POS(8, 268); // Pozycja startowa na lewym trawniku
+
 Engine::Engine() : is_running(false), screen_width(800), screen_height(600), is_fullscreen(false), target_fps(60) {}
 
 Engine::~Engine()
@@ -39,7 +43,7 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 		SetConfigFlags(FLAG_FULLSCREEN_MODE);
 	}
 	else {
-		SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+		//SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	}
 
 	InitWindow(screen_width, screen_height, "Silnik 2D");
@@ -52,6 +56,8 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 
 	objects.clear();
 	player_ptr = nullptr;
+
+	/*
 
 	// Punkt
 	objects.push_back(std::make_unique<Point2D>(400.0f, 300.0f, PURPLE));
@@ -106,13 +112,74 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	};
 	objects.push_back(std::make_unique<PolygonObject>(filledPolyPoints, LIME, true, true));
 
-	// Dodanie obiektu gracza (fioletowy kwadrat) na początkowej pozycji (380, 280) z rozmiarem 40 i prędkością 4
-	auto player = std::make_unique<Player>(Point2D(380, 280), 64, PURPLE, 4);
+	*/
+
+
+	//czyszczenie siatki lilii
+	for (int c = 0; c < 10; ++c)
+		for (int r = 0; r < 9; ++r)
+			lily_grid[c][r] = false;
+
+	//proceduralne generowanie lilii
+	srand(static_cast<unsigned int>(time(nullptr)));
+	int current_col = 0;
+	int current_row = 4; //start na srodku
+	lily_grid[current_col][current_row] = true;
+
+	int last_dir = -1;
+
+	while (current_col < 9) {
+		int dir = rand() % 3; // 0 = góra, 1 = dół, 2 = prawo
+
+		if (dir == 0) {
+			if (current_row > 0 && last_dir != 1) {
+				current_row--;
+				last_dir = 0;
+			}
+			else {
+				current_col++;
+				last_dir = 2;
+			}
+		}
+		else if (dir == 1) {
+			if (current_row < 8 && last_dir != 0) {
+				current_row++;
+				last_dir = 1;
+			}
+			else {
+				current_col++;
+				last_dir = 2;
+			}
+		}
+		else {
+			current_col++;
+			last_dir = 2;
+		}
+
+		lily_grid[current_col][current_row] = true;
+	}
+
+	//tworzenie obiektow graficznych lilii na podstawie wylosowanej siatki
+	for (int c = 0; c < 10; ++c) {
+		for (int r = 0; r < 9; ++r) {
+			if (lily_grid[c][r]) {
+				float cx = 80.0f + c * 64.0f + 32.0f;
+				float cy = 12.0f + r * 64.0f + 32.0f;
+
+				//lilia jako zielone kolo (prymityw)
+				objects.push_back(std::make_unique<CircleObject>(Point2D(cx, cy), 28, DARKGREEN, true));
+				objects.push_back(std::make_unique<CircleObject>(Point2D(cx, cy), 24, LIME, true));
+			}
+		}
+	}
+
+	// Dodanie obiektu gracza (sprite) na początkowej pozycji (380, 280) z rozmiarem 64 i prędkością 4
+	auto player = std::make_unique<Player>(START_POS, 64, PURPLE, 4);
 	player_ptr = player.get();
 	bitmap_objects.push_back(std::move(player));
 
 	auto bitmapObj = std::make_unique<BitmapObject>();
-	bitmapObj->AddBitmap("../BITMAPA.png", Point2D(200, 75));
+	bitmapObj->AddBitmap("../BITMAPA.png", Point2D(0, 0));
 	bitmap_objects.push_back(std::move(bitmapObj));
 
 	return true;
@@ -122,17 +189,20 @@ void Engine::Run()
 {
 	PrimitiveRenderer renderer;
 
-	// Inicjalizacja bufora i jednorazowe narysowanie wszystkich figur statycznych na starcie
 	renderer.ClearBuffer(WHITE);
-	for (const auto& obj : objects) {
-		if (!dynamic_cast<Player*>(obj.get())) {
-			obj->Draw(renderer);
-		}
-	}
+
 	// Rysowanie wszystkich bitmap w buforze
 	for (const auto& bmp : bitmap_objects) {
 		if (!dynamic_cast<Player*>(bmp.get())) {
 			bmp->Draw(renderer);
+		}
+	}
+
+	// Inicjalizacja bufora i jednorazowe narysowanie wszystkich figur statycznych na starcie
+
+	for (const auto& obj : objects) {
+		if (!dynamic_cast<Player*>(obj.get())) {
+			obj->Draw(renderer);
 		}
 	}
 
@@ -162,6 +232,117 @@ void Engine::Run()
 		if (player_ptr) {
 			player_ptr->Update(delta_time);
 			Point2D pos = player_ptr->GetPosition();
+
+			//zabezpieczenie przed wyjściem poza okno
+			float px_f = pos.GetExactX();
+			float py_f = pos.GetExactY();
+			if (px_f < 0) px_f = 0;
+			if (px_f > 800 - 64) px_f = 800 - 64;
+			if (py_f < 0) py_f = 0;
+			if (py_f > 600 - 64) py_f = 600 - 64;
+
+			//jesli wyjdzie poza okno
+			if (px_f != pos.GetExactX() || py_f != pos.GetExactY()) {
+				player_ptr->SetPosition(Point2D(px_f, py_f));
+				pos = player_ptr->GetPosition();
+			}
+
+			//srodek zaby
+			int cx = pos.GetX() + 32;
+			int cy = pos.GetY() + 32;
+
+			//meta i tp na start + nowy uklad lilii
+			if (cx >= 720) {
+				cout << "Wygrana" << endl;
+
+				//usuniecie starych lilii z wektora obiektow
+				objects.clear();
+
+				//czyszczenie siatki lilii
+				for (int c = 0; c < 10; ++c)
+					for (int r = 0; r < 9; ++r)
+						lily_grid[c][r] = false;
+
+				//losowanie nowej sciezki
+				int current_col = 0;
+				int current_row = 4;
+				lily_grid[current_col][current_row] = true;
+
+				int last_dir = -1;
+
+				while (current_col < 9) {
+					int dir = rand() % 3; // 0 = góra, 1 = dół, 2 = prawo
+
+					if (dir == 0) {
+						if (current_row > 0 && last_dir != 1) {
+							current_row--;
+							last_dir = 0;
+						}
+						else {
+							current_col++;
+							last_dir = 2;
+						}
+					}
+					else if (dir == 1) {
+						if (current_row < 8 && last_dir != 0) {
+							current_row++;
+							last_dir = 1;
+						}
+						else {
+							current_col++;
+							last_dir = 2;
+						}
+					}
+					else {
+						current_col++;
+						last_dir = 2;
+					}
+
+					lily_grid[current_col][current_row] = true;
+				}
+
+				//tworzenie nowych obiektow graficznych lilii
+				for (int c = 0; c < 10; ++c) {
+					for (int r = 0; r < 9; ++r) {
+						if (lily_grid[c][r]) {
+							float cx_lily = 80.0f + c * 64.0f + 32.0f;
+							float cy_lily = 12.0f + r * 64.0f + 32.0f;
+
+							objects.push_back(std::make_unique<CircleObject>(Point2D(cx_lily, cy_lily), 28, DARKGREEN, true));
+							objects.push_back(std::make_unique<CircleObject>(Point2D(cx_lily, cy_lily), 24, LIME, true));
+						}
+					}
+				}
+
+				//tp gracza na start
+				player_ptr->SetPosition(START_POS);
+				pos = player_ptr->GetPosition();
+
+				//odswiezenie bufora renderera
+				renderer.ClearBuffer(WHITE);
+				for (const auto& bmp : bitmap_objects) {
+					if (!dynamic_cast<Player*>(bmp.get())) {
+						bmp->Draw(renderer);
+					}
+				}
+				for (const auto& obj : objects) {
+					if (!dynamic_cast<Player*>(obj.get())) {
+						obj->Draw(renderer);
+					}
+				}
+			}
+			//czy stoi na lilii
+			else if (cx >= 80 && cx < 720) {
+				int col = (cx - 80) / 64;
+				int row = (cy - 12) / 64;
+
+				//jesli trafi w wode lub wyjdzie poza siatke linii
+				if (cy < 12 || cy >= 588 || row < 0 || row >= 9 || !lily_grid[col][row]) {
+					player_ptr->SetPosition(START_POS);
+					pos = player_ptr->GetPosition();
+				}
+			}
+
 			px = pos.GetX();
 			py = pos.GetY();
 
