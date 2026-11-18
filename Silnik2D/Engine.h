@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "ShapeObject.h"
+#include "BitmapObject.h"
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -20,8 +21,8 @@ private:
 	bool is_fullscreen;
 	int target_fps;
 
-	//vector<unique_ptr<ShapeObject>> objects; 
 	vector<unique_ptr<ShapeObject>> objects; 
+	vector<unique_ptr<BitmapObject>> bitmap_objects;
 
 public:
 	// Usunięcie konstruktora kopiującego i operatora przypisania, aby uniemożliwić tworzenie kopii obiektu Engine (wzorzec singleton)

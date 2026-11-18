@@ -111,14 +111,16 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	player_ptr = player.get();
 	objects.push_back(std::move(player));
 
+	auto bitmapObj = std::make_unique<BitmapObject>();
+	bitmapObj->AddBitmap("../BITMAPA.png", Point2D(200, 75));
+	bitmap_objects.push_back(std::move(bitmapObj));
+
 	return true;
 }
 
 void Engine::Run()
 {
 	PrimitiveRenderer renderer;
-	BitmapObject bitmap_test;
-	bitmap_test.AddBitmap("../BITMAPA.png", Point2D(200, 75));
 
 	// Inicjalizacja bufora i jednorazowe narysowanie wszystkich figur statycznych na starcie
 	renderer.ClearBuffer(WHITE);
@@ -127,9 +129,10 @@ void Engine::Run()
 			obj->Draw(renderer);
 		}
 	}
-
-	// Rysowanie bitmapy testowej do bufora tła (jednorazowo)
-	bitmap_test.Draw(renderer);
+	// Rysowanie wszystkich bitmap w buforze
+	for (const auto& bmp : bitmap_objects) {
+		bmp->Draw(renderer);
+	}
 
 	// Bufor pomocniczy przechowujący wycinek tła pod graczem
 	const int player_size = 40;
