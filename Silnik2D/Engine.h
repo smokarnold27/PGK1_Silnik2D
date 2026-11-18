@@ -21,14 +21,14 @@ private:
 	bool is_fullscreen;
 	int target_fps;
 
-	vector<unique_ptr<ShapeObject>> objects; 
+	vector<unique_ptr<ShapeObject>> objects;
 	vector<unique_ptr<BitmapObject>> bitmap_objects;
 
 public:
 	// Usunięcie konstruktora kopiującego i operatora przypisania, aby uniemożliwić tworzenie kopii obiektu Engine (wzorzec singleton)
 	Engine(const Engine&) = delete; // usunięcie konstruktora kopiującego
 	Engine& operator=(const Engine&) = delete; // usunięcie operatora przypisania
-	
+
 	static Engine& GetInstance(); // metoda statyczna zwracająca referencję do jedynego obiektu klasy Engine
 
 	bool Init(int width, int height, bool fullscreen, int fps);

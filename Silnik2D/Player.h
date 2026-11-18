@@ -1,16 +1,17 @@
 #pragma once
-#include "ShapeObject.h"
+#include "SpriteObject.h"
 #include "UpdatableObject.h"
 #include "Point2D.h"
 #include "raylib.h"
 
-class Player : public ShapeObject, public UpdatableObject
+class Player : public SpriteObject, public UpdatableObject
 {
 private:
 	Point2D pos; //POZYCJA GRACZA
 	int speed; //PREDKOSC/O ILE PIKSELI GRACZ PRZESUWA SIE PRZY POJEDYNCZYM RUCHU
 	int size; //ROZMIAR GRACZA
 	Color color; //KOLOR GRACZA
+	int kierunek = 0; // 0-przod, 1-tyl, 2-prawo, 3-lewo
 
 public:
 
