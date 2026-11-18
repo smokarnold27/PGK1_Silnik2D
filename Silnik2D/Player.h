@@ -13,6 +13,10 @@ private:
 	Color color; //KOLOR GRACZA
 	int kierunek = 0; // 0-przod, 1-tyl, 2-prawo, 3-lewo
 
+	// Nowe pola do obsługi animacji śmierci
+	bool is_dying = false;
+	float death_vy = 0.0f;
+
 public:
 
 	Player(const Point2D& pos, int size, Color color = BLACK, int speed = 2);
@@ -24,6 +28,11 @@ public:
 		pos = newPos;
 		BitmapObject::Translate(dx, dy);
 	}
+
+	// Metody zarządzające śmiercią
+	void StartDeath();
+	bool IsDying() const { return is_dying; }
+	void ResetDeath() { is_dying = false; death_vy = 0.0f; }
 
 	void Draw(class PrimitiveRenderer& renderer) const override;
 

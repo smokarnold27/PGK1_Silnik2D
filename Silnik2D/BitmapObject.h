@@ -29,7 +29,8 @@ protected:
     void DrawPart(
         PrimitiveRenderer& renderer,
         const BitmapPart& part,
-        const RectangleObject& source) const;
+        const RectangleObject& source,
+        Color tint = WHITE) const;
 
 public:
     BitmapObject() = default;

@@ -598,7 +598,7 @@ void PrimitiveRenderer::BorderFill(int x, int y, Color fillColor, Color borderCo
 
 }
 
-void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source, const Point2D& topLeft, const Point2D& topRight, const Point2D& bottomLeft) const
+void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source, const Point2D& topLeft, const Point2D& topRight, const Point2D& bottomLeft, Color tint) const
 {
 	if (!bitmap.isValid())
 		return;
@@ -631,13 +631,13 @@ void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleO
 	float y0 = topLeft.GetExactY();
 
 	// Prostokat ograniczajacy przeksztalcona bitmape
-	int minX = std::max(0, static_cast<int>(std::floor(std::min({x0, x0 + ax, x0 + bx, x0 + ax + bx}))));
+	int minX = std::max(0, static_cast<int>(std::floor(std::min({ x0, x0 + ax, x0 + bx, x0 + ax + bx }))));
 
-	int maxX = std::min(bufferWidth, static_cast<int>(std::ceil(std::max({x0, x0 + ax, x0 + bx, x0 + ax + bx}))));
+	int maxX = std::min(bufferWidth, static_cast<int>(std::ceil(std::max({ x0, x0 + ax, x0 + bx, x0 + ax + bx }))));
 
-	int minY = std::max(0, static_cast<int>(std::floor(std::min({y0, y0 + ay, y0 + by, y0 + ay + by}))));
+	int minY = std::max(0, static_cast<int>(std::floor(std::min({ y0, y0 + ay, y0 + by, y0 + ay + by }))));
 
-	int maxY = std::min(bufferHeight, static_cast<int>(std::ceil(std::max({y0, y0 + ay, y0 + by, y0 + ay + by}))));
+	int maxY = std::min(bufferHeight, static_cast<int>(std::ceil(std::max({ y0, y0 + ay, y0 + by, y0 + ay + by }))));
 
 	// Przejscie po pikselach obszaru docelowego
 	for (int y = minY; y < maxY; ++y)
@@ -666,6 +666,14 @@ void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleO
 			// Pomijanie przezroczystych pikseli
 			if (color.a == 0)
 				continue;
+
+			// Zastosowanie tinty (jeśli nie jest czystą bielą)
+			if (tint.r != 255 || tint.g != 255 || tint.b != 255)
+			{
+				color.r = static_cast<unsigned char>((color.r * tint.r) / 255);
+				color.g = static_cast<unsigned char>((color.g * tint.g) / 255);
+				color.b = static_cast<unsigned char>((color.b * tint.b) / 255);
+			}
 
 			// Obsluga czesciowej przezroczystosci
 			if (color.a < 255)

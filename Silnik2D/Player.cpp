@@ -23,7 +23,14 @@ void Player::Draw(PrimitiveRenderer& renderer) const
 		int frameWidth = part.bitmap.getWidth() / frameCount;
 		int frameHeight = part.bitmap.getHeight();
 		RectangleObject source(Point2D(currentFrame * frameWidth, 0), frameWidth, frameHeight);
-		DrawPart(renderer, part, source);
+
+		// Jeśli żaba umiera, nakładamy czerwoną/bordową tintę na jej sprite
+		Color tint = WHITE;
+		if (is_dying) {
+			tint = MAROON; // lub Color{200, 0, 0, 255}
+		}
+
+		DrawPart(renderer, part, source, tint);
 	}
 	else {
 		renderer.DrawFilledRectangle(pos, size, size, color);
@@ -32,6 +39,18 @@ void Player::Draw(PrimitiveRenderer& renderer) const
 
 void Player::Update(float deltaTime)
 {
+	// Jeśli żaba umiera, ignorujemy sterowanie i wykonujemy animację śmierci (podskok -> spadek w dół)
+	if (is_dying) {
+		float gravity = 1200.0f; // Sсила grawitacji ściągająca żabę w dół
+		death_vy += gravity * deltaTime;
+
+		// Ruch w pionie niezależnie od prędkości gracza
+		float dy = death_vy * deltaTime;
+		pos.Translate(0, dy);
+		BitmapObject::Translate(0, dy);
+		return;
+	}
+
 	bool ruch = false;
 	//STEROWANIE GRACZEM
 	if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
@@ -94,4 +113,12 @@ void Player::Scale(float kx, float ky, const Point2D& origin)
 	size = static_cast<int>(size * std::abs(kx));
 	pos.Scale(kx, ky, origin);
 	BitmapObject::Scale(kx, ky, origin);
+}
+
+void Player::StartDeath()
+{
+	if (is_dying) return;
+	is_dying = true;
+	kierunek = 0;      // Ustawienie na pozycję domyślną: przod
+	death_vy = -300.0f; // Impuls w górę (lekki podskok)
 }

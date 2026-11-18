@@ -51,6 +51,6 @@ public:
 	void DrawFilledEllipse(const Point2D& center, int radiusX, int radiusY, Color color) const;
 	void DrawFilledPolygon(const std::vector<Point2D>& points, Color color) const;
 
-	void DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source,	const Point2D& topLeft,	const Point2D& topRight, const Point2D& bottomLeft) const;
+	void DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source, const Point2D& topLeft, const Point2D& topRight, const Point2D& bottomLeft, Color tint = WHITE) const;
 
 };

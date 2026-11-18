@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "ShapeObject.h"
 #include "BitmapObject.h"
+#include "FlyObject.h"
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -23,6 +24,7 @@ private:
 
 	vector<unique_ptr<ShapeObject>> objects;
 	vector<unique_ptr<BitmapObject>> bitmap_objects;
+	vector<unique_ptr<FlyObject>> flies;
 
 public:
 	// Usunięcie konstruktora kopiującego i operatora przypisania, aby uniemożliwić tworzenie kopii obiektu Engine (wzorzec singleton)

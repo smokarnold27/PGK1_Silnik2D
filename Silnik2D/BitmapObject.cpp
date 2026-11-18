@@ -44,7 +44,7 @@ Point2D BitmapObject::TransformPoint(const Point2D& point) const
     return Point2D(px + x * (axisX.GetExactX() - px) + y * (axisY.GetExactX() - px), py + x * (axisX.GetExactY() - py) + y * (axisY.GetExactY() - py));
 }
 
-void BitmapObject::DrawPart(PrimitiveRenderer& renderer, const BitmapPart& part, const RectangleObject& source) const
+void BitmapObject::DrawPart(PrimitiveRenderer& renderer, const BitmapPart& part, const RectangleObject& source, Color tint) const
 {
     Point2D topLeft = part.offset;
     Point2D topRight = part.offset;
@@ -53,7 +53,7 @@ void BitmapObject::DrawPart(PrimitiveRenderer& renderer, const BitmapPart& part,
     topRight.Translate(source.GetWidth(), 0);
     bottomLeft.Translate(0, source.GetHeight());
 
-    renderer.DrawBitmap(part.bitmap, source, TransformPoint(topLeft), TransformPoint(topRight), TransformPoint(bottomLeft));
+    renderer.DrawBitmap(part.bitmap, source, TransformPoint(topLeft), TransformPoint(topRight), TransformPoint(bottomLeft), tint);
 }
 
 void BitmapObject::Draw(PrimitiveRenderer& renderer) const
