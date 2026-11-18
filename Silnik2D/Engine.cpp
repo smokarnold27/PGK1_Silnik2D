@@ -107,7 +107,7 @@ bool Engine::Init(int width, int height, bool fullscreen, int fps)
 	objects.push_back(std::make_unique<PolygonObject>(filledPolyPoints, LIME, true, true));
 
 	// Dodanie obiektu gracza (fioletowy kwadrat) na początkowej pozycji (380, 280) z rozmiarem 40 i prędkością 4
-	auto player = std::make_unique<Player>(Point2D(380, 280), 32, PURPLE, 4);
+	auto player = std::make_unique<Player>(Point2D(380, 280), 64, PURPLE, 4);
 	player_ptr = player.get();
 	bitmap_objects.push_back(std::move(player));
 
@@ -137,7 +137,7 @@ void Engine::Run()
 	}
 
 	// Bufor pomocniczy przechowujący wycinek tła pod graczem
-	const int player_size = 32;
+	const int player_size = 64;
 	std::vector<Color> underPlayerBuffer(player_size * player_size, WHITE);
 
 	while (is_running && !WindowShouldClose())

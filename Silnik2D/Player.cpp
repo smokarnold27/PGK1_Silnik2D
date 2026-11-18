@@ -13,6 +13,7 @@ Player::Player(const Point2D& pos, int size, Color color, int speed) : SpriteObj
 	AddBitmap("../ZabaTyl.png");
 	AddBitmap("../ZabaPrawo.png");
 	AddBitmap("../ZabaLewo.png");
+	BitmapObject::Scale(2.0f, 2.0f, pos);
 }
 
 void Player::Draw(PrimitiveRenderer& renderer) const
