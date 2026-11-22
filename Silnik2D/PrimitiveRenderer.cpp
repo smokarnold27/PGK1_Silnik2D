@@ -439,7 +439,8 @@ void PrimitiveRenderer::DrawFilledPolygon(const std::vector<Point2D>& points, Co
 		if (pt.GetY() > maxY) maxY = pt.GetY();
 	}
 
-	// Algorytm scanline z regułą parzystości (wiersz po wierszu od góry do dołu)
+	// Algorytm 
+	// z regułą parzystości (wiersz po wierszu od góry do dołu)
 	for (int y = minY; y <= maxY; ++y) {
 		std::vector<int> nodeX;
 
