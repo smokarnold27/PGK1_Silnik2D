@@ -1,0 +1,348 @@
+\doxysection{Polygon\+Object Class Reference}
+\hypertarget{class_polygon_object}{}\label{class_polygon_object}\index{PolygonObject@{PolygonObject}}
+
+
+Klasa reprezentujaca wielokat w przestrzeni dwuwymiarowej.  
+
+
+
+
+{\ttfamily \+\#include $<$Polygon\+Object.\+h$>$}
+
+Inheritance diagram for Polygon\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_polygon_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589}{Polygon\+Object}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&points, Color color=BLACK, bool filled=false, bool closed=true)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_polygon_object}{Polygon\+Object}. \end{DoxyCompactList}\item 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \& \doxymbox{\hyperlink{class_polygon_object_a67ee358c1a9107610422753ea71a3571}{Get\+Points}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca wierzcholki wielokata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a35fe37367e965f5b3d9ea2ef7a4d9696}{Set\+Points}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Ustawia wierzcholki wielokata. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_polygon_object_a34dd8cd3a2b95af822ce4b92b42ecea0}{Get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca kolor wielokata. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_polygon_object}{Polygon\+Object}} \& \doxymbox{\hyperlink{class_polygon_object_aff12d002a5721f06811803a2a3cee5c1}{Set\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Ustawia kolor wielokata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a0602ea58eb17afe61a9bc51cd6419e24}{Draw}} (class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje wielokat za pomoca renderera. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a792c9a0d47001b959276134ab8de4e69}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa wielokat o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca wielokat wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_ad6ba4949384d76369ec5594fab5c83aa}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca wielokat wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje wielokat wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_polygon_object_a47f9dd782ce29c350e2cd6e42b22e02a}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje wielokat wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_shape_object}{Shape\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}{\texorpdfstring{$\sim$}{\string~}\+Shape\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca wielokat w przestrzeni dwuwymiarowej. 
+
+Przechowuje zbior punktow okreslajacych wierzcholki wielokata oraz jego kolor, sposob wypelnienia i informacje o zamknieciu konturu.
+
+Umozliwia rysowanie wielokata wypelnionego lub jego obrysu, a takze wykonywanie transformacji geometrycznych na wszystkich jego wierzcholkach. 
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8h_source_l00024}{24}} of file \doxymbox{\hyperlink{_polygon_object_8h_source}{Polygon\+Object.\+h}}.
+
+
+
+\label{class_polygon_object_doc-constructors}
+\Hypertarget{class_polygon_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589}\index{PolygonObject@{PolygonObject}!PolygonObject@{PolygonObject}}
+\index{PolygonObject@{PolygonObject}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{PolygonObject()}{PolygonObject()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589} 
+Polygon\+Object::\+\+Polygon\+Object (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&}]{points}{, }\item[{Color}]{color}{ = {\ttfamily BLACK}, }\item[{bool}]{filled}{ = {\ttfamily false}, }\item[{bool}]{closed}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_polygon_object}{Polygon\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Wektor punktow okreslajacych wierzcholki wielokata. \\
+\hline
+{\em color} & Kolor wielokata. \\
+\hline
+{\em filled} & Okresla, czy wielokat ma zostac wypelniony. \\
+\hline
+{\em closed} & Okresla, czy kontur wielokata ma byc zamkniety.\\
+\hline
+\end{DoxyParams}
+Tworzy obiekt reprezentujacy wielokat na podstawie podanych wierzcholkow oraz ustawien rysowania. 
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00004}{4}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+
+
+\label{class_polygon_object_doc-func-members}
+\Hypertarget{class_polygon_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_polygon_object_a0602ea58eb17afe61a9bc51cd6419e24}\index{PolygonObject@{PolygonObject}!Draw@{Draw}}
+\index{Draw@{Draw}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a0602ea58eb17afe61a9bc51cd6419e24} 
+void Polygon\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje wielokat za pomoca renderera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje wielokat na podstawie jego wierzcholkow oraz przypisanego koloru.
+
+Jesli wielokat jest zamkniety i ma wlaczone wypelnienie, rysowany jest jako figura wypelniona.
+
+W pozostalych przypadkach rysowana jest lamana, ktorej kontur moze byc otwarty lub zamkniety.
+
+\begin{DoxyNote}{Note}
+Wypelnienie jest wykonywane tylko wtedy, gdy pola filled i closed maja wartosc true. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Drawable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00008}{8}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+\Hypertarget{class_polygon_object_a34dd8cd3a2b95af822ce4b92b42ecea0}\index{PolygonObject@{PolygonObject}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a34dd8cd3a2b95af822ce4b92b42ecea0} 
+Color Polygon\+Object::\+\+Get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca kolor wielokata. 
+
+\begin{DoxyReturn}{Returns}
+Aktualny kolor wielokata. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8h_source_l00071}{71}} of file \doxymbox{\hyperlink{_polygon_object_8h_source}{Polygon\+Object.\+h}}.
+
+\Hypertarget{class_polygon_object_a67ee358c1a9107610422753ea71a3571}\index{PolygonObject@{PolygonObject}!GetPoints@{GetPoints}}
+\index{GetPoints@{GetPoints}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{GetPoints()}{GetPoints()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a67ee358c1a9107610422753ea71a3571} 
+const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \& Polygon\+Object::\+\+Get\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca wierzcholki wielokata. 
+
+\begin{DoxyReturn}{Returns}
+Stala referencja do wektora punktow okreslajacych wierzcholki wielokata.
+\end{DoxyReturn}
+Zwracana referencja umozliwia odczyt punktow bez kopiowania calego wektora. 
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8h_source_l00055}{55}} of file \doxymbox{\hyperlink{_polygon_object_8h_source}{Polygon\+Object.\+h}}.
+
+\Hypertarget{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa}\index{PolygonObject@{PolygonObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa} 
+void Polygon\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca wielokat wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca wszystkie wierzcholki wielokata wzgledem punktu (0, 0). 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00025}{25}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+\Hypertarget{class_polygon_object_ad6ba4949384d76369ec5594fab5c83aa}\index{PolygonObject@{PolygonObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_polygon_object_ad6ba4949384d76369ec5594fab5c83aa} 
+void Polygon\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca wielokat wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca wszystkie wierzcholki wielokata wzgledem wskazanego punktu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00032}{32}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+\Hypertarget{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46}\index{PolygonObject@{PolygonObject}!Scale@{Scale}}
+\index{Scale@{Scale}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46} 
+void Polygon\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje wielokat wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wspolrzedne wszystkich wierzcholkow wielokata wzgledem punktu (0, 0). 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00039}{39}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+\Hypertarget{class_polygon_object_a47f9dd782ce29c350e2cd6e42b22e02a}\index{PolygonObject@{PolygonObject}!Scale@{Scale}}
+\index{Scale@{Scale}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_polygon_object_a47f9dd782ce29c350e2cd6e42b22e02a} 
+void Polygon\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje wielokat wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wspolrzedne wszystkich wierzcholkow wielokata wzgledem wskazanego punktu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00046}{46}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+\Hypertarget{class_polygon_object_aff12d002a5721f06811803a2a3cee5c1}\index{PolygonObject@{PolygonObject}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily \label{class_polygon_object_aff12d002a5721f06811803a2a3cee5c1} 
+\doxymbox{\hyperlink{class_polygon_object}{Polygon\+Object}} \& Polygon\+Object::\+\+Set\+Color (\begin{DoxyParamCaption}\item[{Color}]{color}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia kolor wielokata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Nowy kolor wielokata. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencja do biezacego obiektu \doxylink{class_polygon_object}{Polygon\+Object}. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8h_source_l00079}{79}} of file \doxymbox{\hyperlink{_polygon_object_8h_source}{Polygon\+Object.\+h}}.
+
+\Hypertarget{class_polygon_object_a35fe37367e965f5b3d9ea2ef7a4d9696}\index{PolygonObject@{PolygonObject}!SetPoints@{SetPoints}}
+\index{SetPoints@{SetPoints}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{SetPoints()}{SetPoints()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a35fe37367e965f5b3d9ea2ef7a4d9696} 
+void Polygon\+Object::\+\+Set\+Points (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&}]{points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia wierzcholki wielokata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Nowy wektor punktow okreslajacych wierzcholki wielokata.\\
+\hline
+\end{DoxyParams}
+Metoda zastepuje dotychczasowe wierzcholki wielokata nowym zestawem punktow. 
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8h_source_l00064}{64}} of file \doxymbox{\hyperlink{_polygon_object_8h_source}{Polygon\+Object.\+h}}.
+
+\Hypertarget{class_polygon_object_a792c9a0d47001b959276134ab8de4e69}\index{PolygonObject@{PolygonObject}!Translate@{Translate}}
+\index{Translate@{Translate}!PolygonObject@{PolygonObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_polygon_object_a792c9a0d47001b959276134ab8de4e69} 
+void Polygon\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa wielokat o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda przesuwa wszystkie wierzcholki wielokata o podane wartosci. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_polygon_object_8cpp_source_l00018}{18}} of file \doxymbox{\hyperlink{_polygon_object_8cpp_source}{Polygon\+Object.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_polygon_object_8h}{Polygon\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_polygon_object_8cpp}{Polygon\+Object.\+cpp}}\end{DoxyCompactItemize}

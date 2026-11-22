@@ -1,0 +1,384 @@
+\doxysection{Circle\+Object Class Reference}
+\hypertarget{class_circle_object}{}\label{class_circle_object}\index{CircleObject@{CircleObject}}
+
+
+Klasa reprezentujaca okrag w przestrzeni dwuwymiarowej.  
+
+
+
+
+{\ttfamily \+\#include $<$Circle\+Object.\+h$>$}
+
+Inheritance diagram for Circle\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_circle_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_circle_object_aff75fd02aac82df78ae0fc9da757af48}{Circle\+Object}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center, int radius, Color color=BLACK, bool filled=false)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_circle_object}{Circle\+Object}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_circle_object_ad98f311c228923fc2a2af150a16f2ed5}{Get\+Center}} () const
+\begin{DoxyCompactList}\small\item\em Zwrot wspolrzednych srodka okregu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a65672cf9b5700878733e1c90d37c1e8f}{Set\+Center}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center)
+\begin{DoxyCompactList}\small\item\em Ustawienie wspolrzednych srodka okregu. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_circle_object_a211280b55833ce0a4fda714d156775c7}{Get\+Radius}} () const
+\begin{DoxyCompactList}\small\item\em Metoda zwracajaca promien okregu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a0a8c6cb068f2908e024a5dc3bbc196a2}{Set\+Radius}} (int radius)
+\begin{DoxyCompactList}\small\item\em Ustawienie promienia okregu. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_circle_object_ab34da6f9295e74e6cdc8498a52c5924d}{Get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Metoda zwracajaca kolor okregu. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_circle_object}{Circle\+Object}} \& \doxymbox{\hyperlink{class_circle_object_ab9e6472ded2d2920d47e97119bdb7856}{Set\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Ustawienie koloru okregu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a556362c589207c3570987ddca2fae05a}{Draw}} (class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje okrag za pomoca renderera. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a16cf2e538a71cc31b441629049e4be75}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa okrag o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a5e8573440de86626940c67b9d61139cc}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca okrag wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a26f4d4e7b9045489ed16ea624e2fd640}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca okrag wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_ad017d357b0634d0b57f79225e981f507}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje okrag wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_circle_object_a6e9857694b1a2121bea7dd9cb74e8b81}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje okrag wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_shape_object}{Shape\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}{\texorpdfstring{$\sim$}{\string~}\+Shape\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca okrag w przestrzeni dwuwymiarowej. 
+
+Umozliwia tworzenie i rysowanie okregow o okreslonym srodku, promieniu, kolorze oraz sposobie wypelnienia.
+
+Obiekt obsluguje transformacje geometryczne, takie jak przesuwanie, obracanie i skalowanie. 
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00021}{21}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+
+
+\label{class_circle_object_doc-constructors}
+\Hypertarget{class_circle_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_circle_object_aff75fd02aac82df78ae0fc9da757af48}\index{CircleObject@{CircleObject}!CircleObject@{CircleObject}}
+\index{CircleObject@{CircleObject}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{CircleObject()}{CircleObject()}}
+{\footnotesize\ttfamily \label{class_circle_object_aff75fd02aac82df78ae0fc9da757af48} 
+Circle\+Object::\+\+Circle\+Object (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{, }\item[{int}]{radius}{, }\item[{Color}]{color}{ = {\ttfamily BLACK}, }\item[{bool}]{filled}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_circle_object}{Circle\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Punkt okreslajacy srodek okregu. \\
+\hline
+{\em radius} & Promien okregu wyrazony w pikselach. \\
+\hline
+{\em color} & Kolor okregu. \\
+\hline
+{\em filled} & Okresla, czy okrag ma zostac wypelniony.\\
+\hline
+\end{DoxyParams}
+Konstruktor tworzy obiekt reprezentujacy okrag o podanym srodku, promieniu, kolorze i sposobie wypelnienia. 
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00005}{5}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+
+
+\label{class_circle_object_doc-func-members}
+\Hypertarget{class_circle_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_circle_object_a556362c589207c3570987ddca2fae05a}\index{CircleObject@{CircleObject}!Draw@{Draw}}
+\index{Draw@{Draw}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_circle_object_a556362c589207c3570987ddca2fae05a} 
+void Circle\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje okrag za pomoca renderera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje okrag na podstawie jego srodka, promienia i koloru. W zaleznosci od wartosci pola filled rysowany jest okrag wypelniony lub sam jego obrys. 
+
+Implements \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Drawable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00009}{9}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+\Hypertarget{class_circle_object_ad98f311c228923fc2a2af150a16f2ed5}\index{CircleObject@{CircleObject}!GetCenter@{GetCenter}}
+\index{GetCenter@{GetCenter}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{GetCenter()}{GetCenter()}}
+{\footnotesize\ttfamily \label{class_circle_object_ad98f311c228923fc2a2af150a16f2ed5} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Circle\+Object::\+\+Get\+Center (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwrot wspolrzednych srodka okregu. 
+
+\begin{DoxyReturn}{Returns}
+Punkt o wspolrzednych (xsrodka, ysrodka) 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00046}{46}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_ab34da6f9295e74e6cdc8498a52c5924d}\index{CircleObject@{CircleObject}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \label{class_circle_object_ab34da6f9295e74e6cdc8498a52c5924d} 
+Color Circle\+Object::\+\+Get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda zwracajaca kolor okregu. 
+
+\begin{DoxyReturn}{Returns}
+kolor okregu 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00070}{70}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_a211280b55833ce0a4fda714d156775c7}\index{CircleObject@{CircleObject}!GetRadius@{GetRadius}}
+\index{GetRadius@{GetRadius}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{GetRadius()}{GetRadius()}}
+{\footnotesize\ttfamily \label{class_circle_object_a211280b55833ce0a4fda714d156775c7} 
+int Circle\+Object::\+\+Get\+Radius (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda zwracajaca promien okregu. 
+
+\begin{DoxyReturn}{Returns}
+promien okregu w pikselach 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00058}{58}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_a5e8573440de86626940c67b9d61139cc}\index{CircleObject@{CircleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_circle_object_a5e8573440de86626940c67b9d61139cc} 
+void Circle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca okrag wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca srodek okregu wzgledem punktu (0, 0). Promien i ksztalt okregu pozostaja bez zmian. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00024}{24}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+\Hypertarget{class_circle_object_a26f4d4e7b9045489ed16ea624e2fd640}\index{CircleObject@{CircleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_circle_object_a26f4d4e7b9045489ed16ea624e2fd640} 
+void Circle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca okrag wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca srodek okregu wzgledem wskazanego punktu. Promien i ksztalt okregu pozostaja bez zmian. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00029}{29}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+\Hypertarget{class_circle_object_ad017d357b0634d0b57f79225e981f507}\index{CircleObject@{CircleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_circle_object_ad017d357b0634d0b57f79225e981f507} 
+void Circle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje okrag wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wspolrzedne srodka okregu wzgledem punktu (0, 0), a nastepnie zmienia jego promien na podstawie wartosci bezwzglednej wspolczynnika kx. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00034}{34}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+\Hypertarget{class_circle_object_a6e9857694b1a2121bea7dd9cb74e8b81}\index{CircleObject@{CircleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_circle_object_a6e9857694b1a2121bea7dd9cb74e8b81} 
+void Circle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje okrag wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wspolrzedne srodka okregu wzgledem wskazanego punktu, a nastepnie zmienia jego promien na podstawie wartosci bezwzglednej wspolczynnika kx.
+
+\begin{DoxyNote}{Note}
+Wspolczynnik ky wplywa na polozenie srodka, ale nie zmienia promienia okregu. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00040}{40}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+\Hypertarget{class_circle_object_a65672cf9b5700878733e1c90d37c1e8f}\index{CircleObject@{CircleObject}!SetCenter@{SetCenter}}
+\index{SetCenter@{SetCenter}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{SetCenter()}{SetCenter()}}
+{\footnotesize\ttfamily \label{class_circle_object_a65672cf9b5700878733e1c90d37c1e8f} 
+void Circle\+Object::\+\+Set\+Center (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawienie wspolrzednych srodka okregu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Punkt ktory posluzy za srodek okregu \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00052}{52}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_ab9e6472ded2d2920d47e97119bdb7856}\index{CircleObject@{CircleObject}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily \label{class_circle_object_ab9e6472ded2d2920d47e97119bdb7856} 
+\doxymbox{\hyperlink{class_circle_object}{Circle\+Object}} \& Circle\+Object::\+\+Set\+Color (\begin{DoxyParamCaption}\item[{Color}]{color}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawienie koloru okregu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Nowy kolor okregu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencja do biezacego obiektu 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00077}{77}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_a0a8c6cb068f2908e024a5dc3bbc196a2}\index{CircleObject@{CircleObject}!SetRadius@{SetRadius}}
+\index{SetRadius@{SetRadius}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{SetRadius()}{SetRadius()}}
+{\footnotesize\ttfamily \label{class_circle_object_a0a8c6cb068f2908e024a5dc3bbc196a2} 
+void Circle\+Object::\+\+Set\+Radius (\begin{DoxyParamCaption}\item[{int}]{radius}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawienie promienia okregu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & Dlugosc promienia \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8h_source_l00064}{64}} of file \doxymbox{\hyperlink{_circle_object_8h_source}{Circle\+Object.\+h}}.
+
+\Hypertarget{class_circle_object_a16cf2e538a71cc31b441629049e4be75}\index{CircleObject@{CircleObject}!Translate@{Translate}}
+\index{Translate@{Translate}!CircleObject@{CircleObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_circle_object_a16cf2e538a71cc31b441629049e4be75} 
+void Circle\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa okrag o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda przesuwa srodek okregu o podane wartosci, nie zmieniajac jego promienia. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_circle_object_8cpp_source_l00019}{19}} of file \doxymbox{\hyperlink{_circle_object_8cpp_source}{Circle\+Object.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_circle_object_8h}{Circle\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_circle_object_8cpp}{Circle\+Object.\+cpp}}\end{DoxyCompactItemize}

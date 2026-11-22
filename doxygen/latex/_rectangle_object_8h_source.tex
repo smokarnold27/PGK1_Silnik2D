@@ -1,0 +1,48 @@
+\doxysection{Rectangle\+Object.\+h}
+\hypertarget{_rectangle_object_8h_source}{}\label{_rectangle_object_8h_source}\doxymbox{\hyperlink{_rectangle_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00026}\doxymbox{\hyperlink{class_rectangle_object}{00026}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45}{RectangleObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00028}00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00029}00029\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ topLeft;}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{float}\ width;}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00032}00032\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ filled;}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00035}00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00048}00048\ \ \ \ \ \doxymbox{\hyperlink{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45}{RectangleObject}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ topLeft,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{bool}\ filled\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00055}\doxymbox{\hyperlink{class_rectangle_object_a2969af7fd1f1786857064a8c65621175}{00055}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_rectangle_object_a2969af7fd1f1786857064a8c65621175}{GetTopLeft}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ topLeft;\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00062}\doxymbox{\hyperlink{class_rectangle_object_a33ee8070cd80858c3231d1b4eb5c96d0}{00062}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_a33ee8070cd80858c3231d1b4eb5c96d0}{SetTopLeft}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p)\ \{\ topLeft\ =\ p;\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00069}\doxymbox{\hyperlink{class_rectangle_object_ad64c366c0250038b29a1fcf45e9ec7fa}{00069}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_rectangle_object_ad64c366c0250038b29a1fcf45e9ec7fa}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00077}\doxymbox{\hyperlink{class_rectangle_object_a16bd845af34be39ef76026b221dce4cc}{00077}}\ \ \ \ \ \doxymbox{\hyperlink{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45}{RectangleObject}}\&\ \doxymbox{\hyperlink{class_rectangle_object_a16bd845af34be39ef76026b221dce4cc}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00084}\doxymbox{\hyperlink{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}{00084}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}{GetWidth}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ width;\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00091}\doxymbox{\hyperlink{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}{00091}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}{GetHeight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ height;\ \}}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_a2ff4f0fd5a3f49eee38e0b811cb4204f}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_ae39908f6837f3a57a3119fb0d8123179}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00167}00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rectangle_object_8h_source_l00168}00168\ \};}
+
+\end{DoxyCode}

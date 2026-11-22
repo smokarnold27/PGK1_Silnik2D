@@ -1,0 +1,107 @@
+\doxysection{Bitmap\+Object.\+cpp}
+\hypertarget{_bitmap_object_8cpp_source}{}\label{_bitmap_object_8cpp_source}\doxymbox{\hyperlink{_bitmap_object_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_bitmap_object_8h}{BitmapObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_primitive_renderer_8h}{PrimitiveRenderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00004}\doxymbox{\hyperlink{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8}{00004}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8}{BitmapObject::AddBitmap}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ offset)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00006}00006\ \ \ \ \ \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{BitmapPart}}\ part;}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (!part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_aa8be42c72421011c5ec8416c5e9869dc}{bitmap}}.\doxymbox{\hyperlink{class_bitmap_handler_abe42ec16c19028a13917a1075ef935ee}{load}}(filename))}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00011}00011\ \ \ \ \ part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_a165635bf9236f02393cc0d2b8e017b29}{offset}}\ =\ offset;}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00013}00013\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}.push\_back(part);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00018}\doxymbox{\hyperlink{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}{00018}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}{BitmapObject::RemoveBitmap}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ 0\ ||\ index\ >=\ \doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{GetBitmapCount}}())}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00023}00023\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}.erase(\doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}.begin()\ +\ index);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00026}\doxymbox{\hyperlink{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}{00026}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}{BitmapObject::ClearBitmaps}}()}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00028}00028\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}.clear();}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00031}\doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{00031}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{BitmapObject::GetBitmapCount}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00032}00032\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}.size());}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00036}\doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{00036}}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{BitmapObject::TransformPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ point)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00037}00037\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ point.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ point.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{float}\ px\ =\ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.GetExactX();}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{float}\ py\ =\ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.GetExactY();}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}(px\ +\ x\ *\ (\doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.GetExactX()\ -\/\ px)\ +\ y\ *\ (\doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.GetExactX()\ -\/\ px),\ py\ +\ x\ *\ (\doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.GetExactY()\ -\/\ py)\ +\ y\ *\ (\doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.GetExactY()\ -\/\ py));}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00047}\doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{00047}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{BitmapObject::DrawPart}}(\doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{BitmapPart}}\&\ part,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_rectangle_object}{RectangleObject}}\&\ source)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00048}00048\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00049}00049\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ topLeft\ =\ part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_a165635bf9236f02393cc0d2b8e017b29}{offset}};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00050}00050\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ topRight\ =\ part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_a165635bf9236f02393cc0d2b8e017b29}{offset}};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00051}00051\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ bottomLeft\ =\ part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_a165635bf9236f02393cc0d2b8e017b29}{offset}};}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00053}00053\ \ \ \ \ topRight.\doxymbox{\hyperlink{class_point2_d_aa0f37616ee557b9eeffcfa0728d08e12}{Translate}}(source.\doxymbox{\hyperlink{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}{GetWidth}}(),\ 0);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00054}00054\ \ \ \ \ bottomLeft.\doxymbox{\hyperlink{class_point2_d_aa0f37616ee557b9eeffcfa0728d08e12}{Translate}}(0,\ source.\doxymbox{\hyperlink{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}{GetHeight}}());}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00056}00056\ \ \ \ \ renderer.\doxymbox{\hyperlink{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5}{DrawBitmap}}(part.\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part_aa8be42c72421011c5ec8416c5e9869dc}{bitmap}},\ source,\ \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{TransformPoint}}(topLeft),\ \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{TransformPoint}}(topRight),\ \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{TransformPoint}}(bottomLeft));}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00059}\doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{00059}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{BitmapObject::Draw}}(\doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00060}00060\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ part\ :\ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}})}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_rectangle_object}{RectangleObject}}\ source(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(0,\ 0),\ part.bitmap.getWidth(),\ part.bitmap.getHeight());}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{DrawPart}}(renderer,\ part,\ source);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00069}\doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{00069}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{BitmapObject::Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00071}00071\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.Translate(tx,\ ty);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00072}00072\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.Translate(tx,\ ty);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00073}00073\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.Translate(tx,\ ty);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00076}\doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{00076}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{BitmapObject::Rotate}}(\textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00078}00078\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.Rotate(angle);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00079}00079\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.Rotate(angle);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00080}00080\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.Rotate(angle);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00083}\doxymbox{\hyperlink{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}{00083}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{BitmapObject::Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00085}00085\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.Rotate(angle,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00086}00086\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.Rotate(angle,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00087}00087\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.Rotate(angle,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00090}\doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{00090}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{BitmapObject::Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00092}00092\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.Scale(kx,\ ky);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00093}00093\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.Scale(kx,\ ky);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00094}00094\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.Scale(kx,\ ky);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00097}\doxymbox{\hyperlink{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}{00097}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{BitmapObject::Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00098}00098\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00099}00099\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}}.Scale(kx,\ ky,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00100}00100\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}}.Scale(kx,\ ky,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00101}00101\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}}.Scale(kx,\ ky,\ origin);}
+\DoxyCodeLine{\Hypertarget{_bitmap_object_8cpp_source_l00102}00102\ \}}
+
+\end{DoxyCode}

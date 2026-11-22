@@ -1,0 +1,329 @@
+\doxysection{Bitmap\+Handler Class Reference}
+\hypertarget{class_bitmap_handler}{}\label{class_bitmap_handler}\index{BitmapHandler@{BitmapHandler}}
+
+
+Klasa zawierajaca metody sluzace do obslugi bitmap.  
+
+
+
+
+{\ttfamily \+\#include $<$Bitmap\+Handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{Bitmap\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Domyslny konstruktor tworzacy pusty obiekt. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bitmap_handler_a1f3e49ed094cc684909c97d3b56fa2e9}{\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor usuwajacy obiekt i czyszczacy zaalokowana na niego pamiec. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bitmap_handler_acaf532f4b9f6deab2f95dff4e8d9391b}{Bitmap\+Handler}} (const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&other)
+\begin{DoxyCompactList}\small\item\em Konstruktor kopiujacy tworzacy kopie na podstawie innej bitmapy. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \& \doxymbox{\hyperlink{class_bitmap_handler_acf31b588021439ccfc3dfcec7cec4120}{operator=}} (const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&other)
+\begin{DoxyCompactList}\small\item\em Nadpisanie operatora przypisania w celu ulatwienia kopiowania bitmap. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_bitmap_handler_a9c9143262177f0dd54951ff96dd5cc8e}{create}} (int width, int height, Color color=WHITE)
+\begin{DoxyCompactList}\small\item\em Tworzenie bitmapy o podanych wymiarach i kolorze. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_handler_acf2fa0be1ae7e8db6d1b81045d9797b3}{remove}} ()
+\begin{DoxyCompactList}\small\item\em Usuniecie bitmapy. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_bitmap_handler_abe42ec16c19028a13917a1075ef935ee}{load}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Ladowanie bitmapy z pliku. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_bitmap_handler_a153db8b94ed3e6d6e471f8ec78094664}{save}} (const char \texorpdfstring{$\ast$}{*}filename) const
+\begin{DoxyCompactList}\small\item\em Zapisanie bitmapy do pliku. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_handler_a2c7ba7c55cb1a8410208f3eed23650e3}{copy}} (const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&other)
+\begin{DoxyCompactList}\small\item\em Skopiowanie innej bitmapy do istniejacego obiektu. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_handler_a993ff59f70a394487f2d0a1e9de83a52}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Odczyt szerokosci bitmapy. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_handler_a93e89ac1fe329bde2dc63efb2a7c0f7e}{get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Odczyt wysokosci bitmapy. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_bitmap_handler_a70f6143fedcb3b2af27a998abf950c46}{get\+Pixel}} (int x, int y) const
+\begin{DoxyCompactList}\small\item\em Odczyt koloru na podanych wspolrzednych. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_bitmap_handler_a43951af0a88268364fb01ea2e02bd88d}{is\+Valid}} () const
+\begin{DoxyCompactList}\small\item\em Sprawdzenie poprawnosci bitmapy. \end{DoxyCompactList}\item 
+Texture2D \doxymbox{\hyperlink{class_bitmap_handler_a28a930885dccf58822bc82d323d9251c}{create\+Texture}} () const
+\begin{DoxyCompactList}\small\item\em Utworzenie tekstury do wyswietlenia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa zawierajaca metody sluzace do obslugi bitmap. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8h_source_l00016}{16}} of file \doxymbox{\hyperlink{_bitmap_handler_8h_source}{Bitmap\+Handler.\+h}}.
+
+
+
+\label{class_bitmap_handler_doc-constructors}
+\Hypertarget{class_bitmap_handler_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}\index{BitmapHandler@{BitmapHandler}!BitmapHandler@{BitmapHandler}}
+\index{BitmapHandler@{BitmapHandler}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{BitmapHandler()}{BitmapHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc} 
+Bitmap\+Handler::\+\+Bitmap\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Domyslny konstruktor tworzacy pusty obiekt. 
+
+Inicjalizuje bitmape bez alokowania pamieci 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00006}{6}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a1f3e49ed094cc684909c97d3b56fa2e9}\index{BitmapHandler@{BitmapHandler}!````~BitmapHandler@{\texorpdfstring{$\sim$}{\string~}BitmapHandler}}
+\index{````~BitmapHandler@{\texorpdfstring{$\sim$}{\string~}BitmapHandler}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BitmapHandler()}{\string~BitmapHandler()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a1f3e49ed094cc684909c97d3b56fa2e9} 
+Bitmap\+Handler::\+\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destruktor usuwajacy obiekt i czyszczacy zaalokowana na niego pamiec. 
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00012}{12}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_acaf532f4b9f6deab2f95dff4e8d9391b}\index{BitmapHandler@{BitmapHandler}!BitmapHandler@{BitmapHandler}}
+\index{BitmapHandler@{BitmapHandler}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{BitmapHandler()}{BitmapHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_acaf532f4b9f6deab2f95dff4e8d9391b} 
+Bitmap\+Handler::\+\+Bitmap\+Handler (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor kopiujacy tworzacy kopie na podstawie innej bitmapy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Inny obiekt typu \doxylink{class_bitmap_handler}{Bitmap\+Handler}, ktorego kopie chcemy utworzyc \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00017}{17}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+
+
+\label{class_bitmap_handler_doc-func-members}
+\Hypertarget{class_bitmap_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bitmap_handler_a2c7ba7c55cb1a8410208f3eed23650e3}\index{BitmapHandler@{BitmapHandler}!copy@{copy}}
+\index{copy@{copy}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a2c7ba7c55cb1a8410208f3eed23650e3} 
+void Bitmap\+Handler::\+copy (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Skopiowanie innej bitmapy do istniejacego obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Referencja do bitmapy ktora chcemy skopiowac\\
+\hline
+\end{DoxyParams}
+Metoda kopiuje bitmape i przypisuje ja do obecnego obiektu. W odroznieniu od konstruktora kopiujacego, metoda nie tworzy nowego obiektu tylko modyfikuje juz istniejacy. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00094}{94}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a9c9143262177f0dd54951ff96dd5cc8e}\index{BitmapHandler@{BitmapHandler}!create@{create}}
+\index{create@{create}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a9c9143262177f0dd54951ff96dd5cc8e} 
+bool Bitmap\+Handler::\+create (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{Color}]{color}{ = {\ttfamily WHITE}}\end{DoxyParamCaption})}
+
+
+
+Tworzenie bitmapy o podanych wymiarach i kolorze. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Szerokosc (w pikselach) bitmapy ktora chcemy stworzyc \\
+\hline
+{\em height} & Wysokosc (w pikselach) bitmapy ktora chcemy stworzyc \\
+\hline
+{\em color} & Kolor bitmapy ktora chcemy stworzyc (domyslnie WHITE)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, jesli bitmapa zostanie pomyslnie utworzona, False w przeciwnym wypadku 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00047}{47}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a28a930885dccf58822bc82d323d9251c}\index{BitmapHandler@{BitmapHandler}!createTexture@{createTexture}}
+\index{createTexture@{createTexture}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{createTexture()}{createTexture()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a28a930885dccf58822bc82d323d9251c} 
+Texture2D Bitmap\+Handler::\+create\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Utworzenie tekstury do wyswietlenia. 
+
+\begin{DoxyReturn}{Returns}
+Tekstura gotowa do wyswietlenia (lub pusta struktura jesli bitmapa jest niepoprawna)
+\end{DoxyReturn}
+Metoda bierze bitmape przechowywana w obiekcie i konwertuje ja na teksture, ktora mozna wyswietlic w oknie 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00139}{139}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a93e89ac1fe329bde2dc63efb2a7c0f7e}\index{BitmapHandler@{BitmapHandler}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a93e89ac1fe329bde2dc63efb2a7c0f7e} 
+int Bitmap\+Handler::\+get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Odczyt wysokosci bitmapy. 
+
+\begin{DoxyReturn}{Returns}
+Wysokosc bitmapy
+\end{DoxyReturn}
+Metoda zwraca wysokosc bitmapy w pikselach 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00114}{114}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a70f6143fedcb3b2af27a998abf950c46}\index{BitmapHandler@{BitmapHandler}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{getPixel()}{getPixel()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a70f6143fedcb3b2af27a998abf950c46} 
+Color Bitmap\+Handler::\+get\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption}) const}
+
+
+
+Odczyt koloru na podanych wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedna x wewnatrz bitmapy \\
+\hline
+{\em y} & Wspolrzedna y wewnatrz bitmapy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kolor piksela znajdujacego sie na danych wspolrzednych
+\end{DoxyReturn}
+Metoda zwraca jakiego koloru jest piksel w podanym miejscu bitmapy, JESLI wspolrzedne znajduja sie w jej obrebie. W przeciwnym wypadku zwraca BLANK 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00119}{119}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a993ff59f70a394487f2d0a1e9de83a52}\index{BitmapHandler@{BitmapHandler}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a993ff59f70a394487f2d0a1e9de83a52} 
+int Bitmap\+Handler::\+get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Odczyt szerokosci bitmapy. 
+
+\begin{DoxyReturn}{Returns}
+Szerokosc bitmapy
+\end{DoxyReturn}
+Metoda zwraca szerokosc bitmapy w pikselach 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00108}{108}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a43951af0a88268364fb01ea2e02bd88d}\index{BitmapHandler@{BitmapHandler}!isValid@{isValid}}
+\index{isValid@{isValid}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a43951af0a88268364fb01ea2e02bd88d} 
+bool Bitmap\+Handler::\+is\+Valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Sprawdzenie poprawnosci bitmapy. 
+
+\begin{DoxyReturn}{Returns}
+True jesli bitmapa jest poprawna, False w przeciwnym przypadku
+\end{DoxyReturn}
+Metoda sprawdza poprawnosc bitmapy poprzez sprawdzenie czy jej rozmiary sa wieksze od zera, oraz czy posiada wskaznik do danych obrazu 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00131}{131}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_abe42ec16c19028a13917a1075ef935ee}\index{BitmapHandler@{BitmapHandler}!load@{load}}
+\index{load@{load}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_abe42ec16c19028a13917a1075ef935ee} 
+bool Bitmap\+Handler::\+load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Ladowanie bitmapy z pliku. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Sciezka do pliku z ktorego chcemy zaladowac bitmape\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jesli bitmape uda sie zaladowac, False jesli nie
+\end{DoxyReturn}
+Funkcja wczytuje bitmape z danego pliku, po czym zapisuje ja w biezacym obiekcie 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00071}{71}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_acf31b588021439ccfc3dfcec7cec4120}\index{BitmapHandler@{BitmapHandler}!operator=@{operator=}}
+\index{operator=@{operator=}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_acf31b588021439ccfc3dfcec7cec4120} 
+\doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \& Bitmap\+Handler::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Nadpisanie operatora przypisania w celu ulatwienia kopiowania bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Obiekt typu \doxylink{class_bitmap_handler}{Bitmap\+Handler} ktory chcemy skopiowac\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencja do biezacego obiektu \doxylink{class_bitmap_handler}{Bitmap\+Handler}
+\end{DoxyReturn}
+Funkcja umozliwia przypisanie zawartosci jednej bitmapy do drugiej, juz istniejacej bitmapy, np. bitmap1 = bitmap2. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00027}{27}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_acf2fa0be1ae7e8db6d1b81045d9797b3}\index{BitmapHandler@{BitmapHandler}!remove@{remove}}
+\index{remove@{remove}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_acf2fa0be1ae7e8db6d1b81045d9797b3} 
+void Bitmap\+Handler::\+remove (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Usuniecie bitmapy. 
+
+Funkcja zwalnia pamiec zajmowana przez bitmape i przywraca jej pusty stan 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00060}{60}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+\Hypertarget{class_bitmap_handler_a153db8b94ed3e6d6e471f8ec78094664}\index{BitmapHandler@{BitmapHandler}!save@{save}}
+\index{save@{save}!BitmapHandler@{BitmapHandler}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{class_bitmap_handler_a153db8b94ed3e6d6e471f8ec78094664} 
+bool Bitmap\+Handler::\+save (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption}) const}
+
+
+
+Zapisanie bitmapy do pliku. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku pod jaka chcemy zapisac obecna bitmape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jesli zapisanie sie uda, False jesli nie 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_handler_8cpp_source_l00085}{85}} of file \doxymbox{\hyperlink{_bitmap_handler_8cpp_source}{Bitmap\+Handler.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_bitmap_handler_8h}{Bitmap\+Handler.\+h}}\item 
+\doxymbox{\hyperlink{_bitmap_handler_8cpp}{Bitmap\+Handler.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,412 @@
+\doxysection{Sprite\+Object Class Reference}
+\hypertarget{class_sprite_object}{}\label{class_sprite_object}\index{SpriteObject@{SpriteObject}}
+
+
+Klasa reprezentujaca obiekt graficzny z animacja klatkowa.  
+
+
+
+
+{\ttfamily \+\#include $<$Sprite\+Object.\+h$>$}
+
+Inheritance diagram for Sprite\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_sprite_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_sprite_object_ac6e9a6c6a048d3c41044a99e550cc1b0}{Sprite\+Object}} (int frames, float fps=10.\+0f)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_sprite_object}{Sprite\+Object}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_sprite_object_aaee29c9742fbecda04705950e8b678c8}{Add\+Bitmap}} (const char \texorpdfstring{$\ast$}{*}filename, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&offset=\doxymbox{\hyperlink{class_point2_d}{Point2D}}()) override
+\begin{DoxyCompactList}\small\item\em Dodaje arkusz sprite\textquotesingle{}ow do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a72bb1ca4d04b3dd10742c982629e5947}{animate}} () override
+\begin{DoxyCompactList}\small\item\em Aktualizuje biezaca klatke animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa}{Draw}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje aktualna klatke animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc}{Play}} ()
+\begin{DoxyCompactList}\small\item\em Rozpoczyna lub wznawia odtwarzanie animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_af234c687b03b92b4b888ef470d85d9f0}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Wstrzymuje odtwarzanie animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a85fd935bc041dd0370d3f2560eb07f27}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Zatrzymuje i resetuje animacje. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_ab13226ee6925e9fc0ea910cab5229ce4}{Set\+FPS}} (float fps)
+\begin{DoxyCompactList}\small\item\em Ustawia predkosc odtwarzania animacji. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_sprite_object_a326d77e3f5384ccd8bad5a39f24c4ee1}{Get\+Current\+Frame}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca indeks aktualnej klatki animacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bitmap_object_a7b5c4715717d7d4ee3f4d109e77928f6}{Bitmap\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_bitmap_object_ab6f7f1ac2de0e711bd3f4d46fb5288a0}{\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Object}} ()=default
+\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}{Remove\+Bitmap}} (int index)
+\begin{DoxyCompactList}\small\item\em Usuwa bitmape o podanym indeksie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}{Clear\+Bitmaps}} ()
+\begin{DoxyCompactList}\small\item\em Usuwa wszystkie bitmapy nalezace do obiektu. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{Get\+Bitmap\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca liczbe bitmap nalezacych do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa obiekt o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_animated_object}{Animated\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_animated_object_a3a1b6fd48793c49bb56804e5f5a5742d}{\texorpdfstring{$\sim$}{\string~}\+Animated\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor sluzacy do zwalniania pamieci klas pochodnych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_sprite_object_a5a8afb5a63d6da0110d3f8090b2da771}{frame\+Count}}
+\item 
+int \doxymbox{\hyperlink{class_sprite_object_a1e2a763ef8dd9c300b1c5dd3fe67ad67}{current\+Frame}} = 0
+\item 
+float \doxymbox{\hyperlink{class_sprite_object_ab1c250044b966f88dc266aa1926d5631}{frame\+Duration}}
+\item 
+float \doxymbox{\hyperlink{class_sprite_object_a609db716b2e889f14c7a1b5a4d18da2a}{elapsed\+Time}} = 0.\+0f
+\item 
+bool \doxymbox{\hyperlink{class_sprite_object_a5ba09347d29769a1ee566cfd45c6bb16}{playing}} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} $>$ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}} \{ 0.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}} \{ 1.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}} \{ 0.\+0f, 1.\+0f \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{Transform\+Point}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&point) const
+\begin{DoxyCompactList}\small\item\em Przeksztalca punkt z lokalnego ukladu wspolrzednych bitmapy. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{Draw\+Part}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer, const \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} \&part, const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&source) const
+\begin{DoxyCompactList}\small\item\em Rysuje pojedyncza bitmape nalezaca do obiektu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca obiekt graficzny z animacja klatkowa. 
+
+Rozszerza funkcjonalnosc klasy \doxylink{class_bitmap_object}{Bitmap\+Object} o mozliwosc odtwarzania animacji na podstawie arkuszy sprite\textquotesingle{}ow.
+
+Umozliwia wczytywanie bitmap zawierajacych kolejne klatki animacji, sterowanie odtwarzaniem oraz okreslanie liczby klatek na sekunde.
+
+Kazdy arkusz sprite\textquotesingle{}ow jest dzielony na klatki o jednakowej szerokosci, ulozone poziomo. 
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00025}{25}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+
+
+\label{class_sprite_object_doc-constructors}
+\Hypertarget{class_sprite_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sprite_object_ac6e9a6c6a048d3c41044a99e550cc1b0}\index{SpriteObject@{SpriteObject}!SpriteObject@{SpriteObject}}
+\index{SpriteObject@{SpriteObject}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{SpriteObject()}{SpriteObject()}}
+{\footnotesize\ttfamily \label{class_sprite_object_ac6e9a6c6a048d3c41044a99e550cc1b0} 
+Sprite\+Object::\+\+Sprite\+Object (\begin{DoxyParamCaption}\item[{int}]{frames}{, }\item[{float}]{fps}{ = {\ttfamily 10.0f}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_sprite_object}{Sprite\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frames} & Liczba klatek animacji w kazdym arkuszu sprite\textquotesingle{}ow. \\
+\hline
+{\em fps} & Liczba klatek animacji wyswietlanych na sekunde.\\
+\hline
+\end{DoxyParams}
+Inicjalizuje liczbe klatek animacji oraz czas wyswietlania pojedynczej klatki.
+
+Jesli liczba klatek jest mniejsza lub rowna zero, zostaje ustawiona na 1.
+
+\begin{DoxyNote}{Note}
+Niepoprawna wartosc fps powoduje pozostawienie domyslnego czasu klatki wynoszacego 0.\+1 sekundy. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00005}{5}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+
+
+\label{class_sprite_object_doc-func-members}
+\Hypertarget{class_sprite_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sprite_object_aaee29c9742fbecda04705950e8b678c8}\index{SpriteObject@{SpriteObject}!AddBitmap@{AddBitmap}}
+\index{AddBitmap@{AddBitmap}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{AddBitmap()}{AddBitmap()}}
+{\footnotesize\ttfamily \label{class_sprite_object_aaee29c9742fbecda04705950e8b678c8} 
+bool Sprite\+Object::\+\+Add\+Bitmap (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{offset}{ = {\ttfamily \doxymbox{\hyperlink{class_point2_d}{Point2D}}()}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Dodaje arkusz sprite\textquotesingle{}ow do obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Sciezka do pliku zawierajacego arkusz sprite\textquotesingle{}ow. \\
+\hline
+{\em offset} & Przesuniecie bitmapy wzgledem lokalnego ukladu obiektu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, jesli bitmapa zostala poprawnie wczytana i dodana; false w przypadku niepowodzenia.
+\end{DoxyReturn}
+Metoda wczytuje bitmape z pliku i sprawdza, czy jej szerokosc jest podzielna przez liczbe klatek animacji.
+
+Jesli warunki sa spelnione, zapisuje bitmape wraz z jej przesunieciem w kolekcji obiektu.
+
+\begin{DoxyNote}{Note}
+Wszystkie klatki arkusza musza miec jednakowa szerokosc i byc ulozone poziomo. 
+\end{DoxyNote}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00014}{14}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_a72bb1ca4d04b3dd10742c982629e5947}\index{SpriteObject@{SpriteObject}!animate@{animate}}
+\index{animate@{animate}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{animate()}{animate()}}
+{\footnotesize\ttfamily \label{class_sprite_object_a72bb1ca4d04b3dd10742c982629e5947} 
+void Sprite\+Object::\+animate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Aktualizuje biezaca klatke animacji. 
+
+Metoda aktualizuje czas odtwarzania animacji na podstawie czasu trwania ostatniej klatki aplikacji.
+
+Jesli zgromadzony czas przekroczy czas trwania pojedynczej klatki animacji, aktualizuje indeks aktualnie wyswietlanej klatki.
+
+Po osiagnieciu ostatniej klatki animacja rozpoczyna sie ponownie od pierwszej.
+
+\begin{DoxyNote}{Note}
+Metoda nie wykonuje aktualizacji, jesli animacja nie jest odtwarzana.
+
+Czas aktualizacji pobierany jest za pomoca funkcji Get\+Frame\+Time(). 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_animated_object_a355e94e568dd556b93ba55df7a3647f5}{Animated\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00032}{32}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa}\index{SpriteObject@{SpriteObject}!Draw@{Draw}}
+\index{Draw@{Draw}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa} 
+void Sprite\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje aktualna klatke animacji. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda przechodzi przez wszystkie arkusze sprite\textquotesingle{}ow przypisane do obiektu.
+
+Dla kazdego arkusza wyznacza prostokat zrodlowy odpowiadajacy aktualnej klatce animacji, a nastepnie rysuje go za pomoca metody \doxylink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{Draw\+Part()}.
+
+\begin{DoxyNote}{Note}
+Wszystkie arkusze wykorzystuja ten sam indeks aktualnej klatki animacji. 
+\end{DoxyNote}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00048}{48}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_a326d77e3f5384ccd8bad5a39f24c4ee1}\index{SpriteObject@{SpriteObject}!GetCurrentFrame@{GetCurrentFrame}}
+\index{GetCurrentFrame@{GetCurrentFrame}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{GetCurrentFrame()}{GetCurrentFrame()}}
+{\footnotesize\ttfamily \label{class_sprite_object_a326d77e3f5384ccd8bad5a39f24c4ee1} 
+int Sprite\+Object::\+\+Get\+Current\+Frame (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca indeks aktualnej klatki animacji. 
+
+\begin{DoxyReturn}{Returns}
+Indeks aktualnie wyswietlanej klatki.
+\end{DoxyReturn}
+Indeksowanie klatek rozpoczyna sie od zera. 
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00088}{88}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_af234c687b03b92b4b888ef470d85d9f0}\index{SpriteObject@{SpriteObject}!Pause@{Pause}}
+\index{Pause@{Pause}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily \label{class_sprite_object_af234c687b03b92b4b888ef470d85d9f0} 
+void Sprite\+Object::\+\+Pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Wstrzymuje odtwarzanie animacji. 
+
+Metoda zatrzymuje aktualizacje klatek animacji, zachowujac biezacy indeks klatki oraz zgromadzony czas.
+
+Animacja moze zostac wznowiona metoda \doxylink{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc}{Play()}. 
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00067}{67}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc}\index{SpriteObject@{SpriteObject}!Play@{Play}}
+\index{Play@{Play}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily \label{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc} 
+void Sprite\+Object::\+\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rozpoczyna lub wznawia odtwarzanie animacji. 
+
+Metoda ustawia stan animacji na aktywny.
+
+Nie zmienia aktualnej klatki ani zgromadzonego czasu animacji. 
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00062}{62}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_ab13226ee6925e9fc0ea910cab5229ce4}\index{SpriteObject@{SpriteObject}!SetFPS@{SetFPS}}
+\index{SetFPS@{SetFPS}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{SetFPS()}{SetFPS()}}
+{\footnotesize\ttfamily \label{class_sprite_object_ab13226ee6925e9fc0ea910cab5229ce4} 
+void Sprite\+Object::\+\+Set\+FPS (\begin{DoxyParamCaption}\item[{float}]{fps}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia predkosc odtwarzania animacji. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fps} & Liczba klatek animacji na sekunde.\\
+\hline
+\end{DoxyParams}
+Metoda oblicza czas wyswietlania pojedynczej klatki jako odwrotnosc podanej wartosci fps.
+
+Dla poprawnej wartosci zeruje rowniez zgromadzony czas animacji.
+
+\begin{DoxyNote}{Note}
+Wartosc fps musi byc dodatnia i skonczona. Niepoprawne wartosci sa ignorowane. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00079}{79}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+\Hypertarget{class_sprite_object_a85fd935bc041dd0370d3f2560eb07f27}\index{SpriteObject@{SpriteObject}!Stop@{Stop}}
+\index{Stop@{Stop}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily \label{class_sprite_object_a85fd935bc041dd0370d3f2560eb07f27} 
+void Sprite\+Object::\+\+Stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Zatrzymuje i resetuje animacje. 
+
+Metoda wylacza odtwarzanie animacji, ustawia indeks aktualnej klatki na zero oraz zeruje zgromadzony czas.
+
+Ponowne wywolanie \doxylink{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc}{Play()} rozpocznie animacje od pierwszej klatki. 
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8cpp_source_l00072}{72}} of file \doxymbox{\hyperlink{_sprite_object_8cpp_source}{Sprite\+Object.\+cpp}}.
+
+
+
+\label{class_sprite_object_doc-variable-members}
+\Hypertarget{class_sprite_object_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_sprite_object_a1e2a763ef8dd9c300b1c5dd3fe67ad67}\index{SpriteObject@{SpriteObject}!currentFrame@{currentFrame}}
+\index{currentFrame@{currentFrame}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{currentFrame}{currentFrame}}
+{\footnotesize\ttfamily \label{class_sprite_object_a1e2a763ef8dd9c300b1c5dd3fe67ad67} 
+int Sprite\+Object::\+current\+Frame = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00029}{29}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+\Hypertarget{class_sprite_object_a609db716b2e889f14c7a1b5a4d18da2a}\index{SpriteObject@{SpriteObject}!elapsedTime@{elapsedTime}}
+\index{elapsedTime@{elapsedTime}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{elapsedTime}{elapsedTime}}
+{\footnotesize\ttfamily \label{class_sprite_object_a609db716b2e889f14c7a1b5a4d18da2a} 
+float Sprite\+Object::\+elapsed\+Time = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00032}{32}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+\Hypertarget{class_sprite_object_a5a8afb5a63d6da0110d3f8090b2da771}\index{SpriteObject@{SpriteObject}!frameCount@{frameCount}}
+\index{frameCount@{frameCount}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{frameCount}{frameCount}}
+{\footnotesize\ttfamily \label{class_sprite_object_a5a8afb5a63d6da0110d3f8090b2da771} 
+int Sprite\+Object::\+frame\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00028}{28}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+\Hypertarget{class_sprite_object_ab1c250044b966f88dc266aa1926d5631}\index{SpriteObject@{SpriteObject}!frameDuration@{frameDuration}}
+\index{frameDuration@{frameDuration}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{frameDuration}{frameDuration}}
+{\footnotesize\ttfamily \label{class_sprite_object_ab1c250044b966f88dc266aa1926d5631} 
+float Sprite\+Object::\+frame\+Duration\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00031}{31}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+\Hypertarget{class_sprite_object_a5ba09347d29769a1ee566cfd45c6bb16}\index{SpriteObject@{SpriteObject}!playing@{playing}}
+\index{playing@{playing}!SpriteObject@{SpriteObject}}
+\doxysubsubsection{\texorpdfstring{playing}{playing}}
+{\footnotesize\ttfamily \label{class_sprite_object_a5ba09347d29769a1ee566cfd45c6bb16} 
+bool Sprite\+Object::\+playing = true\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_sprite_object_8h_source_l00034}{34}} of file \doxymbox{\hyperlink{_sprite_object_8h_source}{Sprite\+Object.\+h}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_sprite_object_8h}{Sprite\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_sprite_object_8cpp}{Sprite\+Object.\+cpp}}\end{DoxyCompactItemize}

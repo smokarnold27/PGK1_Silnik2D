@@ -90,7 +90,6 @@ public:
 	*/
 	float GetHeight() const { return height; }
 
-
 	/**
 	* @brief Rysuje prostokat za pomoca renderera.
 	*

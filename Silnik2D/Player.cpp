@@ -18,7 +18,7 @@ Player::Player(const Point2D& pos, int size, Color color, int speed) : SpriteObj
 
 void Player::Draw(PrimitiveRenderer& renderer) const
 {
-	if (kierunek < bitmaps.size()) {
+	if (kierunek >= 0 && static_cast<size_t>(kierunek) < bitmaps.size()) {
 		const auto& part = bitmaps[kierunek];
 		int frameWidth = part.bitmap.getWidth() / frameCount;
 		int frameHeight = part.bitmap.getHeight();

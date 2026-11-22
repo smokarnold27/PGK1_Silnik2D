@@ -1,0 +1,82 @@
+\doxysection{Shape\+Object Class Reference}
+\hypertarget{class_shape_object}{}\label{class_shape_object}\index{ShapeObject@{ShapeObject}}
+
+
+Abstrakcyjna klasa bazowa dla obiektow geometrycznych.  
+
+
+
+
+{\ttfamily \+\#include $<$Shape\+Object.\+h$>$}
+
+Inheritance diagram for Shape\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.318841cm]{class_shape_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}{\texorpdfstring{$\sim$}{\string~}\+Shape\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Draw}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const =0
+\begin{DoxyCompactList}\small\item\em Metoda sluzaca do rysowania obiektow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Translate}} (float tx, float ty)=0
+\begin{DoxyCompactList}\small\item\em Przesuwa obiekt o podany wektor. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Rotate}} (float angle)=0
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin)=0
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Scale}} (float kx, float ky)=0
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin)=0
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcyjna klasa bazowa dla obiektow geometrycznych. 
+
+Laczy interfejsy \doxylink{class_drawable_object}{Drawable\+Object} i \doxylink{class_transformable_object}{Transformable\+Object}, zapewniajac wspolna podstawe dla figur geometrycznych, ktore mozna rysowac i poddawac transformacjom.
+
+Klasy pochodne implementuja metody rysowania oraz transformacji geometrycznych zdefiniowane w dziedziczonych interfejsach. 
+
+Definition at line \doxymbox{\hyperlink{_shape_object_8h_source_l00022}{22}} of file \doxymbox{\hyperlink{_shape_object_8h_source}{Shape\+Object.\+h}}.
+
+
+
+\label{class_shape_object_doc-constructors}
+\Hypertarget{class_shape_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}\index{ShapeObject@{ShapeObject}!````~ShapeObject@{\texorpdfstring{$\sim$}{\string~}ShapeObject}}
+\index{````~ShapeObject@{\texorpdfstring{$\sim$}{\string~}ShapeObject}!ShapeObject@{ShapeObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ShapeObject()}{\string~ShapeObject()}}
+{\footnotesize\ttfamily \label{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2} 
+virtual Shape\+Object::\+\texorpdfstring{$\sim$}{\string~}\+Shape\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. 
+
+Zapewnia prawidlowe niszczenie obiektow klas pochodnych za posrednictwem wskaznika do klasy bazowej. 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_shape_object_8h}{Shape\+Object.\+h}}\end{DoxyCompactItemize}

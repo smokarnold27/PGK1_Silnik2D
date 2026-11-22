@@ -1,0 +1,46 @@
+\doxysection{Bitmap\+Handler.\+h}
+\hypertarget{_bitmap_handler_8h_source}{}\label{_bitmap_handler_8h_source}\doxymbox{\hyperlink{_bitmap_handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00008}00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00016}\doxymbox{\hyperlink{class_bitmap_handler}{00016}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00018}00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00019}00019\ \ \ \ \ Image\ bitmap;}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00021}00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00028}00028\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}();}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00033}00033\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_handler_a1f3e49ed094cc684909c97d3b56fa2e9}{\string~BitmapHandler}}();}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00040}00040\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00051}00051\ \ \ \ \ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}\&\ \doxymbox{\hyperlink{class_bitmap_handler_acf31b588021439ccfc3dfcec7cec4120}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_bitmap_handler_a9c9143262177f0dd54951ff96dd5cc8e}{create}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ Color\ color\ =\ WHITE);}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_handler_acf2fa0be1ae7e8db6d1b81045d9797b3}{remove}}();}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_bitmap_handler_abe42ec16c19028a13917a1075ef935ee}{load}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_bitmap_handler_a153db8b94ed3e6d6e471f8ec78094664}{save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bitmap_handler_a2c7ba7c55cb1a8410208f3eed23650e3}{copy}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_bitmap_handler_a66410bb36dd297b75a9ec6e8949a49fc}{BitmapHandler}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_bitmap_handler_a993ff59f70a394487f2d0a1e9de83a52}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_bitmap_handler_a93e89ac1fe329bde2dc63efb2a7c0f7e}{getHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00126}00126\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_bitmap_handler_a70f6143fedcb3b2af27a998abf950c46}{getPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_bitmap_handler_a43951af0a88268364fb01ea2e02bd88d}{isValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00146}00146\ \ \ \ \ Texture2D\ \doxymbox{\hyperlink{class_bitmap_handler_a28a930885dccf58822bc82d323d9251c}{createTexture}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_bitmap_handler_8h_source_l00148}00148\ \};}
+
+\end{DoxyCode}

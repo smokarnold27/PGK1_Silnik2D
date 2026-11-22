@@ -1,0 +1,60 @@
+\doxysection{Line\+Segment.\+h}
+\hypertarget{_line_segment_8h_source}{}\label{_line_segment_8h_source}\doxymbox{\hyperlink{_line_segment_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00017}\doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{00017}}\ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{LineAlgorithm}}\ \{}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00019}\doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}{00019}}\ \ \ \ \ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}{DDA}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00021}\doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aa20b83bc3afd59d747cc745d5f70f3695}{00021}}\ \ \ \ \ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aa20b83bc3afd59d747cc745d5f70f3695}{Bresenham}}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00037}\doxymbox{\hyperlink{class_line_segment}{00037}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_line_segment_acf0e0dd68d0ad3f2fcf305ea908d7141}{LineSegment}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00039}00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00040}00040\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ startPoint;}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00041}00041\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ endPoint;}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00042}00042\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00043}00043\ \ \ \ \ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{LineAlgorithm}}\ defaultAlgorithm;\ \textcolor{comment}{//\ Domyślny\ algorytm\ rysowania\ lini}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00045}00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00057}00057\ \ \ \ \ \doxymbox{\hyperlink{class_line_segment_acf0e0dd68d0ad3f2fcf305ea908d7141}{LineSegment}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1\ =\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}(0,\ 0),\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2\ =\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}(0,\ 0),\ Color\ color\ =\ BLACK,\ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{LineAlgorithm}}\ algorithm\ =\ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}{LineAlgorithm::DDA}});}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00073}00073\ \ \ \ \ \doxymbox{\hyperlink{class_line_segment_acf0e0dd68d0ad3f2fcf305ea908d7141}{LineSegment}}(\textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2,\ Color\ color\ =\ BLACK,\ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{LineAlgorithm}}\ algorithm\ =\ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}{LineAlgorithm::DDA}});}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00079}\doxymbox{\hyperlink{class_line_segment_a7afa057c38a6399106f8841dd28b7ee7}{00079}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_line_segment_a7afa057c38a6399106f8841dd28b7ee7}{GetStartPoint}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ startPoint;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00085}\doxymbox{\hyperlink{class_line_segment_a50de9a1e599a81a255aaf480d35aaed0}{00085}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_line_segment_a50de9a1e599a81a255aaf480d35aaed0}{GetEndPoint}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ endPoint;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00092}\doxymbox{\hyperlink{class_line_segment_ae1eb5e4c602d8ee15c01472f5336cf9c}{00092}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_ae1eb5e4c602d8ee15c01472f5336cf9c}{SetStartPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p)\ \{\ startPoint\ =\ p;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00099}\doxymbox{\hyperlink{class_line_segment_ad045e05a9de6c34a6379f5ed7bc94ee4}{00099}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_ad045e05a9de6c34a6379f5ed7bc94ee4}{SetEndPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p)\ \{\ endPoint\ =\ p;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00107}\doxymbox{\hyperlink{class_line_segment_a91ce549164b0d21fcbad8b182c29d9be}{00107}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_a91ce549164b0d21fcbad8b182c29d9be}{SetSegment}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2)\ \{\ startPoint\ =\ p1;\ endPoint\ =\ p2;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00108}00108\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00114}\doxymbox{\hyperlink{class_line_segment_ab73d8514efdf360418952c4df3e070be}{00114}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_line_segment_ab73d8514efdf360418952c4df3e070be}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00122}\doxymbox{\hyperlink{class_line_segment_aa00c2803d2bb8688f49664bac1b9796f}{00122}}\ \ \ \ \ \doxymbox{\hyperlink{class_line_segment_acf0e0dd68d0ad3f2fcf305ea908d7141}{LineSegment}}\&\ \doxymbox{\hyperlink{class_line_segment_aa00c2803d2bb8688f49664bac1b9796f}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_ad6b73c8576c8812653589fb50a54255b}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00138}00138\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_a13d08b6c424fee31da5ee831e78a055c}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_a0a94a79908d27bf2c9ab64f2c11eacff}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00169}00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_a0a94a79908d27bf2c9ab64f2c11eacff}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00181}00181\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_ae05dd2571cdbb8da4a3569da1fd21b85}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_line_segment_ae05dd2571cdbb8da4a3569da1fd21b85}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00195}00195\ \};}
+\DoxyCodeLine{\Hypertarget{_line_segment_8h_source_l00196}00196\ }
+
+\end{DoxyCode}

@@ -2,7 +2,6 @@
 
 int main()
 {
-	//float time = 0.0f;
 	Engine& engine = Engine::GetInstance(); // Pobranie instancji silnika (referencji do jedynego obiektu klasy Engine (singleton))
 	if (engine.Init(800, 600, false, 60)) {
 		engine.Run();
@@ -10,6 +9,4 @@ int main()
 	engine.Shutdown();
 
 	return 0;
-
-	//okrąg, elipsa, wypełnianie kolorem (dowolna metoda z instrukcji), obsługa kliknięć
 }

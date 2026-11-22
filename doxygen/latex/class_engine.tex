@@ -1,0 +1,202 @@
+\doxysection{Engine Class Reference}
+\hypertarget{class_engine}{}\label{class_engine}\index{Engine@{Engine}}
+
+
+Glowna klasa odpowiedzialna za zarzadzanie silnikiem gry 2D.  
+
+
+
+
+{\ttfamily \+\#include $<$Engine.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480}{Engine}} (const \doxymbox{\hyperlink{class_engine}{Engine}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Usuniety konstruktor kopiujacy klasy \doxylink{class_engine}{Engine}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_engine}{Engine}} \& \doxymbox{\hyperlink{class_engine_ae651c399436c108244d2b88f9c7531c1}{operator=}} (const \doxymbox{\hyperlink{class_engine}{Engine}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Usuniety operator przypisania kopiujacego klasy \doxylink{class_engine}{Engine}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_engine_a453c72c01b0f407b41355c469432699b}{Init}} (int width, int height, bool fullscreen, int fps)
+\begin{DoxyCompactList}\small\item\em Inicjalizuje silnik gry i srodowisko graficzne. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_engine_af4c789fb939a0870426c698a5124a0ee}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Uruchamia glowna petle silnika. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_engine_a3dbd2c0a65e642baa7eaa97caa6e4e64}{Shutdown}} ()
+\begin{DoxyCompactList}\small\item\em Konczy prace silnika. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_engine_ad6887c12543cd35279d3716161f6b95a}{Get\+Screen\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca szerokosc okna. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_engine_a9250abc79e4ee730ef8640b06252a7a6}{Get\+Screen\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca wysokosc okna. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{class_engine}{Engine}} \& \doxymbox{\hyperlink{class_engine_a76f04af88db5e19ee29d855ed625f5f2}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Zwraca jedyna instancje klasy \doxylink{class_engine}{Engine}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Glowna klasa odpowiedzialna za zarzadzanie silnikiem gry 2D. 
+
+Klasa odpowiada za inicjalizacje srodowiska graficznego, konfiguracje okna aplikacji, zarzadzanie obiektami, obsluge glownej petli silnika oraz zamykanie aplikacji.
+
+Wykorzystuje klase \doxylink{class_primitive_renderer}{Primitive\+Renderer} do rysowania obiektow w buforze pikseli i wyswietlania jego zawartosci w oknie aplikacji.
+
+Klasa wykorzystuje wzorzec projektowy Singleton, zapewniajac dostep do jednej instancji silnika. 
+
+Definition at line \doxymbox{\hyperlink{_engine_8h_source_l00031}{31}} of file \doxymbox{\hyperlink{_engine_8h_source}{Engine.\+h}}.
+
+
+
+\label{class_engine_doc-constructors}
+\Hypertarget{class_engine_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480}\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily \label{class_engine_ab9ee0ddff1237cf61eb482bfce9ab480} 
+Engine::\+\+Engine (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_engine}{Engine}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Usuniety konstruktor kopiujacy klasy \doxylink{class_engine}{Engine}. 
+
+Uniemozliwia tworzenie kopii obiektu \doxylink{class_engine}{Engine}, zapewniajac zgodnosc ze wzorcem Singleton. 
+
+\label{class_engine_doc-func-members}
+\Hypertarget{class_engine_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_engine_a76f04af88db5e19ee29d855ed625f5f2}\index{Engine@{Engine}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \label{class_engine_a76f04af88db5e19ee29d855ed625f5f2} 
+\doxymbox{\hyperlink{class_engine}{Engine}} \& Engine::\+\+Get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Zwraca jedyna instancje klasy \doxylink{class_engine}{Engine}. 
+
+\begin{DoxyReturn}{Returns}
+Referencja do instancji silnika.
+\end{DoxyReturn}
+Metoda realizuje wzorzec projektowy Singleton. Przy pierwszym wywolaniu tworzy statyczna instancje klasy \doxylink{class_engine}{Engine}, a przy kolejnych zwraca referencje do tego samego obiektu. 
+
+Definition at line \doxymbox{\hyperlink{_engine_8cpp_source_l00025}{25}} of file \doxymbox{\hyperlink{_engine_8cpp_source}{Engine.\+cpp}}.
+
+\Hypertarget{class_engine_a9250abc79e4ee730ef8640b06252a7a6}\index{Engine@{Engine}!GetScreenHeight@{GetScreenHeight}}
+\index{GetScreenHeight@{GetScreenHeight}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{GetScreenHeight()}{GetScreenHeight()}}
+{\footnotesize\ttfamily \label{class_engine_a9250abc79e4ee730ef8640b06252a7a6} 
+int Engine::\+\+Get\+Screen\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca wysokosc okna. 
+
+\begin{DoxyReturn}{Returns}
+Wysokosc okna w pikselach 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_engine_8h_source_l00156}{156}} of file \doxymbox{\hyperlink{_engine_8h_source}{Engine.\+h}}.
+
+\Hypertarget{class_engine_ad6887c12543cd35279d3716161f6b95a}\index{Engine@{Engine}!GetScreenWidth@{GetScreenWidth}}
+\index{GetScreenWidth@{GetScreenWidth}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{GetScreenWidth()}{GetScreenWidth()}}
+{\footnotesize\ttfamily \label{class_engine_ad6887c12543cd35279d3716161f6b95a} 
+int Engine::\+\+Get\+Screen\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca szerokosc okna. 
+
+\begin{DoxyReturn}{Returns}
+Szerokosc okna w pikselach 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_engine_8h_source_l00150}{150}} of file \doxymbox{\hyperlink{_engine_8h_source}{Engine.\+h}}.
+
+\Hypertarget{class_engine_a453c72c01b0f407b41355c469432699b}\index{Engine@{Engine}!Init@{Init}}
+\index{Init@{Init}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_engine_a453c72c01b0f407b41355c469432699b} 
+bool Engine::\+\+Init (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{bool}]{fullscreen}{, }\item[{int}]{fps}{}\end{DoxyParamCaption})}
+
+
+
+Inicjalizuje silnik gry i srodowisko graficzne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Szerokosc okna aplikacji w pikselach. \\
+\hline
+{\em height} & Wysokosc okna aplikacji w pikselach. \\
+\hline
+{\em fullscreen} & Okresla, czy aplikacja ma dzialac w trybie pelnoekranowym. \\
+\hline
+{\em fps} & Docelowa liczba klatek na sekunde.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, jesli inicjalizacja zakonczyla sie powodzeniem, false w przypadku niepowodzenia.
+\end{DoxyReturn}
+Metoda zapisuje ustawienia silnika, konfiguruje parametry okna, inicjalizuje srodowisko graficzne i ustawia docelowa liczbe klatek na sekunde.
+
+Po pomyslnej inicjalizacji ustawia stan silnika jako uruchomiony. 
+
+Definition at line \doxymbox{\hyperlink{_engine_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{_engine_8cpp_source}{Engine.\+cpp}}.
+
+\Hypertarget{class_engine_ae651c399436c108244d2b88f9c7531c1}\index{Engine@{Engine}!operator=@{operator=}}
+\index{operator=@{operator=}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_engine_ae651c399436c108244d2b88f9c7531c1} 
+\doxymbox{\hyperlink{class_engine}{Engine}} \& Engine::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_engine}{Engine}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Usuniety operator przypisania kopiujacego klasy \doxylink{class_engine}{Engine}. 
+
+Uniemozliwia przypisywanie zawartosci jednego obiektu \doxylink{class_engine}{Engine} do drugiego, zapobiegajac kopiowaniu instancji silnika.
+
+Operator zostal usuniety w celu zachowania zalozen wzorca Singleton. \Hypertarget{class_engine_af4c789fb939a0870426c698a5124a0ee}\index{Engine@{Engine}!Run@{Run}}
+\index{Run@{Run}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{class_engine_af4c789fb939a0870426c698a5124a0ee} 
+void Engine::\+\+Run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Uruchamia glowna petle silnika. 
+
+Metoda tworzy renderer, przygotowuje bufor pikseli oraz wykonuje glowna petle aplikacji.
+
+W kazdej iteracji obsluguje zdarzenia wejscia, aktualizuje stan obiektow, wykonuje operacje rysowania i wyswietla zawartosc bufora w oknie.
+
+Petla dziala do momentu zakonczenia pracy silnika lub otrzymania zadania zamkniecia okna.
+
+\begin{DoxyNote}{Note}
+Metode nalezy wywolac po pomyslnej inicjalizacji silnika za pomoca \doxylink{class_engine_a453c72c01b0f407b41355c469432699b}{Init()}. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_engine_8cpp_source_l00121}{121}} of file \doxymbox{\hyperlink{_engine_8cpp_source}{Engine.\+cpp}}.
+
+\Hypertarget{class_engine_a3dbd2c0a65e642baa7eaa97caa6e4e64}\index{Engine@{Engine}!Shutdown@{Shutdown}}
+\index{Shutdown@{Shutdown}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Shutdown()}{Shutdown()}}
+{\footnotesize\ttfamily \label{class_engine_a3dbd2c0a65e642baa7eaa97caa6e4e64} 
+void Engine::\+\+Shutdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Konczy prace silnika. 
+
+Metoda zamyka okno aplikacji i ustawia stan silnika jako nieaktywny, jesli silnik jest aktualnie uruchomiony. 
+
+Definition at line \doxymbox{\hyperlink{_engine_8cpp_source_l00196}{196}} of file \doxymbox{\hyperlink{_engine_8cpp_source}{Engine.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_engine_8h}{Engine.\+h}}\item 
+\doxymbox{\hyperlink{_engine_8cpp}{Engine.\+cpp}}\end{DoxyCompactItemize}

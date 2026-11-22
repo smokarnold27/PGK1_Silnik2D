@@ -9,10 +9,10 @@ LineSegment::LineSegment(float x1, float y1, float x2, float y2, Color color, Li
 
 void LineSegment::Draw(PrimitiveRenderer& renderer) const {
     if (defaultAlgorithm == LineAlgorithm::DDA) {
-        renderer.DrawLine(startPoint, endPoint, color); // Wywołuje Wasz algorytm przyrostowy (DDA)
+        renderer.DrawLine(startPoint, endPoint, color); // Wywołuje algorytm przyrostowy (DDA)
     }
     else {
-        renderer.DrawLineBresenham(startPoint, endPoint, color); // Wywołuje algorytm Bresenhama jako domyślny/alternatywny
+        renderer.DrawLineBresenham(startPoint, endPoint, color); // Wywołuje algorytm Bresenhama
     }
 }
 

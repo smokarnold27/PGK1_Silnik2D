@@ -1,0 +1,345 @@
+\doxysection{Triangle\+Object Class Reference}
+\hypertarget{class_triangle_object}{}\label{class_triangle_object}\index{TriangleObject@{TriangleObject}}
+
+
+Klasa reprezentujaca trojkat w przestrzeni dwuwymiarowej.  
+
+
+
+
+{\ttfamily \+\#include $<$Triangle\+Object.\+h$>$}
+
+Inheritance diagram for Triangle\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_triangle_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_triangle_object_a23cf185de1960bef266e6882f40bea0f}{Triangle\+Object}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p3, Color color=BLACK, bool filled=false)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_triangle_object}{Triangle\+Object}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_a2430be932e0726eb0de580dd359069fd}{Set\+Vertices}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p3)
+\begin{DoxyCompactList}\small\item\em Ustawia wierzcholki trojkata. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_triangle_object_a637b8ecaac1abab1ddf9590249580528}{Get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca kolor trojkata. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_triangle_object}{Triangle\+Object}} \& \doxymbox{\hyperlink{class_triangle_object_a383e6e624325d3feeaa24cb322d49a05}{Set\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Ustawia kolor trojkata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_a57dcfed754c7200e055ca80bbdf7b933}{Draw}} (class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje trojkat za pomoca renderera. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_a3541ee30dee8c3c06400219a1c6a08ce}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa trojkat o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca trojkat wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_a2fd4b16da23a64aef1b716081ba46eb3}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca trojkat wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje trojkat wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_triangle_object_afcac96acce35f8b1a6c04c126f183f06}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje trojkat wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_shape_object}{Shape\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}{\texorpdfstring{$\sim$}{\string~}\+Shape\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca trojkat w przestrzeni dwuwymiarowej. 
+
+Przechowuje trzy wierzcholki trojkata, jego kolor oraz informacje okreslajaca sposob rysowania.
+
+Umozliwia rysowanie konturu lub wypelnionego trojkata, a takze wykonywanie transformacji geometrycznych:\+ translacji, obrotu i skalowania.
+
+Transformacje wykonywane sa na wszystkich trzech wierzcholkach trojkata. 
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8h_source_l00024}{24}} of file \doxymbox{\hyperlink{_triangle_object_8h_source}{Triangle\+Object.\+h}}.
+
+
+
+\label{class_triangle_object_doc-constructors}
+\Hypertarget{class_triangle_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_triangle_object_a23cf185de1960bef266e6882f40bea0f}\index{TriangleObject@{TriangleObject}!TriangleObject@{TriangleObject}}
+\index{TriangleObject@{TriangleObject}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{TriangleObject()}{TriangleObject()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a23cf185de1960bef266e6882f40bea0f} 
+Triangle\+Object::\+\+Triangle\+Object (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p3}{, }\item[{Color}]{color}{ = {\ttfamily BLACK}, }\item[{bool}]{filled}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_triangle_object}{Triangle\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Pierwszy wierzcholek trojkata. \\
+\hline
+{\em p2} & Drugi wierzcholek trojkata. \\
+\hline
+{\em p3} & Trzeci wierzcholek trojkata. \\
+\hline
+{\em color} & Kolor trojkata. \\
+\hline
+{\em filled} & Okresla, czy trojkat ma byc wypelniony.\\
+\hline
+\end{DoxyParams}
+Tworzy trojkat na podstawie trzech podanych wierzcholkow oraz ustawia jego kolor i sposob rysowania. 
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00004}{4}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+
+
+\label{class_triangle_object_doc-func-members}
+\Hypertarget{class_triangle_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_triangle_object_a57dcfed754c7200e055ca80bbdf7b933}\index{TriangleObject@{TriangleObject}!Draw@{Draw}}
+\index{Draw@{Draw}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a57dcfed754c7200e055ca80bbdf7b933} 
+void Triangle\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje trojkat za pomoca renderera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje wypelniony trojkat lub jego kontur w zaleznosci od wartosci pola filled.
+
+Do rysowania wykorzystuje zapisane wierzcholki oraz kolor trojkata. 
+
+Implements \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Drawable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00007}{7}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+\Hypertarget{class_triangle_object_a637b8ecaac1abab1ddf9590249580528}\index{TriangleObject@{TriangleObject}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a637b8ecaac1abab1ddf9590249580528} 
+Color Triangle\+Object::\+\+Get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca kolor trojkata. 
+
+\begin{DoxyReturn}{Returns}
+Aktualny kolor trojkata. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8h_source_l00067}{67}} of file \doxymbox{\hyperlink{_triangle_object_8h_source}{Triangle\+Object.\+h}}.
+
+\Hypertarget{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8}\index{TriangleObject@{TriangleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8} 
+void Triangle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca trojkat wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca wszystkie trzy wierzcholki trojkata wzgledem punktu (0, 0).
+
+Obrot zmienia polozenie i orientacje trojkata, zachowujac jego ksztalt oraz wymiary. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00024}{24}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+\Hypertarget{class_triangle_object_a2fd4b16da23a64aef1b716081ba46eb3}\index{TriangleObject@{TriangleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_triangle_object_a2fd4b16da23a64aef1b716081ba46eb3} 
+void Triangle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca trojkat wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca wszystkie trzy wierzcholki trojkata wzgledem wskazanego punktu odniesienia.
+
+Obrot zmienia polozenie i orientacje trojkata, zachowujac jego ksztalt oraz wymiary. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+\Hypertarget{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d}\index{TriangleObject@{TriangleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d} 
+void Triangle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje trojkat wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wszystkie trzy wierzcholki trojkata wzgledem punktu (0, 0).
+
+Rozne wartosci wspolczynnikow kx i ky umozliwiaja niezalezne skalowanie w obu osiach ukladu wspolrzednych. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00038}{38}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+\Hypertarget{class_triangle_object_afcac96acce35f8b1a6c04c126f183f06}\index{TriangleObject@{TriangleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_triangle_object_afcac96acce35f8b1a6c04c126f183f06} 
+void Triangle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje trojkat wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje wszystkie trzy wierzcholki trojkata wzgledem wskazanego punktu odniesienia.
+
+Rozne wartosci wspolczynnikow kx i ky umozliwiaja niezalezne skalowanie w obu osiach ukladu wspolrzednych.
+
+\begin{DoxyNote}{Note}
+Skalowanie nierownomierne moze zmienic proporcje i ksztalt trojkata. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00045}{45}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+\Hypertarget{class_triangle_object_a383e6e624325d3feeaa24cb322d49a05}\index{TriangleObject@{TriangleObject}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a383e6e624325d3feeaa24cb322d49a05} 
+\doxymbox{\hyperlink{class_triangle_object}{Triangle\+Object}} \& Triangle\+Object::\+\+Set\+Color (\begin{DoxyParamCaption}\item[{Color}]{color}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia kolor trojkata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Nowy kolor trojkata. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencja do biezacego obiektu \doxylink{class_triangle_object}{Triangle\+Object}.
+\end{DoxyReturn}
+Metoda umozliwia lancuchowe wywolywanie metod zwracajacych referencje do obiektu. 
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8h_source_l00078}{78}} of file \doxymbox{\hyperlink{_triangle_object_8h_source}{Triangle\+Object.\+h}}.
+
+\Hypertarget{class_triangle_object_a2430be932e0726eb0de580dd359069fd}\index{TriangleObject@{TriangleObject}!SetVertices@{SetVertices}}
+\index{SetVertices@{SetVertices}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{SetVertices()}{SetVertices()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a2430be932e0726eb0de580dd359069fd} 
+void Triangle\+Object::\+\+Set\+Vertices (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p3}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia wierzcholki trojkata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Nowy pierwszy wierzcholek trojkata. \\
+\hline
+{\em p2} & Nowy drugi wierzcholek trojkata. \\
+\hline
+{\em p3} & Nowy trzeci wierzcholek trojkata.\\
+\hline
+\end{DoxyParams}
+Metoda zastępuje wszystkie trzy wierzcholki trojkata podanymi punktami. 
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8h_source_l00060}{60}} of file \doxymbox{\hyperlink{_triangle_object_8h_source}{Triangle\+Object.\+h}}.
+
+\Hypertarget{class_triangle_object_a3541ee30dee8c3c06400219a1c6a08ce}\index{TriangleObject@{TriangleObject}!Translate@{Translate}}
+\index{Translate@{Translate}!TriangleObject@{TriangleObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_triangle_object_a3541ee30dee8c3c06400219a1c6a08ce} 
+void Triangle\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa trojkat o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda przesuwa wszystkie trzy wierzcholki trojkata o podane wartosci.
+
+Translacja nie zmienia ksztaltu ani wymiarow trojkata. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_triangle_object_8cpp_source_l00017}{17}} of file \doxymbox{\hyperlink{_triangle_object_8cpp_source}{Triangle\+Object.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_triangle_object_8h}{Triangle\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_triangle_object_8cpp}{Triangle\+Object.\+cpp}}\end{DoxyCompactItemize}

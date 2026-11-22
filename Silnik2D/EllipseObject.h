@@ -1,5 +1,5 @@
 /**
-* @filename EllipseObject.h
+* @file EllipseObject.h
 * @brief Definicja klasy obiektu elipsy
 */
 

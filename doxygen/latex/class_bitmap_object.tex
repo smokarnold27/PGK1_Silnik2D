@@ -1,0 +1,465 @@
+\doxysection{Bitmap\+Object Class Reference}
+\hypertarget{class_bitmap_object}{}\label{class_bitmap_object}\index{BitmapObject@{BitmapObject}}
+
+
+Klasa dzieki ktorej mozna wyswietlac bitmapy w oknie.  
+
+
+
+
+{\ttfamily \+\#include $<$Bitmap\+Object.\+h$>$}
+
+Inheritance diagram for Bitmap\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_bitmap_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bitmap_object_a7b5c4715717d7d4ee3f4d109e77928f6}{Bitmap\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_bitmap_object_ab6f7f1ac2de0e711bd3f4d46fb5288a0}{\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Object}} ()=default
+\item 
+virtual bool \doxymbox{\hyperlink{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8}{Add\+Bitmap}} (const char \texorpdfstring{$\ast$}{*}filename, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&offset=\doxymbox{\hyperlink{class_point2_d}{Point2D}}())
+\begin{DoxyCompactList}\small\item\em Dodaje nowa bitmape do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}{Remove\+Bitmap}} (int index)
+\begin{DoxyCompactList}\small\item\em Usuwa bitmape o podanym indeksie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}{Clear\+Bitmaps}} ()
+\begin{DoxyCompactList}\small\item\em Usuwa wszystkie bitmapy nalezace do obiektu. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{Get\+Bitmap\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca liczbe bitmap nalezacych do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{Draw}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje wszystkie bitmapy nalezace do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa obiekt o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{Transform\+Point}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&point) const
+\begin{DoxyCompactList}\small\item\em Przeksztalca punkt z lokalnego ukladu wspolrzednych bitmapy. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{Draw\+Part}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer, const \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} \&part, const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&source) const
+\begin{DoxyCompactList}\small\item\em Rysuje pojedyncza bitmape nalezaca do obiektu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} $>$ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}} \{ 0.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}} \{ 1.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}} \{ 0.\+0f, 1.\+0f \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa dzieki ktorej mozna wyswietlac bitmapy w oknie. 
+
+Klasa dziedziczy po \doxylink{class_drawable_object}{Drawable\+Object} i po \doxylink{class_transformable_object}{Transformable\+Object}, aby mozna bylo wyswietlic mape na ekranie, i ja transformowac 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8h_source_l00022}{22}} of file \doxymbox{\hyperlink{_bitmap_object_8h_source}{Bitmap\+Object.\+h}}.
+
+
+
+\label{class_bitmap_object_doc-constructors}
+\Hypertarget{class_bitmap_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bitmap_object_a7b5c4715717d7d4ee3f4d109e77928f6}\index{BitmapObject@{BitmapObject}!BitmapObject@{BitmapObject}}
+\index{BitmapObject@{BitmapObject}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{BitmapObject()}{BitmapObject()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a7b5c4715717d7d4ee3f4d109e77928f6} 
+Bitmap\+Object::\+\+Bitmap\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Konstruktor domyslny. 
+
+\Hypertarget{class_bitmap_object_ab6f7f1ac2de0e711bd3f4d46fb5288a0}\index{BitmapObject@{BitmapObject}!````~BitmapObject@{\texorpdfstring{$\sim$}{\string~}BitmapObject}}
+\index{````~BitmapObject@{\texorpdfstring{$\sim$}{\string~}BitmapObject}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BitmapObject()}{\string~BitmapObject()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_ab6f7f1ac2de0e711bd3f4d46fb5288a0} 
+virtual Bitmap\+Object::\+\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{class_bitmap_object_doc-func-members}
+\Hypertarget{class_bitmap_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8}\index{BitmapObject@{BitmapObject}!AddBitmap@{AddBitmap}}
+\index{AddBitmap@{AddBitmap}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{AddBitmap()}{AddBitmap()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a6459f7933d456e525c8f74df34dad1a8} 
+bool Bitmap\+Object::\+\+Add\+Bitmap (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{offset}{ = {\ttfamily \doxymbox{\hyperlink{class_point2_d}{Point2D}}()}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Dodaje nowa bitmape do obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Sciezka do pliku zawierajacego bitmape. \\
+\hline
+{\em offset} & Punkt okreslajacy lokalne przesuniecie bitmapy wzgledem poczatku ukladu wspolrzednych obiektu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, jesli bitmape udalo sie wczytac i dodac, false w przeciwnym przypadku.
+\end{DoxyReturn}
+Metoda wczytuje bitmape z podanego pliku, przypisuje jej lokalne przesuniecie, a nastepnie dodaje ja do listy bitmap nalezacych do obiektu. 
+
+Reimplemented in \doxymbox{\hyperlink{class_sprite_object_aaee29c9742fbecda04705950e8b678c8}{Sprite\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00004}{4}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}\index{BitmapObject@{BitmapObject}!ClearBitmaps@{ClearBitmaps}}
+\index{ClearBitmaps@{ClearBitmaps}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{ClearBitmaps()}{ClearBitmaps()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107} 
+void Bitmap\+Object::\+\+Clear\+Bitmaps (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Usuwa wszystkie bitmapy nalezace do obiektu. 
+
+Metoda czysci liste bitmap przechowywanych w obiekcie, zwalniajac zasoby nalezace do usuwanych elementow. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}\index{BitmapObject@{BitmapObject}!Draw@{Draw}}
+\index{Draw@{Draw}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28} 
+void Bitmap\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje wszystkie bitmapy nalezace do obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda przechodzi przez wszystkie bitmapy przechowywane w obiekcie i rysuje kazda z nich z uwzglednieniem jej lokalnego przesuniecia oraz transformacji calego obiektu. 
+
+Implements \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Drawable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_a92473c25d8b3ffefcd0005c206a468aa}{Player}}, and \doxymbox{\hyperlink{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa}{Sprite\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00059}{59}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}\index{BitmapObject@{BitmapObject}!DrawPart@{DrawPart}}
+\index{DrawPart@{DrawPart}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{DrawPart()}{DrawPart()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe} 
+void Bitmap\+Object::\+\+Draw\+Part (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{, }\item[{const \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} \&}]{part}{, }\item[{const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&}]{source}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Rysuje pojedyncza bitmape nalezaca do obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie. \\
+\hline
+{\em part} & Czesc obiektu zawierajaca bitmape i jej lokalne przesuniecie. \\
+\hline
+{\em source} & Prostokat okreslajacy fragment bitmapy przeznaczony do narysowania.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza trzy narozniki obszaru rysowania na podstawie przesuniecia bitmapy i wymiarow wybranego fragmentu. Nastepnie przeksztalca ich wspolrzedne zgodnie z aktualna transformacja obiektu i przekazuje dane do renderera. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00047}{47}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}\index{BitmapObject@{BitmapObject}!GetBitmapCount@{GetBitmapCount}}
+\index{GetBitmapCount@{GetBitmapCount}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{GetBitmapCount()}{GetBitmapCount()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531} 
+int Bitmap\+Object::\+\+Get\+Bitmap\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca liczbe bitmap nalezacych do obiektu. 
+
+\begin{DoxyReturn}{Returns}
+Liczba bitmap aktualnie przechowywanych w obiekcie. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}\index{BitmapObject@{BitmapObject}!RemoveBitmap@{RemoveBitmap}}
+\index{RemoveBitmap@{RemoveBitmap}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{RemoveBitmap()}{RemoveBitmap()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9} 
+void Bitmap\+Object::\+\+Remove\+Bitmap (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Usuwa bitmape o podanym indeksie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Indeks bitmapy, ktora chcemy usunac.\\
+\hline
+\end{DoxyParams}
+Metoda usuwa wskazana bitmape z listy bitmap obiektu. Jesli podany indeks jest niepoprawny, nie wykonuje zadnej operacji. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00018}{18}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}\index{BitmapObject@{BitmapObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2} 
+void Bitmap\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca obiekt wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca pozycje obiektu oraz punkty okreslajace jego osie wzgledem punktu (0, 0). Obrot dotyczy wszystkich bitmap nalezacych do obiektu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Transformable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}{Player}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00076}{76}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}\index{BitmapObject@{BitmapObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22} 
+void Bitmap\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca obiekt wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonujemy obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca pozycje obiektu oraz punkty okreslajace jego osie wzgledem wskazanego punktu. Obrot dotyczy wszystkich bitmap nalezacych do obiektu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Transformable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_ae3cfb1617899e328abc43d405403304a}{Player}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00083}{83}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}\index{BitmapObject@{BitmapObject}!Scale@{Scale}}
+\index{Scale@{Scale}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c} 
+void Bitmap\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje pozycje obiektu oraz punkty okreslajace jego osie wzgledem punktu (0, 0). Skalowanie dotyczy wszystkich bitmap nalezacych do obiektu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Transformable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_afb64bccc8bc8431f480dad08c372d49f}{Player}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00090}{90}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}\index{BitmapObject@{BitmapObject}!Scale@{Scale}}
+\index{Scale@{Scale}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49} 
+void Bitmap\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje obiekt wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonujemy skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje pozycje obiektu oraz punkty okreslajace jego osie wzgledem wskazanego punktu. Skalowanie dotyczy wszystkich bitmap nalezacych do obiektu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Transformable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_a690768021ec3fa924ca75f860d62aa21}{Player}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00097}{97}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}\index{BitmapObject@{BitmapObject}!TransformPoint@{TransformPoint}}
+\index{TransformPoint@{TransformPoint}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{TransformPoint()}{TransformPoint()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Bitmap\+Object::\+\+Transform\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{point}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Przeksztalca punkt z lokalnego ukladu wspolrzednych bitmapy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Punkt, ktorego wspolrzedne chcemy przeksztalcic. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Punkt o wspolrzednych po wykonaniu transformacji.
+\end{DoxyReturn}
+Metoda oblicza nowe wspolrzedne punktu na podstawie pozycji bitmapy oraz kierunkow i dlugosci jej osi. Uwzglednia wczesniej wykonane przesuniecia, obroty i skalowania obiektu. 
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00036}{36}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+\Hypertarget{class_bitmap_object_abf7fb777288490974887085866b71dd2}\index{BitmapObject@{BitmapObject}!Translate@{Translate}}
+\index{Translate@{Translate}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_bitmap_object_abf7fb777288490974887085866b71dd2} 
+void Bitmap\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa obiekt o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda przesuwa poczatek ukladu wspolrzednych obiektu oraz punkty okreslajace kierunki jego osi. Przesuniecie dotyczy wszystkich bitmap nalezacych do obiektu. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Transformable\+Object}}.
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_player_a497754ed8281649d066da3e7b4b4f1fd}{Player}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8cpp_source_l00069}{69}} of file \doxymbox{\hyperlink{_bitmap_object_8cpp_source}{Bitmap\+Object.\+cpp}}.
+
+
+
+\label{class_bitmap_object_doc-variable-members}
+\Hypertarget{class_bitmap_object_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}\index{BitmapObject@{BitmapObject}!axisX@{axisX}}
+\index{axisX@{axisX}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{axisX}{axisX}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Bitmap\+Object::\+axisX \{ 1.\+0f, 0.\+0f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8h_source_l00034}{34}} of file \doxymbox{\hyperlink{_bitmap_object_8h_source}{Bitmap\+Object.\+h}}.
+
+\Hypertarget{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}\index{BitmapObject@{BitmapObject}!axisY@{axisY}}
+\index{axisY@{axisY}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{axisY}{axisY}}
+{\footnotesize\ttfamily \label{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Bitmap\+Object::\+axisY \{ 0.\+0f, 1.\+0f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8h_source_l00035}{35}} of file \doxymbox{\hyperlink{_bitmap_object_8h_source}{Bitmap\+Object.\+h}}.
+
+\Hypertarget{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}\index{BitmapObject@{BitmapObject}!bitmaps@{bitmaps}}
+\index{bitmaps@{bitmaps}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{bitmaps}{bitmaps}}
+{\footnotesize\ttfamily \label{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5} 
+std::\+vector$<$\doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}}$>$ Bitmap\+Object::\+bitmaps\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8h_source_l00031}{31}} of file \doxymbox{\hyperlink{_bitmap_object_8h_source}{Bitmap\+Object.\+h}}.
+
+\Hypertarget{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}\index{BitmapObject@{BitmapObject}!position@{position}}
+\index{position@{position}!BitmapObject@{BitmapObject}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Bitmap\+Object::\+position \{ 0.\+0f, 0.\+0f \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{_bitmap_object_8h_source_l00033}{33}} of file \doxymbox{\hyperlink{_bitmap_object_8h_source}{Bitmap\+Object.\+h}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_bitmap_object_8h}{Bitmap\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_bitmap_object_8cpp}{Bitmap\+Object.\+cpp}}\end{DoxyCompactItemize}

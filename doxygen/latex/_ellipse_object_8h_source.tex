@@ -1,0 +1,44 @@
+\doxysection{Ellipse\+Object.\+h}
+\hypertarget{_ellipse_object_8h_source}{}\label{_ellipse_object_8h_source}\doxymbox{\hyperlink{_ellipse_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00019}\doxymbox{\hyperlink{class_ellipse_object}{00019}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_ellipse_object_af64e060771d3272b31c130227dcb9238}{EllipseObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00021}00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00022}00022\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ center;}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{int}\ radiusX;}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{int}\ radiusY;}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00025}00025\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ filled;}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00041}00041\ \ \ \ \ \doxymbox{\hyperlink{class_ellipse_object_af64e060771d3272b31c130227dcb9238}{EllipseObject}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radiusX,\ \textcolor{keywordtype}{int}\ radiusY,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{bool}\ filled\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00047}\doxymbox{\hyperlink{class_ellipse_object_a56fd0effe8213d9604fd0f0c7b72fd7b}{00047}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_ellipse_object_a56fd0effe8213d9604fd0f0c7b72fd7b}{GetCenter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ center;\ \}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00053}\doxymbox{\hyperlink{class_ellipse_object_a03e8dee74735581b4986d964616b0c6a}{00053}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a03e8dee74735581b4986d964616b0c6a}{SetCenter}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center)\ \{\ this-\/>center\ =\ center;\ \}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00059}\doxymbox{\hyperlink{class_ellipse_object_a70570ce4cd66d1bea6687a9e0ed6040d}{00059}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_ellipse_object_a70570ce4cd66d1bea6687a9e0ed6040d}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00066}\doxymbox{\hyperlink{class_ellipse_object_a10a40fd2a6d4fe8aaf5322c0ea899059}{00066}}\ \ \ \ \ \doxymbox{\hyperlink{class_ellipse_object_af64e060771d3272b31c130227dcb9238}{EllipseObject}}\&\ \doxymbox{\hyperlink{class_ellipse_object_a10a40fd2a6d4fe8aaf5322c0ea899059}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a94f2b76382cbb9d1b6d0509f7c72c997}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a0dbd5e343ccdb76c5bcb9e878ba0d61a}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a8bf4483425ccc3c31a57b8a8ebcf473d}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a8bf4483425ccc3c31a57b8a8ebcf473d}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a2f7972a76b4b3a65b363a3ed8e16ccc4}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_ellipse_object_a2f7972a76b4b3a65b363a3ed8e16ccc4}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_ellipse_object_8h_source_l00138}00138\ \};}
+
+\end{DoxyCode}

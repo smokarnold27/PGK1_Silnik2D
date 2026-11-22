@@ -1,0 +1,45 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\doxymbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sprite_object_8h}{SpriteObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_updatable_object_8h}{UpdatableObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00028}\doxymbox{\hyperlink{class_player}{00028}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_player_a9556cf97cfd84cb1d5a26964b9fbe51e}{Player}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_sprite_object_ac6e9a6c6a048d3c41044a99e550cc1b0}{SpriteObject}},\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_updatable_object}{UpdatableObject}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00030}00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00031}00031\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ pos;\ \textcolor{comment}{//POZYCJA\ GRACZA}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;\ \textcolor{comment}{//PREDKOSC/O\ ILE\ PIKSELI\ GRACZ\ PRZESUWA\ SIE\ PRZY\ POJEDYNCZYM\ RUCHU}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{int}\ size;\ \textcolor{comment}{//ROZMIAR\ GRACZA}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00034}00034\ \ \ \ \ Color\ color;\ \textcolor{comment}{//KOLOR\ GRACZA}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ kierunek\ =\ 0;\ \textcolor{comment}{//\ 0-\/przod,\ 1-\/tyl,\ 2-\/prawo,\ 3-\/lewo}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00037}00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00053}00053\ \ \ \ \ \doxymbox{\hyperlink{class_player_a9556cf97cfd84cb1d5a26964b9fbe51e}{Player}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ pos,\ \textcolor{keywordtype}{int}\ size,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{int}\ speed\ =\ 2);}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00059}\doxymbox{\hyperlink{class_player_a7cb3464facd7f4ad06f0f8e729bd8068}{00059}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_player_a7cb3464facd7f4ad06f0f8e729bd8068}{GetPosition}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pos;\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00065}\doxymbox{\hyperlink{class_player_a0aaa845c6bda1c72f245ddda57c39144}{00065}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a0aaa845c6bda1c72f245ddda57c39144}{SetPosition}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ pos)\ \{\ this-\/>pos\ =\ pos;\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a92473c25d8b3ffefcd0005c206a468aa}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a20bfb1cb738f6b00f589207ce460491e}{Update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a497754ed8281649d066da3e7b4b4f1fd}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00129}00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_afb64bccc8bc8431f480dad08c372d49f}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_player_afb64bccc8bc8431f480dad08c372d49f}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00165}00165\ \};}
+
+\end{DoxyCode}

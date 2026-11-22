@@ -1,0 +1,416 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Klasa reprezentujaca sterowany obiekt gracza.  
+
+
+
+
+{\ttfamily \+\#include $<$Player.\+h$>$}
+
+Inheritance diagram for Player:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_player_a9556cf97cfd84cb1d5a26964b9fbe51e}{Player}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&pos, int size, Color color=BLACK, int speed=2)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_player}{Player}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_player_a7cb3464facd7f4ad06f0f8e729bd8068}{Get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Zwrot pozycji gracza. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a0aaa845c6bda1c72f245ddda57c39144}{Set\+Position}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&pos)
+\begin{DoxyCompactList}\small\item\em Ustawienie nowej pozycji gracza. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a92473c25d8b3ffefcd0005c206a468aa}{Draw}} (class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje aktualny stan graficzny gracza. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a20bfb1cb738f6b00f589207ce460491e}{Update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Aktualizuje stan gracza. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a497754ed8281649d066da3e7b4b4f1fd}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa gracza o podany wektor ruchu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca gracza wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_ae3cfb1617899e328abc43d405403304a}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca gracza wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_afb64bccc8bc8431f480dad08c372d49f}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje gracza wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_player_a690768021ec3fa924ca75f860d62aa21}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje gracza wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_sprite_object}{Sprite\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_sprite_object_ac6e9a6c6a048d3c41044a99e550cc1b0}{Sprite\+Object}} (int frames, float fps=10.\+0f)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_sprite_object}{Sprite\+Object}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_sprite_object_aaee29c9742fbecda04705950e8b678c8}{Add\+Bitmap}} (const char \texorpdfstring{$\ast$}{*}filename, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&offset=\doxymbox{\hyperlink{class_point2_d}{Point2D}}()) override
+\begin{DoxyCompactList}\small\item\em Dodaje arkusz sprite\textquotesingle{}ow do obiektu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a72bb1ca4d04b3dd10742c982629e5947}{animate}} () override
+\begin{DoxyCompactList}\small\item\em Aktualizuje biezaca klatke animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa}{Draw}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje aktualna klatke animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a819f5360d9c8f9ba84e94445885d12dc}{Play}} ()
+\begin{DoxyCompactList}\small\item\em Rozpoczyna lub wznawia odtwarzanie animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_af234c687b03b92b4b888ef470d85d9f0}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Wstrzymuje odtwarzanie animacji. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_a85fd935bc041dd0370d3f2560eb07f27}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Zatrzymuje i resetuje animacje. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_sprite_object_ab13226ee6925e9fc0ea910cab5229ce4}{Set\+FPS}} (float fps)
+\begin{DoxyCompactList}\small\item\em Ustawia predkosc odtwarzania animacji. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_sprite_object_a326d77e3f5384ccd8bad5a39f24c4ee1}{Get\+Current\+Frame}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca indeks aktualnej klatki animacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bitmap_object_a7b5c4715717d7d4ee3f4d109e77928f6}{Bitmap\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Konstruktor domyslny. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{class_bitmap_object_ab6f7f1ac2de0e711bd3f4d46fb5288a0}{\texorpdfstring{$\sim$}{\string~}\+Bitmap\+Object}} ()=default
+\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a5fb57f77e139115313c702c3f01d63f9}{Remove\+Bitmap}} (int index)
+\begin{DoxyCompactList}\small\item\em Usuwa bitmape o podanym indeksie. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a627f4ff340c8e76dd95ef81181f7e107}{Clear\+Bitmaps}} ()
+\begin{DoxyCompactList}\small\item\em Usuwa wszystkie bitmapy nalezace do obiektu. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bitmap_object_a7df99f463213e8f9fdc7f738f60b8531}{Get\+Bitmap\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca liczbe bitmap nalezacych do obiektu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_animated_object}{Animated\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_animated_object_a3a1b6fd48793c49bb56804e5f5a5742d}{\texorpdfstring{$\sim$}{\string~}\+Animated\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor sluzacy do zwalniania pamieci klas pochodnych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_updatable_object}{Updatable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_updatable_object_a7982a3fec9fd4d8dda9879ea7161dd74}{\texorpdfstring{$\sim$}{\string~}\+Updatable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_updatable_object}{Updatable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a40f3337c1174e5a55bce484e194eeecc}{Transform\+Point}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&point) const
+\begin{DoxyCompactList}\small\item\em Przeksztalca punkt z lokalnego ukladu wspolrzednych bitmapy. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{Draw\+Part}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer, const \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} \&part, const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&source) const
+\begin{DoxyCompactList}\small\item\em Rysuje pojedyncza bitmape nalezaca do obiektu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_sprite_object}{Sprite\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{class_sprite_object_a5a8afb5a63d6da0110d3f8090b2da771}{frame\+Count}}
+\item 
+int \doxymbox{\hyperlink{class_sprite_object_a1e2a763ef8dd9c300b1c5dd3fe67ad67}{current\+Frame}} = 0
+\item 
+float \doxymbox{\hyperlink{class_sprite_object_ab1c250044b966f88dc266aa1926d5631}{frame\+Duration}}
+\item 
+float \doxymbox{\hyperlink{class_sprite_object_a609db716b2e889f14c7a1b5a4d18da2a}{elapsed\+Time}} = 0.\+0f
+\item 
+bool \doxymbox{\hyperlink{class_sprite_object_a5ba09347d29769a1ee566cfd45c6bb16}{playing}} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_bitmap_object}{Bitmap\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{struct_bitmap_object_1_1_bitmap_part}{Bitmap\+Part}} $>$ \doxymbox{\hyperlink{class_bitmap_object_ab9f618aae3241d2b998ce8aba156ecb5}{bitmaps}}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a4e02f1c879e11b04b4820c7e240ac0a5}{position}} \{ 0.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_a386618b35369b3fc9c8bd9aa14dd81f8}{axisX}} \{ 1.\+0f, 0.\+0f \}
+\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_bitmap_object_adc04799a0d2314ee1f8a64bf2734d672}{axisY}} \{ 0.\+0f, 1.\+0f \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca sterowany obiekt gracza. 
+
+Klasa umozliwia obsluge ruchu gracza na podstawie wejscia z klawiatury, aktualizacje jego stanu oraz rysowanie z wykorzystaniem animowanych sprite\textquotesingle{}ow.
+
+Obiekt przechowuje informacje o pozycji, rozmiarze, kolorze i predkosci poruszania sie.
+
+Klasa wykorzystuje mechanizmy klasy \doxylink{class_sprite_object}{Sprite\+Object} do zarzadzania animacja oraz klasy \doxylink{class_bitmap_object}{Bitmap\+Object} do wykonywania transformacji geometrycznych. 
+
+Definition at line \doxymbox{\hyperlink{_player_8h_source_l00028}{28}} of file \doxymbox{\hyperlink{_player_8h_source}{Player.\+h}}.
+
+
+
+\label{class_player_doc-constructors}
+\Hypertarget{class_player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_a9556cf97cfd84cb1d5a26964b9fbe51e}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_player_a9556cf97cfd84cb1d5a26964b9fbe51e} 
+Player::\+\+Player (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{pos}{, }\item[{int}]{size}{, }\item[{Color}]{color}{ = {\ttfamily BLACK}, }\item[{int}]{speed}{ = {\ttfamily 2}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_player}{Player}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Poczatkowa pozycja gracza. \\
+\hline
+{\em size} & Rozmiar gracza wykorzystywany przy rysowaniu zastepczym. \\
+\hline
+{\em color} & Kolor gracza wykorzystywany przy rysowaniu zastepczym. \\
+\hline
+{\em speed} & Predkosc poruszania sie gracza.\\
+\hline
+\end{DoxyParams}
+Konstruktor inicjalizuje podstawowe wlasciwosci gracza, konfiguruje animacje sprite\textquotesingle{}ow oraz wczytuje bitmapy odpowiadajace poszczegolnym kierunkom ruchu.
+
+Ustawia rowniez poczatkowa pozycje i skale obiektu graficznego. 
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00005}{5}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+
+
+\label{class_player_doc-func-members}
+\Hypertarget{class_player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a92473c25d8b3ffefcd0005c206a468aa}\index{Player@{Player}!Draw@{Draw}}
+\index{Draw@{Draw}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_player_a92473c25d8b3ffefcd0005c206a468aa} 
+void Player::\+\+Draw (\begin{DoxyParamCaption}\item[{class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje aktualny stan graficzny gracza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda wybiera bitmapy na podstawie aktualnego kierunku ruchu oraz wyznacza fragment odpowiadajacy biezacej klatce animacji.
+
+Wybrany fragment bitmapy jest rysowany za pomoca metody \doxylink{class_bitmap_object_a75daa1f1a51d3dd71a15e219dc867dfe}{Draw\+Part()}.
+
+Jesli indeks kierunku nie wskazuje dostepnej bitmapy, gracz jest rysowany jako wypelniony prostokat. 
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00019}{19}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a7cb3464facd7f4ad06f0f8e729bd8068}\index{Player@{Player}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \label{class_player_a7cb3464facd7f4ad06f0f8e729bd8068} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Player::\+\+Get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwrot pozycji gracza. 
+
+\begin{DoxyReturn}{Returns}
+Punkt2D w ktorym znajduje sie gracz 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_player_8h_source_l00059}{59}} of file \doxymbox{\hyperlink{_player_8h_source}{Player.\+h}}.
+
+\Hypertarget{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}\index{Player@{Player}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_player_a4ddbcea887014ccb92f7d31a4868a6f0} 
+void Player::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca gracza wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca pozycje gracza oraz powiazany obiekt graficzny wzgledem punktu (0, 0). 
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00073}{73}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_ae3cfb1617899e328abc43d405403304a}\index{Player@{Player}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_player_ae3cfb1617899e328abc43d405403304a} 
+void Player::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca gracza wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca pozycje gracza oraz powiazany obiekt graficzny wzgledem wskazanego punktu. 
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00079}{79}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_afb64bccc8bc8431f480dad08c372d49f}\index{Player@{Player}!Scale@{Scale}}
+\index{Scale@{Scale}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_player_afb64bccc8bc8431f480dad08c372d49f} 
+void Player::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje gracza wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje pozycje gracza oraz powiazany obiekt graficzny wzgledem punktu (0, 0).
+
+Dodatkowo zmienia rozmiar wykorzystywany przy rysowaniu zastepczym na podstawie wartosci bezwzglednej wspolczynnika kx.
+
+\begin{DoxyNote}{Note}
+Wspolczynnik ky nie wplywa na pole size. 
+\end{DoxyNote}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00085}{85}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a690768021ec3fa924ca75f860d62aa21}\index{Player@{Player}!Scale@{Scale}}
+\index{Scale@{Scale}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_player_a690768021ec3fa924ca75f860d62aa21} 
+void Player::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje gracza wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda skaluje pozycje gracza oraz powiazany obiekt graficzny wzgledem wskazanego punktu.
+
+Dodatkowo zmienia rozmiar wykorzystywany przy rysowaniu zastepczym na podstawie wartosci bezwzglednej wspolczynnika kx.
+
+\begin{DoxyNote}{Note}
+Wspolczynnik ky nie wplywa na pole size. 
+\end{DoxyNote}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00092}{92}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a0aaa845c6bda1c72f245ddda57c39144}\index{Player@{Player}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily \label{class_player_a0aaa845c6bda1c72f245ddda57c39144} 
+void Player::\+\+Set\+Position (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawienie nowej pozycji gracza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Punkt zawierajacy wspolrzedne nowej pozycji \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_player_8h_source_l00065}{65}} of file \doxymbox{\hyperlink{_player_8h_source}{Player.\+h}}.
+
+\Hypertarget{class_player_a497754ed8281649d066da3e7b4b4f1fd}\index{Player@{Player}!Translate@{Translate}}
+\index{Translate@{Translate}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_player_a497754ed8281649d066da3e7b4b4f1fd} 
+void Player::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa gracza o podany wektor ruchu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Skladowa przesuniecia w osi X. \\
+\hline
+{\em ty} & Skladowa przesuniecia w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda mnozy podane wartosci przez predkosc gracza, a nastepnie aktualizuje jego pozycje oraz polozenie powiazanego obiektu graficznego. 
+
+Reimplemented from \doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{Bitmap\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00067}{67}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+\Hypertarget{class_player_a20bfb1cb738f6b00f589207ce460491e}\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_player_a20bfb1cb738f6b00f589207ce460491e} 
+void Player::\+\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Aktualizuje stan gracza. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Czas, ktory uplynal od poprzedniej klatki.\\
+\hline
+\end{DoxyParams}
+Metoda sprawdza stan klawiszy sterujacych, aktualizuje polozenie i kierunek ruchu gracza oraz zarzadza odtwarzaniem animacji.
+
+Podczas ruchu uruchamia animacje i aktualizuje jej klatke. W przypadku braku ruchu zatrzymuje animacje. 
+
+Implements \doxymbox{\hyperlink{class_updatable_object_ae13f789087044ce65835a495c0dabd9b}{Updatable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_player_8cpp_source_l00033}{33}} of file \doxymbox{\hyperlink{_player_8cpp_source}{Player.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+\doxymbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

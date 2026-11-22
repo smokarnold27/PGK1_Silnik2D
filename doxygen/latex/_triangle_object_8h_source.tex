@@ -1,0 +1,42 @@
+\doxysection{Triangle\+Object.\+h}
+\hypertarget{_triangle_object_8h_source}{}\label{_triangle_object_8h_source}\doxymbox{\hyperlink{_triangle_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00005}00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00024}\doxymbox{\hyperlink{class_triangle_object}{00024}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_triangle_object_a23cf185de1960bef266e6882f40bea0f}{TriangleObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00026}00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00027}00027\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p1;}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00028}00028\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p2;}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00029}00029\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p3;}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00030}00030\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ filled;}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00033}00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00048}00048\ \ \ \ \ \doxymbox{\hyperlink{class_triangle_object_a23cf185de1960bef266e6882f40bea0f}{TriangleObject}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p3,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{bool}\ filled\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00060}\doxymbox{\hyperlink{class_triangle_object_a2430be932e0726eb0de580dd359069fd}{00060}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_a2430be932e0726eb0de580dd359069fd}{SetVertices}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p3)\ \{\ this-\/>p1\ =\ p1;\ this-\/>p2\ =\ p2;\ this-\/>p3\ =\ p3;\ \}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00067}\doxymbox{\hyperlink{class_triangle_object_a637b8ecaac1abab1ddf9590249580528}{00067}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_triangle_object_a637b8ecaac1abab1ddf9590249580528}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00078}\doxymbox{\hyperlink{class_triangle_object_a383e6e624325d3feeaa24cb322d49a05}{00078}}\ \ \ \ \ \doxymbox{\hyperlink{class_triangle_object_a23cf185de1960bef266e6882f40bea0f}{TriangleObject}}\&\ \doxymbox{\hyperlink{class_triangle_object_a383e6e624325d3feeaa24cb322d49a05}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_a57dcfed754c7200e055ca80bbdf7b933}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_a3541ee30dee8c3c06400219a1c6a08ce}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_triangle_object_8h_source_l00165}00165\ \};}
+
+\end{DoxyCode}

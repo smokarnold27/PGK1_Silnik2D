@@ -1,0 +1,403 @@
+\doxysection{Rectangle\+Object Class Reference}
+\hypertarget{class_rectangle_object}{}\label{class_rectangle_object}\index{RectangleObject@{RectangleObject}}
+
+
+Klasa reprezentujaca prostokat w przestrzeni dwuwymiarowej.  
+
+
+
+
+{\ttfamily \+\#include $<$Rectangle\+Object.\+h$>$}
+
+Inheritance diagram for Rectangle\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_rectangle_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45}{Rectangle\+Object}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&top\+Left, float width, float height, Color color=BLACK, bool filled=false)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_rectangle_object}{Rectangle\+Object}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} \doxymbox{\hyperlink{class_rectangle_object_a2969af7fd1f1786857064a8c65621175}{Get\+Top\+Left}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca punkt odniesienia prostokata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_a33ee8070cd80858c3231d1b4eb5c96d0}{Set\+Top\+Left}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p)
+\begin{DoxyCompactList}\small\item\em Ustawia punkt odniesienia prostokata. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_rectangle_object_ad64c366c0250038b29a1fcf45e9ec7fa}{Get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca kolor prostokata. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \& \doxymbox{\hyperlink{class_rectangle_object_a16bd845af34be39ef76026b221dce4cc}{Set\+Color}} (Color color)
+\begin{DoxyCompactList}\small\item\em Ustawia kolor prostokata. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}{Get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca szerokosc prostokata. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}{Get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca wysokosc prostokata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_a2ff4f0fd5a3f49eee38e0b811cb4204f}{Draw}} (class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const override
+\begin{DoxyCompactList}\small\item\em Rysuje prostokat za pomoca renderera. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_ae39908f6837f3a57a3119fb0d8123179}{Translate}} (float tx, float ty) override
+\begin{DoxyCompactList}\small\item\em Przesuwa prostokat o podany wektor. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623}{Rotate}} (float angle) override
+\begin{DoxyCompactList}\small\item\em Obraca punkt odniesienia prostokata wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_aeb1ea667aae8e3ebdd59d66818727950}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Obraca punkt odniesienia prostokata wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d}{Scale}} (float kx, float ky) override
+\begin{DoxyCompactList}\small\item\em Skaluje prostokat wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_rectangle_object_ae0c0213838dc58d0e13e68f6e10dfb78}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin) override
+\begin{DoxyCompactList}\small\item\em Skaluje prostokat wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_shape_object}{Shape\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_shape_object_aafbe439ad5f1700206a6734fa7a719f2}{\texorpdfstring{$\sim$}{\string~}\+Shape\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_shape_object}{Shape\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_drawable_object}{Drawable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_transformable_object}{Transformable\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentujaca prostokat w przestrzeni dwuwymiarowej. 
+
+Przechowuje punkt odniesienia prostokata, jego szerokosc, wysokosc, kolor oraz informacje o wypelnieniu.
+
+Umozliwia rysowanie prostokata wypelnionego lub jego konturu, a takze wykonywanie transformacji geometrycznych.
+
+Boki prostokata pozostaja rownolegle do osi ukladu wspolrzednych.
+
+\begin{DoxyNote}{Note}
+Obracanie prostokata zmienia polozenie jego punktu odniesienia, ale nie orientacje bokow. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00026}{26}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+
+
+\label{class_rectangle_object_doc-constructors}
+\Hypertarget{class_rectangle_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45}\index{RectangleObject@{RectangleObject}!RectangleObject@{RectangleObject}}
+\index{RectangleObject@{RectangleObject}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{RectangleObject()}{RectangleObject()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_ab069b9f7f42399b512583e89ed4ebf45} 
+Rectangle\+Object::\+\+Rectangle\+Object (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{top\+Left}{, }\item[{float}]{width}{, }\item[{float}]{height}{, }\item[{Color}]{color}{ = {\ttfamily BLACK}, }\item[{bool}]{filled}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_rectangle_object}{Rectangle\+Object}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\+Left} & Punkt odniesienia prostokata. \\
+\hline
+{\em width} & Szerokosc prostokata. \\
+\hline
+{\em height} & Wysokosc prostokata. \\
+\hline
+{\em color} & Kolor prostokata. \\
+\hline
+{\em filled} & Okresla, czy prostokat ma byc wypelniony.\\
+\hline
+\end{DoxyParams}
+Tworzy prostokat o podanych wymiarach, polozeniu, kolorze i sposobie rysowania. 
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00004}{4}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+
+
+\label{class_rectangle_object_doc-func-members}
+\Hypertarget{class_rectangle_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rectangle_object_a2ff4f0fd5a3f49eee38e0b811cb4204f}\index{RectangleObject@{RectangleObject}!Draw@{Draw}}
+\index{Draw@{Draw}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a2ff4f0fd5a3f49eee38e0b811cb4204f} 
+void Rectangle\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{class \doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Rysuje prostokat za pomoca renderera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje wypelniony prostokat lub jego kontur, w zaleznosci od wartosci pola filled.
+
+Do rysowania wykorzystuje punkt odniesienia, wymiary oraz kolor zapisane w obiekcie.
+
+\begin{DoxyNote}{Note}
+Wymiary prostokata sa konwertowane z typu float na typ int przed rysowaniem. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Drawable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00007}{7}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+\Hypertarget{class_rectangle_object_ad64c366c0250038b29a1fcf45e9ec7fa}\index{RectangleObject@{RectangleObject}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_ad64c366c0250038b29a1fcf45e9ec7fa} 
+Color Rectangle\+Object::\+\+Get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca kolor prostokata. 
+
+\begin{DoxyReturn}{Returns}
+Aktualny kolor prostokata. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00069}{69}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}\index{RectangleObject@{RectangleObject}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1} 
+float Rectangle\+Object::\+\+Get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca wysokosc prostokata. 
+
+\begin{DoxyReturn}{Returns}
+Aktualna wysokosc prostokata. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00091}{91}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_a2969af7fd1f1786857064a8c65621175}\index{RectangleObject@{RectangleObject}!GetTopLeft@{GetTopLeft}}
+\index{GetTopLeft@{GetTopLeft}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{GetTopLeft()}{GetTopLeft()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a2969af7fd1f1786857064a8c65621175} 
+\doxymbox{\hyperlink{class_point2_d}{Point2D}} Rectangle\+Object::\+\+Get\+Top\+Left (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca punkt odniesienia prostokata. 
+
+\begin{DoxyReturn}{Returns}
+Kopia punktu top\+Left. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00055}{55}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}\index{RectangleObject@{RectangleObject}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2} 
+float Rectangle\+Object::\+\+Get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca szerokosc prostokata. 
+
+\begin{DoxyReturn}{Returns}
+Aktualna szerokosc prostokata. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00084}{84}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623}\index{RectangleObject@{RectangleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623} 
+void Rectangle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca punkt odniesienia prostokata wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda obraca punkt top\+Left wzgledem punktu (0, 0).
+
+\begin{DoxyNote}{Note}
+Orientacja prostokata i jego wymiary pozostaja niezmienione. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00022}{22}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+\Hypertarget{class_rectangle_object_aeb1ea667aae8e3ebdd59d66818727950}\index{RectangleObject@{RectangleObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_rectangle_object_aeb1ea667aae8e3ebdd59d66818727950} 
+void Rectangle\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obraca punkt odniesienia prostokata wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda obraca punkt top\+Left wzgledem wskazanego punktu odniesienia.
+
+\begin{DoxyNote}{Note}
+Orientacja prostokata i jego wymiary pozostaja niezmienione. 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00027}{27}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+\Hypertarget{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d}\index{RectangleObject@{RectangleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d} 
+void Rectangle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje prostokat wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda mnozy szerokosc i wysokosc prostokata przez odpowiednie wspolczynniki skalowania oraz skaluje punkt top\+Left wzgledem punktu (0, 0). 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00032}{32}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+\Hypertarget{class_rectangle_object_ae0c0213838dc58d0e13e68f6e10dfb78}\index{RectangleObject@{RectangleObject}!Scale@{Scale}}
+\index{Scale@{Scale}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_rectangle_object_ae0c0213838dc58d0e13e68f6e10dfb78} 
+void Rectangle\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Skaluje prostokat wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda mnozy szerokosc i wysokosc prostokata przez odpowiednie wspolczynniki skalowania oraz skaluje punkt top\+Left wzgledem wskazanego punktu odniesienia. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00039}{39}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+\Hypertarget{class_rectangle_object_a16bd845af34be39ef76026b221dce4cc}\index{RectangleObject@{RectangleObject}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a16bd845af34be39ef76026b221dce4cc} 
+\doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \& Rectangle\+Object::\+\+Set\+Color (\begin{DoxyParamCaption}\item[{Color}]{color}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia kolor prostokata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Nowy kolor prostokata. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencja do biezacego obiektu \doxylink{class_rectangle_object}{Rectangle\+Object}. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00077}{77}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_a33ee8070cd80858c3231d1b4eb5c96d0}\index{RectangleObject@{RectangleObject}!SetTopLeft@{SetTopLeft}}
+\index{SetTopLeft@{SetTopLeft}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{SetTopLeft()}{SetTopLeft()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_a33ee8070cd80858c3231d1b4eb5c96d0} 
+void Rectangle\+Object::\+\+Set\+Top\+Left (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia punkt odniesienia prostokata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Nowy punkt odniesienia prostokata. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8h_source_l00062}{62}} of file \doxymbox{\hyperlink{_rectangle_object_8h_source}{Rectangle\+Object.\+h}}.
+
+\Hypertarget{class_rectangle_object_ae39908f6837f3a57a3119fb0d8123179}\index{RectangleObject@{RectangleObject}!Translate@{Translate}}
+\index{Translate@{Translate}!RectangleObject@{RectangleObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_rectangle_object_ae39908f6837f3a57a3119fb0d8123179} 
+void Rectangle\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Przesuwa prostokat o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda przesuwa punkt odniesienia prostokata o podane wartosci, nie zmieniajac jego wymiarow. 
+
+Implements \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Transformable\+Object}}.
+
+
+
+Definition at line \doxymbox{\hyperlink{_rectangle_object_8cpp_source_l00017}{17}} of file \doxymbox{\hyperlink{_rectangle_object_8cpp_source}{Rectangle\+Object.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_rectangle_object_8h}{Rectangle\+Object.\+h}}\item 
+\doxymbox{\hyperlink{_rectangle_object_8cpp}{Rectangle\+Object.\+cpp}}\end{DoxyCompactItemize}

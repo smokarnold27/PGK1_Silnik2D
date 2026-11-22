@@ -476,5 +476,4 @@ public:
 	* @note Metoda nie wykonuje rysowania, jesli bitmapa jest niepoprawna, obszar zrodlowy ma niepoprawne wymiary lub transformacja jest osobliwa.
 	*/
 	void DrawBitmap(const BitmapHandler& bitmap, const RectangleObject& source,	const Point2D& topLeft,	const Point2D& topRight, const Point2D& bottomLeft) const;
-
 };

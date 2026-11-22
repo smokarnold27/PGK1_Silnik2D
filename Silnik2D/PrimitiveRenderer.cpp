@@ -296,7 +296,7 @@ void PrimitiveRenderer::DrawPolygon(const std::vector<LineSegment>& segments, Co
 	size_t n = segments.size();
 	if (n < 3) return;
 
-	// 1. Sprawdzenie ciągłości łamanej (koniec odcinka i musi być początkiem odcinka i+1, a ostatni wracać do pierwszego)
+	// Sprawdzenie ciągłości łamanej (koniec odcinka i musi być początkiem odcinka i+1, a ostatni wracać do pierwszego)
 	for (size_t i = 0; i < n; ++i) {
 		Point2D endCurr = segments[i].GetEndPoint();
 		Point2D startNext = segments[(i + 1) % n].GetStartPoint();
@@ -305,19 +305,19 @@ void PrimitiveRenderer::DrawPolygon(const std::vector<LineSegment>& segments, Co
 		}
 	}
 
-	// 2. Sprawdzenie, czy niesąsiadujące krawędzie się przecinają (łamana wiązana)
+	// Sprawdzenie, czy niesąsiadujące krawędzie się przecinają (łamana wiązana)
 	for (size_t i = 0; i < n; ++i) {
 		for (size_t j = i + 2; j < n; ++j) {
 			// Pomijamy parę pierwszej (0) i ostatniej (n - 1) krawędzi, bo dzielą wspólny wierzchołek startowy
 			if (i == 0 && j == n - 1) continue;
 
 			if (DoSegmentsIntersect(segments[i], segments[j])) {
-				return; // Wykryto przecięcie! Przerywamy bez rysowania czegokolwiek
+				return; // Wykryto przecięcie. Przerywamy bez rysowania czegokolwiek
 			}
 		}
 	}
 
-	// 3. Jeśli wszystkie testy przeszły pomyślnie, rysujemy wielokąt
+	// Jeśli wszystkie testy przeszły pomyślnie, rysujemy wielokąt
 	for (const auto& edge : segments) {
 		DrawLine(edge.GetStartPoint(), edge.GetEndPoint(), color);
 	}
@@ -415,7 +415,7 @@ void PrimitiveRenderer::DrawFilledPolygon(const std::vector<Point2D>& points, Co
 	size_t n = points.size();
 	if (n < 3) return;
 
-	// 1. Walidacja – sprawdzamy, czy wielokąt nie jest łamaną wiązaną
+	// Sprawdzamy, czy wielokąt nie jest łamaną wiązaną
 	std::vector<LineSegment> edges;
 	edges.reserve(n);
 	for (size_t i = 0; i < n; ++i) {
@@ -431,7 +431,7 @@ void PrimitiveRenderer::DrawFilledPolygon(const std::vector<Point2D>& points, Co
 		}
 	}
 
-	// 2. Wyznaczenie zakresu pionowego (minY, maxY) dla linii skanujących
+	// Wyznaczenie zakresu pionowego (minY, maxY) dla linii skanujących
 	int minY = points[0].GetY();
 	int maxY = points[0].GetY();
 	for (const auto& pt : points) {
@@ -439,7 +439,7 @@ void PrimitiveRenderer::DrawFilledPolygon(const std::vector<Point2D>& points, Co
 		if (pt.GetY() > maxY) maxY = pt.GetY();
 	}
 
-	// 3. Algorytm scanline z regułą parzystości (wiersz po wierszu od góry do dołu)
+	// Algorytm scanline z regułą parzystości (wiersz po wierszu od góry do dołu)
 	for (int y = minY; y <= maxY; ++y) {
 		std::vector<int> nodeX;
 

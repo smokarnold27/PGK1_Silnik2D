@@ -1,0 +1,201 @@
+\doxysection{Transformable\+Object Class Reference}
+\hypertarget{class_transformable_object}{}\label{class_transformable_object}\index{TransformableObject@{TransformableObject}}
+
+
+Abstrakcyjna klasa bazowa dla obiektow podlegajacych transformacjom geometrycznym.  
+
+
+
+
+{\ttfamily \+\#include $<$Transformable\+Object.\+h$>$}
+
+Inheritance diagram for Transformable\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_transformable_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}{\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}{Translate}} (float tx, float ty)=0
+\begin{DoxyCompactList}\small\item\em Przesuwa obiekt o podany wektor. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}{Rotate}} (float angle)=0
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}{Rotate}} (float angle, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin)=0
+\begin{DoxyCompactList}\small\item\em Obraca obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}{Scale}} (float kx, float ky)=0
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}{Scale}} (float kx, float ky, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&origin)=0
+\begin{DoxyCompactList}\small\item\em Skaluje obiekt wzgledem wybranego punktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcyjna klasa bazowa dla obiektow podlegajacych transformacjom geometrycznym. 
+
+Definiuje wspolny interfejs umozliwiajacy wykonywanie podstawowych transformacji geometrycznych w przestrzeni 2D.
+
+Udostepnia metody przesuwania, obracania oraz skalowania obiektow wzgledem poczatku ukladu wspolrzednych lub dowolnego punktu odniesienia.
+
+Wszystkie metody transformacji sa czysto wirtualne, dlatego ich implementacja nalezy do klas pochodnych.
+
+\begin{DoxyNote}{Note}
+Klasa wykorzystuje wirtualne dziedziczenie po \doxylink{class_game_object}{Game\+Object}, aby uniknac wielokrotnego wystepowania tej klasy bazowej w hierarchii dziedziczenia. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_transformable_object_8h_source_l00027}{27}} of file \doxymbox{\hyperlink{_transformable_object_8h_source}{Transformable\+Object.\+h}}.
+
+
+
+\label{class_transformable_object_doc-constructors}
+\Hypertarget{class_transformable_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a}\index{TransformableObject@{TransformableObject}!````~TransformableObject@{\texorpdfstring{$\sim$}{\string~}TransformableObject}}
+\index{````~TransformableObject@{\texorpdfstring{$\sim$}{\string~}TransformableObject}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TransformableObject()}{\string~TransformableObject()}}
+{\footnotesize\ttfamily \label{class_transformable_object_af2966e8c6531e6bbb0ed276beb4ddc8a} 
+virtual Transformable\+Object::\+\texorpdfstring{$\sim$}{\string~}\+Transformable\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Wirtualny destruktor klasy \doxylink{class_transformable_object}{Transformable\+Object}. 
+
+Zapewnia prawidlowe niszczenie obiektow klas pochodnych za posrednictwem wskaznika do klasy bazowej. 
+
+\label{class_transformable_object_doc-func-members}
+\Hypertarget{class_transformable_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59}\index{TransformableObject@{TransformableObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_transformable_object_ac54b0b885a11f5ef2995121571ca8b59} 
+virtual void Transformable\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obraca obiekt wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje obrotu obiektu wzgledem punktu (0, 0).
+
+Sposob wykonania obrotu zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_afdf6dfb402a8d6655fa89e7b51c203c2}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_a5e8573440de86626940c67b9d61139cc}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a8bf4483425ccc3c31a57b8a8ebcf473d}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_a0a94a79908d27bf2c9ab64f2c11eacff}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_a4ddbcea887014ccb92f7d31a4868a6f0}{Player}}, \doxymbox{\hyperlink{class_point2_d_a0a734c85d62f10e043567e8417957acc}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_af8f3ab01c24a0eb2160869f5c24ac623}{Rectangle\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_ab43d09da92daaa56965f94b0e90dcdc8}{Triangle\+Object}}.
+
+\Hypertarget{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518}\index{TransformableObject@{TransformableObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_transformable_object_a1845d23cc9ca0b2247556ae5cf18d518} 
+virtual void Transformable\+Object::\+\+Rotate (\begin{DoxyParamCaption}\item[{float}]{angle}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obraca obiekt wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Kat obrotu wyrazony w radianach. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywany jest obrot.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje obrotu obiektu wzgledem wskazanego punktu odniesienia.
+
+Sposob wykonania obrotu zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_a34c8d1830222fde3c58f89fe883e8d22}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_a26f4d4e7b9045489ed16ea624e2fd640}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a1a83d38566fe87913c95310e9392d2b8}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_a733d3db6f4cf3d6d3d05a90076e0bad6}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_ae3cfb1617899e328abc43d405403304a}{Player}}, \doxymbox{\hyperlink{class_point2_d_a6822d250b04adadf409f856e85e0d2ca}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_ad6ba4949384d76369ec5594fab5c83aa}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_aeb1ea667aae8e3ebdd59d66818727950}{Rectangle\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_a2fd4b16da23a64aef1b716081ba46eb3}{Triangle\+Object}}.
+
+\Hypertarget{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03}\index{TransformableObject@{TransformableObject}!Scale@{Scale}}
+\index{Scale@{Scale}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_transformable_object_a10f949fc6c4cdcd36a16a896a4f07b03} 
+virtual void Transformable\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Skaluje obiekt wzgledem poczatku ukladu wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje skalowania obiektu wzgledem punktu (0, 0).
+
+Wspolczynniki skalowania moga przyjmowac rozne wartosci dla poszczegolnych osi.
+
+Sposob wykonania skalowania zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_a523a3dc91a308db300520a5abf944d1c}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_ad017d357b0634d0b57f79225e981f507}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a2f7972a76b4b3a65b363a3ed8e16ccc4}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_ae05dd2571cdbb8da4a3569da1fd21b85}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_afb64bccc8bc8431f480dad08c372d49f}{Player}}, \doxymbox{\hyperlink{class_point2_d_a2c3e1a45f61262b6b5d78218ca6f387d}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_a2dabdf47c3ac6ce0a19417606173c74d}{Rectangle\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_af749abee6d0fd461a1a1e2bec75e697d}{Triangle\+Object}}.
+
+\Hypertarget{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0}\index{TransformableObject@{TransformableObject}!Scale@{Scale}}
+\index{Scale@{Scale}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{Scale()}{Scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_transformable_object_a6458510d73b64e13b57c498b6ce993d0} 
+virtual void Transformable\+Object::\+\+Scale (\begin{DoxyParamCaption}\item[{float}]{kx}{, }\item[{float}]{ky}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Skaluje obiekt wzgledem wybranego punktu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kx} & Wspolczynnik skalowania w osi X. \\
+\hline
+{\em ky} & Wspolczynnik skalowania w osi Y. \\
+\hline
+{\em origin} & Punkt, wzgledem ktorego wykonywane jest skalowanie.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje skalowania obiektu wzgledem wskazanego punktu odniesienia.
+
+Wspolczynniki skalowania moga przyjmowac rozne wartosci dla poszczegolnych osi.
+
+Sposob wykonania skalowania zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_a09ad879fb1cdb22feb0ad26d6ce3fc49}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_a6e9857694b1a2121bea7dd9cb74e8b81}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a03103a1bc27e430950d2cf33dad6780b}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_a536a359890abe76067be8ddea3ad3383}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_a690768021ec3fa924ca75f860d62aa21}{Player}}, \doxymbox{\hyperlink{class_point2_d_ae2249f8e9f7d1c3f2a3a3e092a927396}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_a47f9dd782ce29c350e2cd6e42b22e02a}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_ae0c0213838dc58d0e13e68f6e10dfb78}{Rectangle\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_afcac96acce35f8b1a6c04c126f183f06}{Triangle\+Object}}.
+
+\Hypertarget{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447}\index{TransformableObject@{TransformableObject}!Translate@{Translate}}
+\index{Translate@{Translate}!TransformableObject@{TransformableObject}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_transformable_object_a14a6bb4d1d904c3f98ba06d72ad86447} 
+virtual void Transformable\+Object::\+\+Translate (\begin{DoxyParamCaption}\item[{float}]{tx}{, }\item[{float}]{ty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Przesuwa obiekt o podany wektor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx} & Przesuniecie w osi X. \\
+\hline
+{\em ty} & Przesuniecie w osi Y.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje translacji obiektu o wektor okreslony przez podane wartosci.
+
+Sposob wykonania przesuniecia zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_abf7fb777288490974887085866b71dd2}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_a16cf2e538a71cc31b441629049e4be75}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a0dbd5e343ccdb76c5bcb9e878ba0d61a}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_a13d08b6c424fee31da5ee831e78a055c}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_a497754ed8281649d066da3e7b4b4f1fd}{Player}}, \doxymbox{\hyperlink{class_point2_d_aa0f37616ee557b9eeffcfa0728d08e12}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_a792c9a0d47001b959276134ab8de4e69}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_ae39908f6837f3a57a3119fb0d8123179}{Rectangle\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_a3541ee30dee8c3c06400219a1c6a08ce}{Triangle\+Object}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_transformable_object_8h}{Transformable\+Object.\+h}}\end{DoxyCompactItemize}

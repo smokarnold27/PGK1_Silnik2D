@@ -1,0 +1,84 @@
+\doxysection{Drawable\+Object Class Reference}
+\hypertarget{class_drawable_object}{}\label{class_drawable_object}\index{DrawableObject@{DrawableObject}}
+
+
+Klasa sluzaca do rysowania rzeczy w oknie.  
+
+
+
+
+{\ttfamily \+\#include $<$Drawable\+Object.\+h$>$}
+
+Inheritance diagram for Drawable\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_drawable_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}{\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Draw}} (\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&renderer) const =0
+\begin{DoxyCompactList}\small\item\em Metoda sluzaca do rysowania obiektow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa sluzaca do rysowania rzeczy w oknie. 
+
+Ta klasa sama w sobie nie ma zadnej implementacji, zawiera jedynie funkcje \doxylink{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}{Draw()}, ktora bedzie wykorzystywana przez klasy pochodne. 
+
+Definition at line \doxymbox{\hyperlink{_drawable_object_8h_source_l00018}{18}} of file \doxymbox{\hyperlink{_drawable_object_8h_source}{Drawable\+Object.\+h}}.
+
+
+
+\label{class_drawable_object_doc-constructors}
+\Hypertarget{class_drawable_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb}\index{DrawableObject@{DrawableObject}!````~DrawableObject@{\texorpdfstring{$\sim$}{\string~}DrawableObject}}
+\index{````~DrawableObject@{\texorpdfstring{$\sim$}{\string~}DrawableObject}!DrawableObject@{DrawableObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DrawableObject()}{\string~DrawableObject()}}
+{\footnotesize\ttfamily \label{class_drawable_object_a0a01d81dd2f1f6def40e93f95e3e8afb} 
+virtual Drawable\+Object::\+\texorpdfstring{$\sim$}{\string~}\+Drawable\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Wirtualny destruktor. 
+
+Wirtualny destruktor gwarantuje poprawne niszczenie obiektow dziedziczacych 
+
+\label{class_drawable_object_doc-func-members}
+\Hypertarget{class_drawable_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b}\index{DrawableObject@{DrawableObject}!Draw@{Draw}}
+\index{Draw@{Draw}!DrawableObject@{DrawableObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_drawable_object_abdc69c353d509652d2dedfbb60775b2b} 
+virtual void Drawable\+Object::\+\+Draw (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_primitive_renderer}{Primitive\+Renderer}} \&}]{renderer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metoda sluzaca do rysowania obiektow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Referencja do renderera odpowiedzialnego za rysowanie.\\
+\hline
+\end{DoxyParams}
+Wzorzec metody sluzacej do wyswietlenia danego obiektu na ekran, implementacja zalezy od klasy pochodnej 
+
+Implemented in \doxymbox{\hyperlink{class_bitmap_object_a27a2d0d45fcb0b000e6cbcd85af48d28}{Bitmap\+Object}}, \doxymbox{\hyperlink{class_circle_object_a556362c589207c3570987ddca2fae05a}{Circle\+Object}}, \doxymbox{\hyperlink{class_ellipse_object_a94f2b76382cbb9d1b6d0509f7c72c997}{Ellipse\+Object}}, \doxymbox{\hyperlink{class_line_segment_ad6b73c8576c8812653589fb50a54255b}{Line\+Segment}}, \doxymbox{\hyperlink{class_player_a92473c25d8b3ffefcd0005c206a468aa}{Player}}, \doxymbox{\hyperlink{class_point2_d_aa8bca74045c09707ea2402c56b8a20f3}{Point2D}}, \doxymbox{\hyperlink{class_polygon_object_a0602ea58eb17afe61a9bc51cd6419e24}{Polygon\+Object}}, \doxymbox{\hyperlink{class_rectangle_object_a2ff4f0fd5a3f49eee38e0b811cb4204f}{Rectangle\+Object}}, \doxymbox{\hyperlink{class_sprite_object_a6f664124095e75a92db2d35b2a16a5fa}{Sprite\+Object}}, and \doxymbox{\hyperlink{class_triangle_object_a57dcfed754c7200e055ca80bbdf7b933}{Triangle\+Object}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_drawable_object_8h}{Drawable\+Object.\+h}}\end{DoxyCompactItemize}

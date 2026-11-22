@@ -1,0 +1,47 @@
+\doxysection{Circle\+Object.\+h}
+\hypertarget{_circle_object_8h_source}{}\label{_circle_object_8h_source}\doxymbox{\hyperlink{_circle_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00021}\doxymbox{\hyperlink{class_circle_object}{00021}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_circle_object_aff75fd02aac82df78ae0fc9da757af48}{CircleObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00023}00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00024}00024\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ center;}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ radius;}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00026}00026\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ filled;}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00029}00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00040}00040\ \ \ \ \ \doxymbox{\hyperlink{class_circle_object_aff75fd02aac82df78ae0fc9da757af48}{CircleObject}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radius,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{bool}\ filled\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00046}\doxymbox{\hyperlink{class_circle_object_ad98f311c228923fc2a2af150a16f2ed5}{00046}}\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ \doxymbox{\hyperlink{class_circle_object_ad98f311c228923fc2a2af150a16f2ed5}{GetCenter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ center;\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00052}\doxymbox{\hyperlink{class_circle_object_a65672cf9b5700878733e1c90d37c1e8f}{00052}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a65672cf9b5700878733e1c90d37c1e8f}{SetCenter}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center)\ \{\ this-\/>center\ =\ center;\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00058}\doxymbox{\hyperlink{class_circle_object_a211280b55833ce0a4fda714d156775c7}{00058}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_circle_object_a211280b55833ce0a4fda714d156775c7}{GetRadius}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ radius;\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00064}\doxymbox{\hyperlink{class_circle_object_a0a8c6cb068f2908e024a5dc3bbc196a2}{00064}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a0a8c6cb068f2908e024a5dc3bbc196a2}{SetRadius}}(\textcolor{keywordtype}{int}\ radius)\ \{\ this-\/>radius\ =\ radius;\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00070}\doxymbox{\hyperlink{class_circle_object_ab34da6f9295e74e6cdc8498a52c5924d}{00070}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_circle_object_ab34da6f9295e74e6cdc8498a52c5924d}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00077}\doxymbox{\hyperlink{class_circle_object_ab9e6472ded2d2920d47e97119bdb7856}{00077}}\ \ \ \ \ \doxymbox{\hyperlink{class_circle_object_aff75fd02aac82df78ae0fc9da757af48}{CircleObject}}\&\ \doxymbox{\hyperlink{class_circle_object_ab9e6472ded2d2920d47e97119bdb7856}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a556362c589207c3570987ddca2fae05a}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a16cf2e538a71cc31b441629049e4be75}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a5e8573440de86626940c67b9d61139cc}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_a5e8573440de86626940c67b9d61139cc}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_ad017d357b0634d0b57f79225e981f507}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_circle_object_ad017d357b0634d0b57f79225e981f507}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_circle_object_8h_source_l00148}00148\ \};}
+
+\end{DoxyCode}

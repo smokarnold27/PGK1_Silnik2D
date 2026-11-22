@@ -1,0 +1,97 @@
+\doxysection{Updatable\+Object Class Reference}
+\hypertarget{class_updatable_object}{}\label{class_updatable_object}\index{UpdatableObject@{UpdatableObject}}
+
+
+Abstrakcyjna klasa bazowa dla obiektow wymagajacych aktualizacji.  
+
+
+
+
+{\ttfamily \+\#include $<$Updatable\+Object.\+h$>$}
+
+Inheritance diagram for Updatable\+Object:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_updatable_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_updatable_object_a7982a3fec9fd4d8dda9879ea7161dd74}{\texorpdfstring{$\sim$}{\string~}\+Updatable\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_updatable_object}{Updatable\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_updatable_object_ae13f789087044ce65835a495c0dabd9b}{Update}} (float delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Aktualizuje stan obiektu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Wirtualny destruktor klasy \doxylink{class_game_object}{Game\+Object}. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_game_object_a9064bff27e0e1723108c0624ae850b52}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Wirtualna metoda inicjujaca obiekt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstrakcyjna klasa bazowa dla obiektow wymagajacych aktualizacji. 
+
+Definiuje wspolny interfejs umozliwiajacy aktualizowanie stanu obiektow podczas dzialania aplikacji.
+
+Udostepnia metode \doxylink{class_updatable_object_ae13f789087044ce65835a495c0dabd9b}{Update()}, ktora moze byc wykorzystywana do aktualizacji polozenia, animacji lub innych elementow stanu obiektu.
+
+Metoda aktualizacji jest czysto wirtualna, dlatego jej implementacja nalezy do klas pochodnych.
+
+\begin{DoxyNote}{Note}
+Klasa wykorzystuje wirtualne dziedziczenie po \doxylink{class_game_object}{Game\+Object}, aby uniknac wielokrotnego wystepowania tej klasy bazowej w hierarchii dziedziczenia. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_updatable_object_8h_source_l00024}{24}} of file \doxymbox{\hyperlink{_updatable_object_8h_source}{Updatable\+Object.\+h}}.
+
+
+
+\label{class_updatable_object_doc-constructors}
+\Hypertarget{class_updatable_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_updatable_object_a7982a3fec9fd4d8dda9879ea7161dd74}\index{UpdatableObject@{UpdatableObject}!````~UpdatableObject@{\texorpdfstring{$\sim$}{\string~}UpdatableObject}}
+\index{````~UpdatableObject@{\texorpdfstring{$\sim$}{\string~}UpdatableObject}!UpdatableObject@{UpdatableObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UpdatableObject()}{\string~UpdatableObject()}}
+{\footnotesize\ttfamily \label{class_updatable_object_a7982a3fec9fd4d8dda9879ea7161dd74} 
+virtual Updatable\+Object::\+\texorpdfstring{$\sim$}{\string~}\+Updatable\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Wirtualny destruktor klasy \doxylink{class_updatable_object}{Updatable\+Object}. 
+
+Zapewnia prawidlowe niszczenie obiektow klas pochodnych za posrednictwem wskaznika do klasy bazowej. 
+
+\label{class_updatable_object_doc-func-members}
+\Hypertarget{class_updatable_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_updatable_object_ae13f789087044ce65835a495c0dabd9b}\index{UpdatableObject@{UpdatableObject}!Update@{Update}}
+\index{Update@{Update}!UpdatableObject@{UpdatableObject}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_updatable_object_ae13f789087044ce65835a495c0dabd9b} 
+virtual void Updatable\+Object::\+\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Aktualizuje stan obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Czas, ktory uplynal od poprzedniej aktualizacji, wyrazony w sekundach.\\
+\hline
+\end{DoxyParams}
+Metoda definiuje operacje aktualizacji stanu obiektu na podstawie uplywu czasu.
+
+Moze byc wykorzystywana do obslugi ruchu, animacji, logiki obiektu oraz innych zmian zachodzacych podczas dzialania aplikacji.
+
+Sposob wykorzystania parametru delta\+Time zalezy od implementacji w klasie pochodnej. 
+
+Implemented in \doxymbox{\hyperlink{class_player_a20bfb1cb738f6b00f589207ce460491e}{Player}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_updatable_object_8h}{Updatable\+Object.\+h}}\end{DoxyCompactItemize}

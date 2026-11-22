@@ -1,0 +1,46 @@
+\doxysection{Polygon\+Object.\+h}
+\hypertarget{_polygon_object_8h_source}{}\label{_polygon_object_8h_source}\doxymbox{\hyperlink{_polygon_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_shape_object_8h}{ShapeObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00024}\doxymbox{\hyperlink{class_polygon_object}{00024}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589}{PolygonObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_shape_object}{ShapeObject}}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00026}00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00027}00027\ \ \ \ \ std::vector<Point2D>\ points;}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00028}00028\ \ \ \ \ Color\ color;}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ filled;}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ closed;}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00045}00045\ \ \ \ \ \doxymbox{\hyperlink{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589}{PolygonObject}}(\textcolor{keyword}{const}\ std::vector<Point2D>\&\ points,\ Color\ color\ =\ BLACK,\ \textcolor{keywordtype}{bool}\ filled\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ closed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00055}\doxymbox{\hyperlink{class_polygon_object_a67ee358c1a9107610422753ea71a3571}{00055}}\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Point2D>\&\ \doxymbox{\hyperlink{class_polygon_object_a67ee358c1a9107610422753ea71a3571}{GetPoints}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ points;\ \}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00064}\doxymbox{\hyperlink{class_polygon_object_a35fe37367e965f5b3d9ea2ef7a4d9696}{00064}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a35fe37367e965f5b3d9ea2ef7a4d9696}{SetPoints}}(\textcolor{keyword}{const}\ std::vector<Point2D>\&\ points)\ \{\ this-\/>points\ =\ points;\ \}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00071}\doxymbox{\hyperlink{class_polygon_object_a34dd8cd3a2b95af822ce4b92b42ecea0}{00071}}\ \ \ \ \ Color\ \doxymbox{\hyperlink{class_polygon_object_a34dd8cd3a2b95af822ce4b92b42ecea0}{GetColor}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00079}\doxymbox{\hyperlink{class_polygon_object_aff12d002a5721f06811803a2a3cee5c1}{00079}}\ \ \ \ \ \doxymbox{\hyperlink{class_polygon_object_a51aa5a2346e51c82ccebe3f1824b7589}{PolygonObject}}\&\ \doxymbox{\hyperlink{class_polygon_object_aff12d002a5721f06811803a2a3cee5c1}{SetColor}}(Color\ color)\ \{\ this-\/>color\ =\ color;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a0602ea58eb17afe61a9bc51cd6419e24}{Draw}}(\textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a792c9a0d47001b959276134ab8de4e69}{Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa}{Rotate}}(\textcolor{keywordtype}{float}\ angle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00129}00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a579f0d1d56025a4599d4a4f697f4e4fa}{Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_polygon_object_a7c0686f35c07c3b70bf87f0ccb7b2c46}{Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ origin)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_polygon_object_8h_source_l00153}00153\ \};}
+
+\end{DoxyCode}

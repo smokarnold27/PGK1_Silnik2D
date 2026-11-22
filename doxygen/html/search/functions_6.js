@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['getbitmapcount_0',['GetBitmapCount',['../class_bitmap_object.html#a7df99f463213e8f9fdc7f738f60b8531',1,'BitmapObject']]],
+  ['getcenter_1',['GetCenter',['../class_circle_object.html#ad98f311c228923fc2a2af150a16f2ed5',1,'CircleObject::GetCenter()'],['../class_ellipse_object.html#a56fd0effe8213d9604fd0f0c7b72fd7b',1,'EllipseObject::GetCenter()']]],
+  ['getcolor_2',['GetColor',['../class_circle_object.html#ab34da6f9295e74e6cdc8498a52c5924d',1,'CircleObject::GetColor()'],['../class_ellipse_object.html#a70570ce4cd66d1bea6687a9e0ed6040d',1,'EllipseObject::GetColor()'],['../class_line_segment.html#ab73d8514efdf360418952c4df3e070be',1,'LineSegment::GetColor()'],['../class_point2_d.html#ac496af45360bd87b9dbda541440c8088',1,'Point2D::GetColor()'],['../class_polygon_object.html#a34dd8cd3a2b95af822ce4b92b42ecea0',1,'PolygonObject::GetColor()'],['../class_rectangle_object.html#ad64c366c0250038b29a1fcf45e9ec7fa',1,'RectangleObject::GetColor()'],['../class_triangle_object.html#a637b8ecaac1abab1ddf9590249580528',1,'TriangleObject::GetColor()']]],
+  ['getcurrentframe_3',['GetCurrentFrame',['../class_sprite_object.html#a326d77e3f5384ccd8bad5a39f24c4ee1',1,'SpriteObject']]],
+  ['getendpoint_4',['GetEndPoint',['../class_line_segment.html#a50de9a1e599a81a255aaf480d35aaed0',1,'LineSegment']]],
+  ['getexactx_5',['GetExactX',['../class_point2_d.html#ac1a433b13627b93dbfbd371024f81d13',1,'Point2D']]],
+  ['getexacty_6',['GetExactY',['../class_point2_d.html#ad869d4b39e5ffbf5d85b5a73459066ef',1,'Point2D']]],
+  ['getheight_7',['GetHeight',['../class_rectangle_object.html#a5217beca87ac2a2ed86a266ef02accb1',1,'RectangleObject']]],
+  ['getheight_8',['getHeight',['../class_bitmap_handler.html#a93e89ac1fe329bde2dc63efb2a7c0f7e',1,'BitmapHandler']]],
+  ['getinstance_9',['GetInstance',['../class_engine.html#a76f04af88db5e19ee29d855ed625f5f2',1,'Engine']]],
+  ['getpixel_10',['getPixel',['../class_bitmap_handler.html#a70f6143fedcb3b2af27a998abf950c46',1,'BitmapHandler']]],
+  ['getpixelcolor_11',['GetPixelColor',['../class_primitive_renderer.html#af3e66f4e0b7edb21e67edb42960bd7bb',1,'PrimitiveRenderer']]],
+  ['getpoints_12',['GetPoints',['../class_polygon_object.html#a67ee358c1a9107610422753ea71a3571',1,'PolygonObject']]],
+  ['getposition_13',['GetPosition',['../class_player.html#a7cb3464facd7f4ad06f0f8e729bd8068',1,'Player']]],
+  ['getradius_14',['GetRadius',['../class_circle_object.html#a211280b55833ce0a4fda714d156775c7',1,'CircleObject']]],
+  ['getscreenheight_15',['GetScreenHeight',['../class_engine.html#a9250abc79e4ee730ef8640b06252a7a6',1,'Engine']]],
+  ['getscreenwidth_16',['GetScreenWidth',['../class_engine.html#ad6887c12543cd35279d3716161f6b95a',1,'Engine']]],
+  ['getstartpoint_17',['GetStartPoint',['../class_line_segment.html#a7afa057c38a6399106f8841dd28b7ee7',1,'LineSegment']]],
+  ['gettopleft_18',['GetTopLeft',['../class_rectangle_object.html#a2969af7fd1f1786857064a8c65621175',1,'RectangleObject']]],
+  ['getwidth_19',['GetWidth',['../class_rectangle_object.html#ab6aac1e3825bc6f2b7dac76b6284f3b2',1,'RectangleObject']]],
+  ['getwidth_20',['getWidth',['../class_bitmap_handler.html#a993ff59f70a394487f2d0a1e9de83a52',1,'BitmapHandler']]],
+  ['getx_21',['GetX',['../class_point2_d.html#ab378c79896576679fb55f53ca11b267b',1,'Point2D']]],
+  ['gety_22',['GetY',['../class_point2_d.html#a134c74f4189b4000866fed7a254dd21a',1,'Point2D']]]
+];

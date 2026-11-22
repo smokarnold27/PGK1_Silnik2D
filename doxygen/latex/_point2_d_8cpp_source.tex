@@ -1,0 +1,94 @@
+\doxysection{Point2\+D.\+cpp}
+\hypertarget{_point2_d_8cpp_source}{}\label{_point2_d_8cpp_source}\doxymbox{\hyperlink{_point2_d_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_point2_d_8h}{Point2D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_primitive_renderer_8h}{PrimitiveRenderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00005}\doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{00005}}\ \doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{Point2D::Point2D}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ Color\ color)\ :\ x(x),\ y(y),\ color(color)\ \{\}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00007}\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{00007}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{Point2D::GetX}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00008}00008\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(x));}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00012}\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{00012}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{Point2D::GetY}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00013}00013\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(y));}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00017}\doxymbox{\hyperlink{class_point2_d_a5524a35b867f730cf25d2b8057d91d0b}{00017}}\ \doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{Point2D}}\&\ \doxymbox{\hyperlink{class_point2_d_a5524a35b867f730cf25d2b8057d91d0b}{Point2D::SetX}}(\textcolor{keywordtype}{float}\ x)\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00019}00019\ \ \ \ \ this-\/>x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00023}\doxymbox{\hyperlink{class_point2_d_ae36889c830211fb76c975c1039bc594a}{00023}}\ \doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{Point2D}}\&\ \doxymbox{\hyperlink{class_point2_d_ae36889c830211fb76c975c1039bc594a}{Point2D::SetY}}(\textcolor{keywordtype}{float}\ y)\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00025}00025\ \ \ \ \ this-\/>y\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00029}\doxymbox{\hyperlink{class_point2_d_af125ed402ccf62d17543d24f6e800858}{00029}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_af125ed402ccf62d17543d24f6e800858}{Point2D::DrawPoint}}(\doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer,\ Color\ color)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00030}00030\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00031}00031\ \ \ \ \ renderer.\doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ \doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ color);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00034}\doxymbox{\hyperlink{class_point2_d_aa8bca74045c09707ea2402c56b8a20f3}{00034}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_aa8bca74045c09707ea2402c56b8a20f3}{Point2D::Draw}}(\doxymbox{\hyperlink{class_primitive_renderer}{PrimitiveRenderer}}\&\ renderer)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00035}00035\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00036}00036\ \ \ \ \ renderer.\doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ \doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ color);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00039}\doxymbox{\hyperlink{class_point2_d_aa0f37616ee557b9eeffcfa0728d08e12}{00039}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_aa0f37616ee557b9eeffcfa0728d08e12}{Point2D::Translate}}(\textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty)}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00041}00041\ \ \ \ \ x\ +=\ tx;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00042}00042\ \ \ \ \ y\ +=\ ty;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00045}\doxymbox{\hyperlink{class_point2_d_a0a734c85d62f10e043567e8417957acc}{00045}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_a0a734c85d62f10e043567e8417957acc}{Point2D::Rotate}}(\textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Rotacja\ względem\ początku\ układu\ (0,0)}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{float}\ cosA\ =\ std::cos(angle);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{float}\ sinA\ =\ std::sin(angle);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{float}\ newX\ =\ x\ *\ cosA\ -\/\ y\ *\ sinA;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{float}\ newY\ =\ x\ *\ sinA\ +\ y\ *\ cosA;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00054}00054\ \ \ \ \ x\ =\ newX;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00055}00055\ \ \ \ \ y\ =\ newY;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00058}\doxymbox{\hyperlink{class_point2_d_a6822d250b04adadf409f856e85e0d2ca}{00058}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_a0a734c85d62f10e043567e8417957acc}{Point2D::Rotate}}(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{Point2D}}\&\ origin)}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Rotacja\ względem\ dowolnego\ punktu\ (x0,\ y0)}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{float}\ x0\ =\ origin.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{float}\ y0\ =\ origin.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{float}\ cosA\ =\ std::cos(angle);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{float}\ sinA\ =\ std::sin(angle);}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{float}\ newX\ =\ x0\ +\ (x\ -\/\ x0)\ *\ cosA\ -\/\ (y\ -\/\ y0)\ *\ sinA;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{float}\ newY\ =\ y0\ +\ (x\ -\/\ x0)\ *\ sinA\ +\ (y\ -\/\ y0)\ *\ cosA;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00070}00070\ \ \ \ \ x\ =\ newX;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00071}00071\ \ \ \ \ y\ =\ newY;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00074}\doxymbox{\hyperlink{class_point2_d_a2c3e1a45f61262b6b5d78218ca6f387d}{00074}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_a2c3e1a45f61262b6b5d78218ca6f387d}{Point2D::Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky)}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ Jednokładność\ względem\ początku\ układu\ (0,0)}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00077}00077\ \ \ \ \ x\ *=\ kx;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00078}00078\ \ \ \ \ y\ *=\ ky;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00081}\doxymbox{\hyperlink{class_point2_d_ae2249f8e9f7d1c3f2a3a3e092a927396}{00081}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_point2_d_a2c3e1a45f61262b6b5d78218ca6f387d}{Point2D::Scale}}(\textcolor{keywordtype}{float}\ kx,\ \textcolor{keywordtype}{float}\ ky,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d_a928a8026774992afe6705d6d37f6c1c7}{Point2D}}\&\ origin)}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Jednokładność\ względem\ dowolnego\ punktu\ (x0,\ y0}}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{float}\ x0\ =\ origin.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{float}\ y0\ =\ origin.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00087}00087\ \ \ \ \ x\ =\ x\ *\ kx\ +\ (1.0f\ -\/\ kx)\ *\ x0;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00088}00088\ \ \ \ \ y\ =\ y\ *\ ky\ +\ (1.0f\ -\/\ ky)\ *\ y0;}
+\DoxyCodeLine{\Hypertarget{_point2_d_8cpp_source_l00089}00089\ \}}
+
+\end{DoxyCode}

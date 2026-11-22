@@ -1,0 +1,693 @@
+\doxysection{Primitive\+Renderer.\+cpp}
+\hypertarget{_primitive_renderer_8cpp_source}{}\label{_primitive_renderer_8cpp_source}\doxymbox{\hyperlink{_primitive_renderer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_primitive_renderer_8h}{PrimitiveRenderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_bitmap_handler_8h}{BitmapHandler.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_rectangle_object_8h}{RectangleObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00008}00008\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00010}\doxymbox{\hyperlink{class_primitive_renderer_a579f99c1724b09b26c898a25ad5ff70b}{00010}}\ \doxymbox{\hyperlink{class_primitive_renderer_a579f99c1724b09b26c898a25ad5ff70b}{PrimitiveRenderer::PrimitiveRenderer}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00011}00011\ \ \ \ \ bufferWidth\ =\ GetScreenWidth();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00012}00012\ \ \ \ \ bufferHeight\ =\ GetScreenHeight();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00014}00014\ \ \ \ \ pixels.resize(bufferWidth\ *\ bufferHeight,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00016}\doxymbox{\hyperlink{class_primitive_renderer_a8013c0a812e80eb5b311dfc5e77eed91}{00016}}\ PrimitiveRenderer\ ::\string~PrimitiveRenderer()\ \{\}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00018}\doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{00018}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PrimitiveRenderer::PutPixel}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ point,\ Color\ color)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00019}00019\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(point.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ point.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00022}\doxymbox{\hyperlink{class_primitive_renderer_a97a1784ead6483effb0dc9395f390777}{00022}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PrimitiveRenderer::PutPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00023}00023\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ y\ <\ 0\ ||\ y\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00028}00028\ \ \ \ \ pixels[y\ *\ bufferWidth\ +\ x]\ =\ color;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00031}\doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{00031}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{PrimitiveRenderer::DrawLine}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00032}00032\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ x1\ =\ p2.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{int}\ y1\ =\ p2.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{int}\ dx\ =\ x1\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ dy\ =\ y1\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(dy)\ <=\ abs(dx))\ \{\ \textcolor{comment}{//\ Linia\ jest\ bardziej\ pozioma\ niż\ pionowa\ (|m|\ <=\ 1),\ std::abs()\ jest\ używane\ do\ obliczenia\ wartości\ bezwzględnej}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ >\ x1)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ swap(x0,\ x1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ swap(y0,\ y1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ dx\ =\ x1\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ dy\ =\ y1\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dx\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(dy)\ /\ dx;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(y0);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ x0;\ x\ <=\ x1;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(round(y)),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ y\ +=\ m;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Linia\ jest\ bardziej\ pionowa\ niż\ pozioma}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y0\ >\ y1)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ swap(x0,\ x1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ swap(y0,\ y1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ dx\ =\ x1\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ dy\ =\ y1\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dy\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_prime\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(dx)\ /\ dy;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(x0);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ y0;\ y\ <=\ y1;\ y++)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(round(x)),\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ x\ +=\ m\_prime;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00085}\doxymbox{\hyperlink{class_primitive_renderer_ae6f470d195ec39715b4e45f07160e6da}{00085}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_ae6f470d195ec39715b4e45f07160e6da}{PrimitiveRenderer::DrawLineBresenham}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00086}00086\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ x1\ =\ p2.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{int}\ y1\ =\ p2.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{int}\ dx\ =\ std::abs(x1\ -\/\ x0);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{int}\ dy\ =\ std::abs(y1\ -\/\ y0);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ Określamy\ kierunek\ kroku\ dla\ osi\ X\ i\ Y\ (+1\ lub\ -\/1)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{int}\ sx\ =\ (x0\ <\ x1)\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{int}\ sy\ =\ (y0\ <\ y1)\ ?\ 1\ :\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ Zmienna\ błędu\ (decyzyjna)\ –\ decyduje,\ kiedy\ przesunąć\ drugą\ współrzędną}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ dx\ -\/\ dy;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jeśli\ dotarliśmy\ do\ punktu\ końcowego,\ przerywamy\ pętlę}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ ==\ x1\ \&\&\ y0\ ==\ y1)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ e2\ =\ 2\ *\ err;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Krok\ wzdłuż\ osi\ X}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e2\ >\ -\/dy)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ err\ -\/=\ dy;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ x0\ +=\ sx;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Krok\ wzdłuż\ osi\ Y}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e2\ <\ dx)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ err\ +=\ dx;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ y0\ +=\ sy;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00122}00122\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00124}\doxymbox{\hyperlink{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357}{00124}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357}{PrimitiveRenderer::DrawPolyline}}(\textcolor{keyword}{const}\ std::vector<Point2D>\&\ points,\ Color\ color,\ \textcolor{keywordtype}{bool}\ closed)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00125}00125\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (points.size()\ <\ 2)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//\ Łączymy\ kolejne\ punkty\ odcinkami}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size()\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(points[i],\ points[i\ +\ 1],\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ Jeśli\ łamana\ ma\ być\ zamknięta,\ rysujemy\ odcinek\ łączący\ ostatni\ punkt\ z\ pierwszym}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (closed\ \&\&\ points.size()\ >\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(points.back(),\ points.front(),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00139}\doxymbox{\hyperlink{class_primitive_renderer_ad9678357c4232592580fbf61ef42e70c}{00139}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357}{PrimitiveRenderer::DrawPolyline}}(\textcolor{keyword}{const}\ std::vector<LineSegment>\&\ segments,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00140}00140\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//\ Rysujemy\ każdy\ odcinek\ wchodzący\ w\ skład\ wektora}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ segment\ :\ segments)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(segment.GetStartPoint(),\ segment.GetEndPoint(),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00145}00145\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00147}\doxymbox{\hyperlink{class_primitive_renderer_a8fc23a9a0331c6d3f528e6242c4f7bbb}{00147}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a8fc23a9a0331c6d3f528e6242c4f7bbb}{PrimitiveRenderer::DrawTriangle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p3,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00148}00148\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00149}00149\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p1,p2,color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00150}00150\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p1,p3,color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00151}00151\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p2,p3,color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00152}00152\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00154}\doxymbox{\hyperlink{class_primitive_renderer_a144393186798ada5a9a2a29383ab0e30}{00154}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a144393186798ada5a9a2a29383ab0e30}{PrimitiveRenderer::DrawRectangle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00155}00155\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{int}\ w\ =\ std::abs(width);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{int}\ h\ =\ std::abs(height);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{int}\ startX\ =\ (width\ <\ 0)\ ?\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ -\/\ w\ :\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00160}00160\ \ \ \ \ \textcolor{keywordtype}{int}\ startY\ =\ (height\ <\ 0)\ ?\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ -\/\ h\ :\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00162}00162\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p2(startX\ +\ w,\ startY);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00163}00163\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p3(startX\ +\ w,\ startY\ +\ h);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00164}00164\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p4(startX,\ startY\ +\ h);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00165}00165\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ topLeft(startX,\ startY);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00167}00167\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(topLeft,\ p2,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00168}00168\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p2,\ p3,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00169}00169\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p3,\ p4,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00170}00170\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(p4,\ topLeft,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00171}00171\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00173}\doxymbox{\hyperlink{class_primitive_renderer_aa801f3d7e8f0d457483c075b78573b5f}{00173}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_aa801f3d7e8f0d457483c075b78573b5f}{PrimitiveRenderer::DrawCircle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radius,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00174}00174\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (radius\ <=\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordtype}{float}\ a,\ step;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00180}00180\ \ \ \ \ step\ =\ 1.0f\ /\ radius;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ center.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00182}00182\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ center.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00184}00184\ \ \ \ \ \textcolor{keywordflow}{for}\ (a\ =\ 0;\ a\ <=\ PI\ /\ 4;\ a\ +=\ step)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ x\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(radius\ *\ cos(a)\ +\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ y\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(radius\ *\ sin(a)\ +\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4\ symetrie\ podstawowe}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4\ symetrie\ wynikające\ z\ zamiany\ x\ i\ y\ (ośmiokrotna\ symetria)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ y,\ y0\ +\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ y,\ y0\ +\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ y,\ y0\ -\/\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ y,\ y0\ -\/\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00200}00200\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00202}\doxymbox{\hyperlink{class_primitive_renderer_af3abed910cd57fb8b478b166e039d7b3}{00202}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_af3abed910cd57fb8b478b166e039d7b3}{PrimitiveRenderer::DrawEllipse}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radiusX,\ \textcolor{keywordtype}{int}\ radiusY,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00203}00203\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00204}00204\ \ \ \ \ \textcolor{keywordflow}{if}\ (radiusX\ <=\ 0\ ||\ radiusY\ <=\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00206}00206\ \ \ \ \ \textcolor{keywordtype}{float}\ a,\ step;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00207}00207\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00209}00209\ \ \ \ \ step\ =\ 1.0f\ /\ max(radiusX,\ radiusY);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ center.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ center.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00213}00213\ \ \ \ \ \textcolor{keywordflow}{for}\ (a\ =\ 0;\ a\ <\ PI\ /\ 2;\ a\ +=\ step)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00214}00214\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ x\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(radiusX\ *\ cos(a)\ +\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ y\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(radiusY\ *\ sin(a)\ +\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4\ symetrie}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00223}00223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00224}00224\ \ \ \ \ \textcolor{comment}{//\ Dorysowanie\ skrajnych\ punktów\ osiowych,\ aby\ domknąć\ elipsę\ na\ krawędziach}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00225}00225\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0,\ y0\ +\ radiusY,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00226}00226\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0,\ y0\ -\/\ radiusY,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00227}00227\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ radiusX,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00228}00228\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ -\/\ radiusX,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00229}00229\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00231}00231\ \textcolor{comment}{//\ Zwraca\ orientację\ uporządkowanej\ trójki\ (p,\ q,\ r):}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00232}00232\ \textcolor{comment}{//\ 0\ -\/>\ punkty\ współliniowe}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00233}00233\ \textcolor{comment}{//\ 1\ -\/>\ zgodnie\ z\ ruchem\ wskazówek\ zegara\ (CW)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00234}00234\ \textcolor{comment}{//\ 2\ -\/>\ przeciwnie\ do\ ruchu\ wskazówek\ zegara\ (CCW)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00235}00235\ \textcolor{keywordtype}{int}\ PrimitiveRenderer::Orientation(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ q,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ r)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00236}00236\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00237}00237\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ val\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(q.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ -\/\ p.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}())\ *\ (r.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ -\/\ q.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}())\ -\/}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(q.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ -\/\ p.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}())\ *\ (r.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ -\/\ q.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{if}\ (val\ ==\ 0)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00241}00241\ \ \ \ \ \textcolor{keywordflow}{return}\ (val\ >\ 0)\ ?\ 1\ :\ 2;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00242}00242\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00244}00244\ \textcolor{comment}{//\ Sprawdza,\ czy\ punkt\ q\ leży\ na\ odcinku\ pr\ (przy\ założeniu\ współliniowości)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00245}00245\ \textcolor{keywordtype}{bool}\ PrimitiveRenderer::OnSegment(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ q,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ r)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00246}00246\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{return}\ q.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ <=\ std::max(p.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ r.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}())\ \&\&\ q.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ >=\ std::min(p.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ r.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}())\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ q.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ <=\ std::max(p.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ r.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}())\ \&\&\ q.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ >=\ std::min(p.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ r.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00249}00249\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00251}00251\ \textcolor{comment}{//\ Zwraca\ true,\ jeśli\ odcinek\ s1\ przecina\ się\ z\ odcinkiem\ s2}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00252}00252\ \textcolor{keywordtype}{bool}\ PrimitiveRenderer::DoSegmentsIntersect(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_line_segment}{LineSegment}}\&\ s1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_line_segment}{LineSegment}}\&\ s2)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00253}00253\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00254}00254\ \ \ \ \ Point2D\ p1\ =\ s1.\doxymbox{\hyperlink{class_line_segment_a7afa057c38a6399106f8841dd28b7ee7}{GetStartPoint}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00255}00255\ \ \ \ \ Point2D\ q1\ =\ s1.\doxymbox{\hyperlink{class_line_segment_a50de9a1e599a81a255aaf480d35aaed0}{GetEndPoint}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00256}00256\ \ \ \ \ Point2D\ p2\ =\ s2.\doxymbox{\hyperlink{class_line_segment_a7afa057c38a6399106f8841dd28b7ee7}{GetStartPoint}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00257}00257\ \ \ \ \ Point2D\ q2\ =\ s2.\doxymbox{\hyperlink{class_line_segment_a50de9a1e599a81a255aaf480d35aaed0}{GetEndPoint}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00259}00259\ \ \ \ \ \textcolor{keywordtype}{int}\ o1\ =\ Orientation(p1,\ q1,\ p2);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordtype}{int}\ o2\ =\ Orientation(p1,\ q1,\ q2);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{keywordtype}{int}\ o3\ =\ Orientation(p2,\ q2,\ p1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordtype}{int}\ o4\ =\ Orientation(p2,\ q2,\ q1);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{comment}{//\ Przypadek\ ogólny:\ końce\ leżą\ po\ przeciwnych\ stronach\ drugiego\ odcinka}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00265}00265\ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ !=\ o2\ \&\&\ o3\ !=\ o4)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ Przypadki\ szczególne\ (współliniowość)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ ==\ 0\ \&\&\ OnSegment(p1,\ p2,\ q1))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (o2\ ==\ 0\ \&\&\ OnSegment(p1,\ q2,\ q1))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{if}\ (o3\ ==\ 0\ \&\&\ OnSegment(p2,\ p1,\ q2))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (o4\ ==\ 0\ \&\&\ OnSegment(p2,\ q1,\ q2))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00275}00275\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00277}\doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{00277}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{PrimitiveRenderer::DrawPolygon}}(\textcolor{keyword}{const}\ std::vector<Point2D>\&\ points,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00278}00278\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{comment}{//\ Wielokąt\ wymaga\ co\ najmniej\ 3\ wierzchołków}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{if}\ (points.size()\ <\ 3)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00282}00282\ \ \ \ \ \textcolor{comment}{//\ Budujemy\ listę\ krawędzi\ zamykającą\ figurę}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00283}00283\ \ \ \ \ std::vector<LineSegment>\ edges;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00284}00284\ \ \ \ \ edges.reserve(points.size());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00286}00286\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ edges.emplace\_back(points[i],\ points[(i\ +\ 1)\ \%\ points.size()]);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00290}00290\ \ \ \ \ \textcolor{comment}{//\ Delegujemy\ walidację\ i\ rysowanie\ do\ wersji\ przyjmującej\ wektor\ odcinków}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00291}00291\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{DrawPolygon}}(edges,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00292}00292\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00294}\doxymbox{\hyperlink{class_primitive_renderer_ac9436414d9a5394e1935ef066b356a63}{00294}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{PrimitiveRenderer::DrawPolygon}}(\textcolor{keyword}{const}\ std::vector<LineSegment>\&\ segments,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00295}00295\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00296}00296\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ segments.size();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00297}00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 3)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00299}00299\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie\ ciągłości\ łamanej\ (koniec\ odcinka\ i\ musi\ być\ początkiem\ odcinka\ i+1,\ a\ ostatni\ wracać\ do\ pierwszego)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ endCurr\ =\ segments[i].GetEndPoint();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ startNext\ =\ segments[(i\ +\ 1)\ \%\ n].GetStartPoint();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (endCurr.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ !=\ startNext.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ ||\ endCurr.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ !=\ startNext.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Łamana\ nie\ jest\ ciągła\ lub\ nie\ jest\ zamknięta}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00308}00308\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ niesąsiadujące\ krawędzie\ się\ przecinają\ (łamana\ wiązana)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00309}00309\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 2;\ j\ <\ n;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pomijamy\ parę\ pierwszej\ (0)\ i\ ostatniej\ (n\ -\/\ 1)\ krawędzi,\ bo\ dzielą\ wspólny\ wierzchołek\ startowy}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ \&\&\ j\ ==\ n\ -\/\ 1)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoSegmentsIntersect(segments[i],\ segments[j]))\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Wykryto\ przecięcie.\ Przerywamy\ bez\ rysowania\ czegokolwiek}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00318}00318\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//\ Jeśli\ wszystkie\ testy\ przeszły\ pomyślnie,\ rysujemy\ wielokąt}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00321}00321\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ edge\ :\ segments)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{DrawLine}}(edge.GetStartPoint(),\ edge.GetEndPoint(),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00323}00323\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00324}00324\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00326}\doxymbox{\hyperlink{class_primitive_renderer_aaab6f4a2b93b21708f51d49e4cab6703}{00326}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_aaab6f4a2b93b21708f51d49e4cab6703}{PrimitiveRenderer::DrawFilledTriangle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p2,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p3,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00327}00327\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{comment}{//\ Wyznaczamy\ prostokąt\ ograniczający\ (bounding\ box)\ trójkąta}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordtype}{int}\ minX\ =\ std::min(\{\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ p2.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ p3.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ \});}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00330}00330\ \ \ \ \ \textcolor{keywordtype}{int}\ maxX\ =\ std::max(\{\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ p2.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}(),\ p3.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ \});}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00331}00331\ \ \ \ \ \textcolor{keywordtype}{int}\ minY\ =\ std::min(\{\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ p2.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ p3.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ \});}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00332}00332\ \ \ \ \ \textcolor{keywordtype}{int}\ maxY\ =\ std::max(\{\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ p2.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}(),\ p3.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ \});}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00334}00334\ \ \ \ \ \textcolor{comment}{//\ Pomocnicza\ funkcja\ testująca\ orientację\ (edge\ function)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00335}00335\ \ \ \ \ \textcolor{keyword}{auto}\ edgeFunction\ =\ [](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ b,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(c.GetX()\ -\/\ a.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}())\ *\ (b.GetY()\ -\/\ a.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}())\ -\/}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(c.GetY()\ -\/\ a.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}())\ *\ (b.GetX()\ -\/\ a.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00340}00340\ \ \ \ \ \textcolor{comment}{//\ Przeszukujemy\ każdy\ piksel\ wewnątrz\ bounding\ boxa}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ minY;\ y\ <=\ maxY;\ ++y)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ minX;\ x\ <=\ maxX;\ ++x)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ pt(x,\ y);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ w1\ =\ edgeFunction(p1,\ p2,\ pt);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ w2\ =\ edgeFunction(p2,\ p3,\ pt);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ w3\ =\ edgeFunction(p3,\ p1,\ pt);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jeśli\ punkt\ leży\ po\ tej\ samej\ stronie\ wszystkich\ trzech\ krawędzi,\ to\ jest\ wewnątrz}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((w1\ >=\ 0\ \&\&\ w2\ >=\ 0\ \&\&\ w3\ >=\ 0)\ ||\ (w1\ <=\ 0\ \&\&\ w2\ <=\ 0\ \&\&\ w3\ <=\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x,\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00354}00354\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00355}00355\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00357}\doxymbox{\hyperlink{class_primitive_renderer_ae0c1237f7fed424a1bde0f657817451d}{00357}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_ae0c1237f7fed424a1bde0f657817451d}{PrimitiveRenderer::DrawFilledRectangle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ p1,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00358}00358\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00359}00359\ \ \ \ \ \textcolor{keywordtype}{int}\ w\ =\ std::abs(width);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00360}00360\ \ \ \ \ \textcolor{keywordtype}{int}\ h\ =\ std::abs(height);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00362}00362\ \ \ \ \ \textcolor{keywordtype}{int}\ startX\ =\ (width\ <\ 0)\ ?\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}()\ -\/\ w\ :\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00363}00363\ \ \ \ \ \textcolor{keywordtype}{int}\ startY\ =\ (height\ <\ 0)\ ?\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}()\ -\/\ h\ :\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00365}00365\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ startY;\ y\ <\ startY\ +\ h;\ ++y)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ startX;\ x\ <\ startX\ +\ w;\ ++x)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x,\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00369}00369\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00370}00370\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00372}\doxymbox{\hyperlink{class_primitive_renderer_aa45997c82aea318fe8e7735f51d55f1d}{00372}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_aa45997c82aea318fe8e7735f51d55f1d}{PrimitiveRenderer::DrawFilledCircle}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radius,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00373}00373\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00374}00374\ \ \ \ \ \textcolor{keywordflow}{if}\ (radius\ <=\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00376}00376\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ center.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00377}00377\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ center.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00379}00379\ \ \ \ \ \textcolor{comment}{//\ Dla\ każdego\ wiersza\ y\ wewnątrz\ promienia\ rysujemy\ poziomy\ odcinek\ (span)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00380}00380\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dy\ =\ -\/radius;\ dy\ <=\ radius;\ ++dy)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Z\ równania\ okręgu:\ dx\ =\ sqrt(R\string^2\ -\/\ dy\string^2)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::sqrt(radius\ *\ radius\ -\/\ dy\ *\ dy));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dx\_curr\ =\ -\/dx;\ dx\_curr\ <=\ dx;\ ++dx\_curr)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ dx\_curr,\ y0\ +\ dy,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00387}00387\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00388}00388\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00390}\doxymbox{\hyperlink{class_primitive_renderer_ab189a000d14356484383735400040ae3}{00390}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_ab189a000d14356484383735400040ae3}{PrimitiveRenderer::DrawFilledEllipse}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ center,\ \textcolor{keywordtype}{int}\ radiusX,\ \textcolor{keywordtype}{int}\ radiusY,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00391}00391\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00392}00392\ \ \ \ \ \textcolor{keywordflow}{if}\ (radiusX\ <=\ 0\ ||\ radiusY\ <=\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00394}00394\ \ \ \ \ \textcolor{keywordtype}{int}\ x0\ =\ center.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00395}00395\ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ center.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00397}00397\ \ \ \ \ \textcolor{keywordtype}{double}\ rx2\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(radiusX)\ *\ radiusX;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00398}00398\ \ \ \ \ \textcolor{keywordtype}{double}\ ry2\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(radiusY)\ *\ radiusY;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00400}00400\ \ \ \ \ \textcolor{comment}{//\ Dla\ każdego\ wiersza\ wewnątrz\ półosi\ pionowej\ obliczamy\ szerokość\ poziomą}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00401}00401\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dy\ =\ -\/radiusY;\ dy\ <=\ radiusY;\ ++dy)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ term\ =\ 1.0\ -\/\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(dy)\ *\ dy)\ /\ ry2;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (term\ <\ 0.0)\ term\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::sqrt(rx2\ *\ term));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dx\_curr\ =\ -\/dx;\ dx\_curr\ <=\ dx;\ ++dx\_curr)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x0\ +\ dx\_curr,\ y0\ +\ dy,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00410}00410\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00411}00411\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00413}\doxymbox{\hyperlink{class_primitive_renderer_a7f32e286e5962cd8370ac0df3f1a63de}{00413}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a7f32e286e5962cd8370ac0df3f1a63de}{PrimitiveRenderer::DrawFilledPolygon}}(\textcolor{keyword}{const}\ std::vector<Point2D>\&\ points,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00414}00414\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00415}00415\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ points.size();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00416}00416\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 3)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00418}00418\ \ \ \ \ \textcolor{comment}{//\ Sprawdzamy,\ czy\ wielokąt\ nie\ jest\ łamaną\ wiązaną}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00419}00419\ \ \ \ \ std::vector<LineSegment>\ edges;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00420}00420\ \ \ \ \ edges.reserve(n);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00421}00421\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ edges.emplace\_back(points[i],\ points[(i\ +\ 1)\ \%\ n]);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00423}00423\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00425}00425\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 2;\ j\ <\ n;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ \&\&\ j\ ==\ n\ -\/\ 1)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoSegmentsIntersect(edges[i],\ edges[j]))\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Wykryto\ przecięcie\ krawędzi\ –\ przerywamy\ działanie}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00432}00432\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00434}00434\ \ \ \ \ \textcolor{comment}{//\ Wyznaczenie\ zakresu\ pionowego\ (minY,\ maxY)\ dla\ linii\ skanujących}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00435}00435\ \ \ \ \ \textcolor{keywordtype}{int}\ minY\ =\ points[0].GetY();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00436}00436\ \ \ \ \ \textcolor{keywordtype}{int}\ maxY\ =\ points[0].GetY();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00437}00437\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pt\ :\ points)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pt.GetY()\ <\ minY)\ minY\ =\ pt.GetY();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pt.GetY()\ >\ maxY)\ maxY\ =\ pt.GetY();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00440}00440\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00442}00442\ \ \ \ \ \textcolor{comment}{//\ Algorytm\ scanline\ z\ regułą\ parzystości\ (wiersz\ po\ wierszu\ od\ góry\ do\ dołu)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00443}00443\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ minY;\ y\ <=\ maxY;\ ++y)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ std::vector<int>\ nodeX;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p1\ =\ points[i];}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p2\ =\ points[(i\ +\ 1)\ \%\ n];}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y1\ =\ p1.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y2\ =\ p2.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x1\ =\ p1.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x2\ =\ p2.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Warunek\ "{}<"{}\ oraz\ "{}>="{}\ automatycznie\ rozwiązuje\ problem\ brzegowy\ wierzchołków\ na\ linii\ skanującej}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (unikamy\ podwójnego\ liczenia\ wierzchołków\ przy\ zmianie\ kierunku\ krawędzi\ oraz\ ignorujemy\ krawędzie\ poziome)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((y1\ <\ y\ \&\&\ y2\ >=\ y)\ ||\ (y2\ <\ y\ \&\&\ y1\ >=\ y))\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ intersectX\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::round(x1\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(y\ -\/\ y1)\ /\ (y2\ -\/\ y1)\ *\ (x2\ -\/\ x1)));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodeX.push\_back(intersectX);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sortujemy\ punkty\ przecięcia\ od\ lewej\ do\ prawej}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ std::sort(nodeX.begin(),\ nodeX.end());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wypełniamy\ odcinki\ między\ kolejnymi\ parami\ przecięć\ (nieparzyste\ -\/>\ parzyste)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ +\ 1\ <\ nodeX.size();\ i\ +=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ nodeX[i];\ x\ <=\ nodeX[i\ +\ 1];\ ++x)\ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x,\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00472}00472\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00474}00474\ \ \ \ \ \textcolor{comment}{//\ Dorysowanie\ konturu\ gwarantuje\ idealną\ gładkość\ krawędzi\ dolnych/górnych}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00475}00475\ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{DrawPolygon}}(points,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00476}00476\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00478}\doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{00478}}\ Color\ \doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{PrimitiveRenderer::GetPixelColor}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00479}00479\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00480}00480\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ y\ <\ 0\ ||\ y\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ BLANK;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00484}00484\ \ \ \ \ \textcolor{keywordflow}{return}\ pixels[y\ *\ bufferWidth\ +\ x];}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00485}00485\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00487}\doxymbox{\hyperlink{class_primitive_renderer_a42c532006c245fb84ce48f5ae6c8a7f5}{00487}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a42c532006c245fb84ce48f5ae6c8a7f5}{PrimitiveRenderer::ClearBuffer}}(Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00488}00488\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00489}00489\ \ \ \ \ std::fill(pixels.begin(),\ pixels.end(),\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00490}00490\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00492}\doxymbox{\hyperlink{class_primitive_renderer_aaacfb057a95a46a84109768fde5adafe}{00492}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_aaacfb057a95a46a84109768fde5adafe}{PrimitiveRenderer::RenderBuffer}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00493}00493\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00494}00494\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ bufferHeight;\ y++)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00495}00495\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ bufferWidth;\ x++)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ DrawPixel(x,\ y,\ pixels[y\ *\ bufferWidth\ +\ x]);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00500}00500\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00501}00501\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00502}00502\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00503}\doxymbox{\hyperlink{class_primitive_renderer_a2f3932e4007ff347ed09496a76da3d67}{00503}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_a2f3932e4007ff347ed09496a76da3d67}{PrimitiveRenderer::FloodFill}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ Color\ color)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00504}00504\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00505}00505\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ y\ <\ 0\ ||\ y\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00508}00508\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00509}00509\ \ \ \ \ Color\ oldColor\ =\ \doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{GetPixelColor}}(x,\ y);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00510}00510\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00511}00511\ \ \ \ \ \textcolor{keyword}{auto}\ sameColor\ =\ [](Color\ a,\ Color\ b)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.r\ ==\ b.r\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.g\ ==\ b.g\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.b\ ==\ b.b\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.a\ ==\ b.a;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00518}00518\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00519}00519\ \ \ \ \ \textcolor{keywordflow}{if}\ (sameColor(oldColor,\ color))}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00522}00522\ \ \ \ \ std::stack<Point2D>\ points;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00523}00523\ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(x,\ y));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00525}00525\ \ \ \ \ \textcolor{keywordflow}{while}\ (!points.empty())}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00526}00526\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p\ =\ points.top();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ points.pop();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00529}00529\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ px\ =\ p.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ py\ =\ p.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ <\ 0\ ||\ px\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ py\ <\ 0\ ||\ py\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00537}00537\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sameColor(\doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{GetPixelColor}}(px,\ py),\ oldColor))}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00538}00538\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00540}00540\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(px,\ py,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00542}00542\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00543}00543\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px\ +\ 1,\ py));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00544}00544\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px\ -\/\ 1,\ py));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px,\ py\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px,\ py\ -\/\ 1));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00547}00547\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00548}00548\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00549}00549\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00550}\doxymbox{\hyperlink{class_primitive_renderer_abff832ee32fa0223be89cec4b32019af}{00550}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_abff832ee32fa0223be89cec4b32019af}{PrimitiveRenderer::BorderFill}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ Color\ fillColor,\ Color\ borderColor)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00551}00551\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00552}00552\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ y\ <\ 0\ ||\ y\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00555}00555\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00556}00556\ \ \ \ \ \textcolor{keyword}{auto}\ sameColor\ =\ [](Color\ a,\ Color\ b)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.r\ ==\ b.r\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.g\ ==\ b.g\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.b\ ==\ b.b\ \&\&}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a.a\ ==\ b.a;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00564}00564\ \ \ \ \ \textcolor{comment}{//\ Zabezpieczenie\ przed\ nieskończoną\ pętlą,\ gdy\ kolor\ wypełnienia\ jest\ taki\ sam\ jak\ kolor\ krawędzi}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00565}00565\ \ \ \ \ \textcolor{keywordflow}{if}\ (sameColor(fillColor,\ borderColor))}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00567}00567\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00568}00568\ \ \ \ \ std::stack<Point2D>\ points;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00569}00569\ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(x,\ y));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00571}00571\ \ \ \ \ \textcolor{keywordflow}{while}\ (!points.empty())}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00572}00572\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ p\ =\ points.top();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ points.pop();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ px\ =\ p.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ py\ =\ p.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ <\ 0\ ||\ px\ >=\ bufferWidth\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ py\ <\ 0\ ||\ py\ >=\ bufferHeight)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00583}00583\ \ \ \ \ \ \ \ \ Color\ currentColor\ =\ \doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{GetPixelColor}}(px,\ py);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Warunki\ zatrzymania\ z\ instrukcji:\ piksel\ ma\ już\ kolor\ wypełnienia\ lub\ kolor\ krawędzi}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sameColor(currentColor,\ fillColor)\ ||\ sameColor(currentColor,\ borderColor))}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(px,\ py,\ fillColor);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sąsiedztwo\ von\ Neumanna\ (N,\ S,\ W,\ E)}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px,\ py\ -\/\ 1));\ \textcolor{comment}{//\ N}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px,\ py\ +\ 1));\ \textcolor{comment}{//\ S}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px\ -\/\ 1,\ py));\ \textcolor{comment}{//\ W}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ points.push(\doxymbox{\hyperlink{class_point2_d}{Point2D}}(px\ +\ 1,\ py));\ \textcolor{comment}{//\ E}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00596}00596\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00599}00599\ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00601}\doxymbox{\hyperlink{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5}{00601}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5}{PrimitiveRenderer::DrawBitmap}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_bitmap_handler}{BitmapHandler}}\&\ bitmap,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_rectangle_object}{RectangleObject}}\&\ source,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ topLeft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ topRight,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\&\ bottomLeft)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00602}00602\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00603}00603\ \ \ \ \ \textcolor{keywordflow}{if}\ (!bitmap.\doxymbox{\hyperlink{class_bitmap_handler_a43951af0a88268364fb01ea2e02bd88d}{isValid}}())}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00605}00605\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00606}00606\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(source.\doxymbox{\hyperlink{class_rectangle_object_ab6aac1e3825bc6f2b7dac76b6284f3b2}{GetWidth}}());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00607}00607\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(source.\doxymbox{\hyperlink{class_rectangle_object_a5217beca87ac2a2ed86a266ef02accb1}{GetHeight}}());}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00609}00609\ \ \ \ \ \textcolor{keywordflow}{if}\ (width\ <=\ 0\ ||\ height\ <=\ 0)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00611}00611\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00612}00612\ \ \ \ \ \doxymbox{\hyperlink{class_point2_d}{Point2D}}\ sourcePosition\ =\ source.\doxymbox{\hyperlink{class_rectangle_object_a2969af7fd1f1786857064a8c65621175}{GetTopLeft}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00614}00614\ \ \ \ \ \textcolor{keywordtype}{int}\ sourceX\ =\ sourcePosition.\doxymbox{\hyperlink{class_point2_d_ab378c79896576679fb55f53ca11b267b}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00615}00615\ \ \ \ \ \textcolor{keywordtype}{int}\ sourceY\ =\ sourcePosition.\doxymbox{\hyperlink{class_point2_d_a134c74f4189b4000866fed7a254dd21a}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00617}00617\ \ \ \ \ \textcolor{comment}{//\ Wektory\ wyznaczajace\ krawedzie\ bitmapy}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00618}00618\ \ \ \ \ \textcolor{keywordtype}{float}\ ax\ =\ topRight.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}()\ -\/\ topLeft.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00619}00619\ \ \ \ \ \textcolor{keywordtype}{float}\ ay\ =\ topRight.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}()\ -\/\ topLeft.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00620}00620\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00621}00621\ \ \ \ \ \textcolor{keywordtype}{float}\ bx\ =\ bottomLeft.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}()\ -\/\ topLeft.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00622}00622\ \ \ \ \ \textcolor{keywordtype}{float}\ by\ =\ bottomLeft.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}()\ -\/\ topLeft.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00623}00623\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00624}00624\ \ \ \ \ \textcolor{comment}{//\ Wyznacznik\ macierzy\ transformacji}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00625}00625\ \ \ \ \ \textcolor{keywordtype}{float}\ det\ =\ ax\ *\ by\ -\/\ ay\ *\ bx;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00627}00627\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(det)\ <\ 0.000001f)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00628}00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00629}00629\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00630}00630\ \ \ \ \ \textcolor{keywordtype}{float}\ x0\ =\ topLeft.\doxymbox{\hyperlink{class_point2_d_ac1a433b13627b93dbfbd371024f81d13}{GetExactX}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00631}00631\ \ \ \ \ \textcolor{keywordtype}{float}\ y0\ =\ topLeft.\doxymbox{\hyperlink{class_point2_d_ad869d4b39e5ffbf5d85b5a73459066ef}{GetExactY}}();}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00633}00633\ \ \ \ \ \textcolor{comment}{//\ Prostokat\ ograniczajacy\ przeksztalcona\ bitmape}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00634}00634\ \ \ \ \ \textcolor{keywordtype}{int}\ minX\ =\ std::max(0,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor(std::min(\{x0,\ x0\ +\ ax,\ x0\ +\ bx,\ x0\ +\ ax\ +\ bx\}))));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00635}00635\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00636}00636\ \ \ \ \ \textcolor{keywordtype}{int}\ maxX\ =\ std::min(bufferWidth,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::ceil(std::max(\{x0,\ x0\ +\ ax,\ x0\ +\ bx,\ x0\ +\ ax\ +\ bx\}))));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00637}00637\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00638}00638\ \ \ \ \ \textcolor{keywordtype}{int}\ minY\ =\ std::max(0,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::floor(std::min(\{y0,\ y0\ +\ ay,\ y0\ +\ by,\ y0\ +\ ay\ +\ by\}))));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00639}00639\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00640}00640\ \ \ \ \ \textcolor{keywordtype}{int}\ maxY\ =\ std::min(bufferHeight,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::ceil(std::max(\{y0,\ y0\ +\ ay,\ y0\ +\ by,\ y0\ +\ ay\ +\ by\}))));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00642}00642\ \ \ \ \ \textcolor{comment}{//\ Przejscie\ po\ pikselach\ obszaru\ docelowego}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00643}00643\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ minY;\ y\ <\ maxY;\ ++y)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00644}00644\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00645}00645\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ minX;\ x\ <\ maxX;\ ++x)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00646}00646\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00647}00647\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx\ =\ x\ +\ 0.5f\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00648}00648\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dy\ =\ y\ +\ 0.5f\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00650}00650\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Transformacja\ odwrotna}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00651}00651\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ u\ =\ (dx\ *\ by\ -\/\ dy\ *\ bx)\ /\ det;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00652}00652\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ v\ =\ (ax\ *\ dy\ -\/\ ay\ *\ dx)\ /\ det;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00653}00653\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00654}00654\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ <\ 0.0f\ ||\ u\ >=\ 1.0f\ ||}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ <\ 0.0f\ ||\ v\ >=\ 1.0f)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00657}00657\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00658}00658\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sx\ =\ sourceX\ +\ std::min(}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00659}00659\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width\ -\/\ 1,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(u\ *\ width));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sy\ =\ sourceY\ +\ std::min(}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00662}00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height\ -\/\ 1,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(v\ *\ height));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00663}00663\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00664}00664\ \ \ \ \ \ \ \ \ \ \ \ \ Color\ color\ =\ bitmap.\doxymbox{\hyperlink{class_bitmap_handler_a70f6143fedcb3b2af27a998abf950c46}{getPixel}}(sx,\ sy);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00666}00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pomijanie\ przezroczystych\ pikseli}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (color.a\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00668}00668\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obsluga\ czesciowej\ przezroczystosci}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00671}00671\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (color.a\ <\ 255)}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00672}00672\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00673}00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Color\ background\ =\ \doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{GetPixelColor}}(x,\ y);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00674}00674\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ alpha\ =\ color.a\ /\ 255.0f;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00675}00675\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00676}00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color.r\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(color.r\ *\ alpha\ +\ background.r\ *\ (1.0f\ -\/\ alpha));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00677}00677\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00678}00678\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color.g\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(color.g\ *\ alpha\ +\ background.g\ *\ (1.0f\ -\/\ alpha));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00679}00679\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00680}00680\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color.b\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(color.b\ *\ alpha\ +\ background.b\ *\ (1.0f\ -\/\ alpha));}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00681}00681\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00682}00682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color.a\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00683}00683\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00684}00684\ }
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00685}00685\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{PutPixel}}(x,\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00686}00686\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00687}00687\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_primitive_renderer_8cpp_source_l00688}00688\ \}}
+
+\end{DoxyCode}

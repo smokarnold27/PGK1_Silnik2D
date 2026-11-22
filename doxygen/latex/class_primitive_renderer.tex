@@ -1,0 +1,769 @@
+\doxysection{Primitive\+Renderer Class Reference}
+\hypertarget{class_primitive_renderer}{}\label{class_primitive_renderer}\index{PrimitiveRenderer@{PrimitiveRenderer}}
+
+
+Klasa realizujaca programowe renderowanie grafiki dwuwymiarowej.  
+
+
+
+
+{\ttfamily \+\#include $<$Primitive\+Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_primitive_renderer_a579f99c1724b09b26c898a25ad5ff70b}{Primitive\+Renderer}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_primitive_renderer}{Primitive\+Renderer}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_primitive_renderer_a8013c0a812e80eb5b311dfc5e77eed91}{\texorpdfstring{$\sim$}{\string~}\+Primitive\+Renderer}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor klasy \doxylink{class_primitive_renderer}{Primitive\+Renderer}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}{Put\+Pixel}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&point, Color color) const
+\begin{DoxyCompactList}\small\item\em Ustawia kolor pojedynczego piksela. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a97a1784ead6483effb0dc9395f390777}{Put\+Pixel}} (int x, int y, Color color) const
+\begin{DoxyCompactList}\small\item\em Ustawia kolor piksela o podanych wspolrzednych. \end{DoxyCompactList}\item 
+Color \doxymbox{\hyperlink{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}{Get\+Pixel\+Color}} (int x, int y) const
+\begin{DoxyCompactList}\small\item\em Pobiera kolor piksela z bufora. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a42c532006c245fb84ce48f5ae6c8a7f5}{Clear\+Buffer}} (Color color) const
+\begin{DoxyCompactList}\small\item\em Czysci bufor pikseli. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_aaacfb057a95a46a84109768fde5adafe}{Render\+Buffer}} () const
+\begin{DoxyCompactList}\small\item\em Wyswietla zawartosc bufora pikseli. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a2f3932e4007ff347ed09496a76da3d67}{Flood\+Fill}} (int x, int y, Color color) const
+\begin{DoxyCompactList}\small\item\em Wypelnia spojny obszar o jednakowym kolorze. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_abff832ee32fa0223be89cec4b32019af}{Border\+Fill}} (int x, int y, Color fill\+Color, Color border\+Color) const
+\begin{DoxyCompactList}\small\item\em Wypelnia obszar ograniczony wskazanym kolorem. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}{Draw\+Line}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje odcinek za pomoca algorytmu DDA. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ae6f470d195ec39715b4e45f07160e6da}{Draw\+Line\+Bresenham}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje odcinek za pomoca algorytmu Bresenhama. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357}{Draw\+Polyline}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&points, Color color, bool closed=false) const
+\begin{DoxyCompactList}\small\item\em Rysuje lamana na podstawie wektora punktow. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ad9678357c4232592580fbf61ef42e70c}{Draw\+Polyline}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ \&segments, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje zbior odcinkow jako lamana. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a8fc23a9a0331c6d3f528e6242c4f7bbb}{Draw\+Triangle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p3, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur trojkata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a144393186798ada5a9a2a29383ab0e30}{Draw\+Rectangle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, int width, int height, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur prostokata. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_aa801f3d7e8f0d457483c075b78573b5f}{Draw\+Circle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center, int radius, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur okregu. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_af3abed910cd57fb8b478b166e039d7b3}{Draw\+Ellipse}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center, int radiusX, int radiusY, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur elipsy. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}{Draw\+Polygon}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&points, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur wielokata na podstawie wierzcholkow. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ac9436414d9a5394e1935ef066b356a63}{Draw\+Polygon}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ \&segments, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje kontur wielokata na podstawie odcinkow. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_aaab6f4a2b93b21708f51d49e4cab6703}{Draw\+Filled\+Triangle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p2, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p3, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje wypelniony trojkat. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ae0c1237f7fed424a1bde0f657817451d}{Draw\+Filled\+Rectangle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&p1, int width, int height, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje wypelniony prostokat. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_aa45997c82aea318fe8e7735f51d55f1d}{Draw\+Filled\+Circle}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center, int radius, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje wypelniony okrag. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_ab189a000d14356484383735400040ae3}{Draw\+Filled\+Ellipse}} (const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&center, int radiusX, int radiusY, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje wypelniona elipse. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_a7f32e286e5962cd8370ac0df3f1a63de}{Draw\+Filled\+Polygon}} (const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&points, Color color) const
+\begin{DoxyCompactList}\small\item\em Rysuje wypelniony wielokat. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5}{Draw\+Bitmap}} (const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&bitmap, const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&source, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&top\+Left, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&top\+Right, const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&bottom\+Left) const
+\begin{DoxyCompactList}\small\item\em Rysuje wybrany fragment bitmapy po transformacji geometrycznej. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa realizujaca programowe renderowanie grafiki dwuwymiarowej. 
+
+Odpowiada za zarzadzanie buforem pikseli oraz rysowanie podstawowych prymitywow graficznych, takich jak odcinki, trojkaty, prostokaty, okregi, elipsy i wielokaty.
+
+Udostepnia algorytmy wypelniania figur i obszarow, a takze mechanizmy renderowania bitmap z uwzglednieniem transformacji geometrycznych i przezroczystosci.
+
+Umozliwia wyswietlanie zawartosci bufora w oknie aplikacji. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8h_source_l00031}{31}} of file \doxymbox{\hyperlink{_primitive_renderer_8h_source}{Primitive\+Renderer.\+h}}.
+
+
+
+\label{class_primitive_renderer_doc-constructors}
+\Hypertarget{class_primitive_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_primitive_renderer_a579f99c1724b09b26c898a25ad5ff70b}\index{PrimitiveRenderer@{PrimitiveRenderer}!PrimitiveRenderer@{PrimitiveRenderer}}
+\index{PrimitiveRenderer@{PrimitiveRenderer}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{PrimitiveRenderer()}{PrimitiveRenderer()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a579f99c1724b09b26c898a25ad5ff70b} 
+Primitive\+Renderer::\+\+Primitive\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_primitive_renderer}{Primitive\+Renderer}. 
+
+Pobiera wymiary aktualnego okna aplikacji i tworzy bufor pikseli o odpowiadajacej im wielkosci.
+
+Poczatkowo wszystkie piksele bufora maja kolor bialy.
+
+\begin{DoxyNote}{Note}
+Konstruktor powinien zostac wywolany po zainicjalizowaniu okna graficznego. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00010}{10}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a8013c0a812e80eb5b311dfc5e77eed91}\index{PrimitiveRenderer@{PrimitiveRenderer}!````~PrimitiveRenderer@{\texorpdfstring{$\sim$}{\string~}PrimitiveRenderer}}
+\index{````~PrimitiveRenderer@{\texorpdfstring{$\sim$}{\string~}PrimitiveRenderer}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PrimitiveRenderer()}{\string~PrimitiveRenderer()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a8013c0a812e80eb5b311dfc5e77eed91} 
+Primitive\+Renderer::\+\texorpdfstring{$\sim$}{\string~}\+Primitive\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destruktor klasy \doxylink{class_primitive_renderer}{Primitive\+Renderer}. 
+
+Konczy cykl zycia obiektu renderera. Zasoby przechowywane w standardowych kontenerach sa zwalniane automatycznie. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00016}{16}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+
+
+\label{class_primitive_renderer_doc-func-members}
+\Hypertarget{class_primitive_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_primitive_renderer_abff832ee32fa0223be89cec4b32019af}\index{PrimitiveRenderer@{PrimitiveRenderer}!BorderFill@{BorderFill}}
+\index{BorderFill@{BorderFill}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{BorderFill()}{BorderFill()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_abff832ee32fa0223be89cec4b32019af} 
+void Primitive\+Renderer::\+\+Border\+Fill (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{Color}]{fill\+Color}{, }\item[{Color}]{border\+Color}{}\end{DoxyParamCaption}) const}
+
+
+
+Wypelnia obszar ograniczony wskazanym kolorem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedna X punktu poczatkowego. \\
+\hline
+{\em y} & Wspolrzedna Y punktu poczatkowego. \\
+\hline
+{\em fill\+Color} & Kolor wypelnienia. \\
+\hline
+{\em border\+Color} & Kolor wyznaczajacy granice obszaru.\\
+\hline
+\end{DoxyParams}
+Metoda wykorzystuje iteracyjny algorytm Border Fill do wypelniania obszaru ograniczonego pikselami o okreslonym kolorze.
+
+Wypelnianie rozpoczyna sie od wskazanego punktu i obejmuje sasiednie piksele, dopoki nie zostanie napotkany kolor granicy lub kolor wypelnienia.
+
+Do przeszukiwania obszaru wykorzystywany jest stos oraz sasiedztwo czterokierunkowe.
+
+\begin{DoxyNote}{Note}
+Jesli kolor wypelnienia jest taki sam jak kolor granicy, metoda nie wykonuje operacji. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00550}{550}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a42c532006c245fb84ce48f5ae6c8a7f5}\index{PrimitiveRenderer@{PrimitiveRenderer}!ClearBuffer@{ClearBuffer}}
+\index{ClearBuffer@{ClearBuffer}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{ClearBuffer()}{ClearBuffer()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a42c532006c245fb84ce48f5ae6c8a7f5} 
+void Primitive\+Renderer::\+\+Clear\+Buffer (\begin{DoxyParamCaption}\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Czysci bufor pikseli. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Kolor, ktorym zostanie wypelniony bufor.\\
+\hline
+\end{DoxyParams}
+Metoda ustawia wszystkie piksele bufora na wskazany kolor. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00487}{487}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawBitmap@{DrawBitmap}}
+\index{DrawBitmap@{DrawBitmap}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawBitmap()}{DrawBitmap()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_af407b1e1ec929518c18b471b0dcb7ae5} 
+void Primitive\+Renderer::\+\+Draw\+Bitmap (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_bitmap_handler}{Bitmap\+Handler}} \&}]{bitmap}{, }\item[{const \doxymbox{\hyperlink{class_rectangle_object}{Rectangle\+Object}} \&}]{source}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{top\+Left}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{top\+Right}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{bottom\+Left}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wybrany fragment bitmapy po transformacji geometrycznej. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bitmap} & Bitmapa zawierajaca dane obrazu. \\
+\hline
+{\em source} & Prostokat okreslajacy fragment bitmapy do narysowania. \\
+\hline
+{\em top\+Left} & Przeksztalcony lewy gorny wierzcholek bitmapy. \\
+\hline
+{\em top\+Right} & Przeksztalcony prawy gorny wierzcholek bitmapy. \\
+\hline
+{\em bottom\+Left} & Przeksztalcony lewy dolny wierzcholek bitmapy.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje wskazany fragment bitmapy w buforze pikseli z uwzglednieniem jego polozenia, obrotu i skalowania.
+
+Na podstawie trzech przekazanych wierzcholkow wyznacza obszar docelowy oraz transformacje odwrotna, pozwalajaca przypisac piksele bitmapy do odpowiednich pikseli bufora.
+
+Podczas renderowania wykorzystuje probkowanie najblizszego sasiada oraz obsluguje przezroczystosc na podstawie kanalu alfa.
+
+\begin{DoxyNote}{Note}
+Metoda nie wykonuje rysowania, jesli bitmapa jest niepoprawna, obszar zrodlowy ma niepoprawne wymiary lub transformacja jest osobliwa. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00601}{601}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_aa801f3d7e8f0d457483c075b78573b5f}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawCircle@{DrawCircle}}
+\index{DrawCircle@{DrawCircle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawCircle()}{DrawCircle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_aa801f3d7e8f0d457483c075b78573b5f} 
+void Primitive\+Renderer::\+\+Draw\+Circle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{, }\item[{int}]{radius}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur okregu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Srodek okregu. \\
+\hline
+{\em radius} & Promien okregu. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza punkty okregu na podstawie funkcji trygonometrycznych i wykorzystuje osmiokrotna symetrie do rysowania konturu.
+
+\begin{DoxyNote}{Note}
+Dla promienia mniejszego lub rownego zero metoda nie wykonuje rysowania. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00173}{173}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_af3abed910cd57fb8b478b166e039d7b3}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawEllipse@{DrawEllipse}}
+\index{DrawEllipse@{DrawEllipse}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawEllipse()}{DrawEllipse()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_af3abed910cd57fb8b478b166e039d7b3} 
+void Primitive\+Renderer::\+\+Draw\+Ellipse (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{, }\item[{int}]{radiusX}{, }\item[{int}]{radiusY}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur elipsy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Srodek elipsy. \\
+\hline
+{\em radiusX} & Promien elipsy w osi X. \\
+\hline
+{\em radiusY} & Promien elipsy w osi Y. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza punkty konturu elipsy na podstawie funkcji trygonometrycznych i wykorzystuje symetrie wzgledem obu osi.
+
+\begin{DoxyNote}{Note}
+Dla promieni mniejszych lub rownych zero metoda nie wykonuje rysowania. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00202}{202}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_aa45997c82aea318fe8e7735f51d55f1d}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawFilledCircle@{DrawFilledCircle}}
+\index{DrawFilledCircle@{DrawFilledCircle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawFilledCircle()}{DrawFilledCircle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_aa45997c82aea318fe8e7735f51d55f1d} 
+void Primitive\+Renderer::\+\+Draw\+Filled\+Circle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{, }\item[{int}]{radius}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wypelniony okrag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Srodek okregu. \\
+\hline
+{\em radius} & Promien okregu. \\
+\hline
+{\em color} & Kolor wypelnienia.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza poziome odcinki nalezace do wnetrza okregu na podstawie jego rownania.
+
+Nastepnie wypelnia wszystkie piksele znajdujace sie na wyznaczonych odcinkach.
+
+\begin{DoxyNote}{Note}
+Dla promienia mniejszego lub rownego zero metoda nie wykonuje rysowania. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00372}{372}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ab189a000d14356484383735400040ae3}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawFilledEllipse@{DrawFilledEllipse}}
+\index{DrawFilledEllipse@{DrawFilledEllipse}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawFilledEllipse()}{DrawFilledEllipse()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ab189a000d14356484383735400040ae3} 
+void Primitive\+Renderer::\+\+Draw\+Filled\+Ellipse (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{center}{, }\item[{int}]{radiusX}{, }\item[{int}]{radiusY}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wypelniona elipse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Srodek elipsy. \\
+\hline
+{\em radiusX} & Promien elipsy w osi X. \\
+\hline
+{\em radiusY} & Promien elipsy w osi Y. \\
+\hline
+{\em color} & Kolor wypelnienia.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza poziome odcinki nalezace do wnetrza elipsy na podstawie jej rownania.
+
+Nastepnie wypelnia piksele znajdujace sie pomiedzy wyznaczonymi granicami.
+
+\begin{DoxyNote}{Note}
+Dla promieni mniejszych lub rownych zero metoda nie wykonuje rysowania. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00390}{390}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a7f32e286e5962cd8370ac0df3f1a63de}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawFilledPolygon@{DrawFilledPolygon}}
+\index{DrawFilledPolygon@{DrawFilledPolygon}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawFilledPolygon()}{DrawFilledPolygon()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a7f32e286e5962cd8370ac0df3f1a63de} 
+void Primitive\+Renderer::\+\+Draw\+Filled\+Polygon (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&}]{points}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wypelniony wielokat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Wektor wierzcholkow wielokata. \\
+\hline
+{\em color} & Kolor wypelnienia i konturu.\\
+\hline
+\end{DoxyParams}
+Metoda sprawdza, czy wielokat nie posiada przecinajacych sie niesasiadujacych krawedzi.
+
+Nastepnie wykorzystuje algorytm scanline z regula parzystosci do wypelnienia jego wnetrza.
+
+Po zakonczeniu wypelniania rysuje kontur wielokata.
+
+\begin{DoxyNote}{Note}
+Wielokat musi posiadac co najmniej trzy wierzcholki.
+
+W przypadku wykrycia przecinajacych sie krawedzi metoda przerywa rysowanie. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00413}{413}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ae0c1237f7fed424a1bde0f657817451d}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawFilledRectangle@{DrawFilledRectangle}}
+\index{DrawFilledRectangle@{DrawFilledRectangle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawFilledRectangle()}{DrawFilledRectangle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ae0c1237f7fed424a1bde0f657817451d} 
+void Primitive\+Renderer::\+\+Draw\+Filled\+Rectangle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wypelniony prostokat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Punkt odniesienia prostokata. \\
+\hline
+{\em width} & Szerokosc prostokata. \\
+\hline
+{\em height} & Wysokosc prostokata. \\
+\hline
+{\em color} & Kolor wypelnienia.\\
+\hline
+\end{DoxyParams}
+Metoda wypelnia piksele prostokatnego obszaru o bokach rownoleglych do osi ukladu wspolrzednych.
+
+Ujemne wartosci szerokosci i wysokosci okreslaja kierunek rozciagniecia prostokata. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00357}{357}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_aaab6f4a2b93b21708f51d49e4cab6703}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawFilledTriangle@{DrawFilledTriangle}}
+\index{DrawFilledTriangle@{DrawFilledTriangle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawFilledTriangle()}{DrawFilledTriangle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_aaab6f4a2b93b21708f51d49e4cab6703} 
+void Primitive\+Renderer::\+\+Draw\+Filled\+Triangle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p3}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje wypelniony trojkat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Pierwszy wierzcholek trojkata. \\
+\hline
+{\em p2} & Drugi wierzcholek trojkata. \\
+\hline
+{\em p3} & Trzeci wierzcholek trojkata. \\
+\hline
+{\em color} & Kolor wypelnienia.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza prostokat ograniczajacy trojkat, a nastepnie sprawdza kolejne piksele pod katem przynaleznosci do jego wnetrza.
+
+Wykorzystuje funkcje krawedziowe do okreslenia, czy dany piksel znajduje sie wewnatrz trojkata lub na jego krawedzi. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00326}{326}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a7e74ae29ee1806b5080201aa39e45d1b} 
+void Primitive\+Renderer::\+\+Draw\+Line (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje odcinek za pomoca algorytmu DDA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Punkt poczatkowy odcinka. \\
+\hline
+{\em p2} & Punkt koncowy odcinka. \\
+\hline
+{\em color} & Kolor odcinka.\\
+\hline
+\end{DoxyParams}
+Metoda wykorzystuje algorytm przyrostowy DDA, obliczajac kolejne polozenia pikseli na podstawie nachylenia odcinka.
+
+Kierunek iteracji jest dobierany na podstawie dominujacej osi odcinka. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ae6f470d195ec39715b4e45f07160e6da}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawLineBresenham@{DrawLineBresenham}}
+\index{DrawLineBresenham@{DrawLineBresenham}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawLineBresenham()}{DrawLineBresenham()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ae6f470d195ec39715b4e45f07160e6da} 
+void Primitive\+Renderer::\+\+Draw\+Line\+Bresenham (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje odcinek za pomoca algorytmu Bresenhama. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Punkt poczatkowy odcinka. \\
+\hline
+{\em p2} & Punkt koncowy odcinka. \\
+\hline
+{\em color} & Kolor odcinka.\\
+\hline
+\end{DoxyParams}
+Metoda wykorzystuje calkowitoliczbowy algorytm Bresenhama do wyznaczania kolejnych pikseli odcinka.
+
+Obsluguje odcinki o dowolnym nachyleniu oraz kierunku przebiegu. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00085}{85}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ac9436414d9a5394e1935ef066b356a63}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawPolygon@{DrawPolygon}}
+\index{DrawPolygon@{DrawPolygon}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawPolygon()}{DrawPolygon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ac9436414d9a5394e1935ef066b356a63} 
+void Primitive\+Renderer::\+\+Draw\+Polygon (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ \&}]{segments}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur wielokata na podstawie odcinkow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em segments} & Wektor krawedzi wielokata. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda sprawdza, czy przekazane odcinki tworza ciagly i zamkniety kontur.
+
+Nastepnie weryfikuje, czy niesasiadujace krawedzie nie przecinaja sie.
+
+Jesli kontur jest poprawny, rysuje wszystkie jego krawedzie.
+
+\begin{DoxyNote}{Note}
+Niepoprawne wielokaty nie sa rysowane. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00294}{294}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawPolygon@{DrawPolygon}}
+\index{DrawPolygon@{DrawPolygon}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawPolygon()}{DrawPolygon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ad4ec82a4b52430cb0a3eb64a4ce930d1} 
+void Primitive\+Renderer::\+\+Draw\+Polygon (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&}]{points}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur wielokata na podstawie wierzcholkow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Wektor wierzcholkow wielokata. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda tworzy odcinki laczace kolejne wierzcholki, lacznie z ostatnim i pierwszym.
+
+Nastepnie przekazuje utworzone krawedzie do metody sprawdzajacej poprawnosc wielokata i wykonujacej jego rysowanie.
+
+\begin{DoxyNote}{Note}
+Wielokat musi posiadac co najmniej trzy wierzcholki. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00277}{277}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_ad9678357c4232592580fbf61ef42e70c}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawPolyline@{DrawPolyline}}
+\index{DrawPolyline@{DrawPolyline}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawPolyline()}{DrawPolyline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_ad9678357c4232592580fbf61ef42e70c} 
+void Primitive\+Renderer::\+\+Draw\+Polyline (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ \&}]{segments}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje zbior odcinkow jako lamana. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em segments} & Wektor odcinkow do narysowania. \\
+\hline
+{\em color} & Kolor rysowanych odcinkow.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje wszystkie odcinki znajdujace sie w przekazanym wektorze.
+
+\begin{DoxyNote}{Note}
+Metoda nie sprawdza ciaglosci ani polaczenia kolejnych odcinkow. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00139}{139}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawPolyline@{DrawPolyline}}
+\index{DrawPolyline@{DrawPolyline}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawPolyline()}{DrawPolyline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a6d1e62eb92bb3a8c8664d911efbe1357} 
+void Primitive\+Renderer::\+\+Draw\+Polyline (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{class_point2_d}{Point2D}} $>$ \&}]{points}{, }\item[{Color}]{color}{, }\item[{bool}]{closed}{ = {\ttfamily false}}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje lamana na podstawie wektora punktow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Wektor kolejnych punktow lamanej. \\
+\hline
+{\em color} & Kolor lamanej. \\
+\hline
+{\em closed} & Okresla, czy lamana ma zostac zamknieta.\\
+\hline
+\end{DoxyParams}
+Metoda laczy kolejne punkty odcinkami. Jesli parametr closed ma wartosc true i podano co najmniej trzy punkty, laczy rowniez ostatni punkt z pierwszym.
+
+\begin{DoxyNote}{Note}
+Dla mniej niz dwoch punktow metoda nie wykonuje rysowania. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00124}{124}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a144393186798ada5a9a2a29383ab0e30}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawRectangle@{DrawRectangle}}
+\index{DrawRectangle@{DrawRectangle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawRectangle()}{DrawRectangle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a144393186798ada5a9a2a29383ab0e30} 
+void Primitive\+Renderer::\+\+Draw\+Rectangle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur prostokata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Punkt odniesienia prostokata. \\
+\hline
+{\em width} & Szerokosc prostokata. \\
+\hline
+{\em height} & Wysokosc prostokata. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda wyznacza cztery wierzcholki prostokata o bokach rownoleglych do osi ukladu wspolrzednych i laczy je odcinkami.
+
+Ujemne wartosci szerokosci i wysokosci okreslaja rozciagniecie prostokata w przeciwnym kierunku odpowiedniej osi. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00154}{154}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a8fc23a9a0331c6d3f528e6242c4f7bbb}\index{PrimitiveRenderer@{PrimitiveRenderer}!DrawTriangle@{DrawTriangle}}
+\index{DrawTriangle@{DrawTriangle}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{DrawTriangle()}{DrawTriangle()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a8fc23a9a0331c6d3f528e6242c4f7bbb} 
+void Primitive\+Renderer::\+\+Draw\+Triangle (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p1}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p2}{, }\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{p3}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Rysuje kontur trojkata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Pierwszy wierzcholek trojkata. \\
+\hline
+{\em p2} & Drugi wierzcholek trojkata. \\
+\hline
+{\em p3} & Trzeci wierzcholek trojkata. \\
+\hline
+{\em color} & Kolor konturu.\\
+\hline
+\end{DoxyParams}
+Metoda rysuje trzy odcinki laczace wszystkie wierzcholki trojkata. 
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00147}{147}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a2f3932e4007ff347ed09496a76da3d67}\index{PrimitiveRenderer@{PrimitiveRenderer}!FloodFill@{FloodFill}}
+\index{FloodFill@{FloodFill}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{FloodFill()}{FloodFill()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a2f3932e4007ff347ed09496a76da3d67} 
+void Primitive\+Renderer::\+\+Flood\+Fill (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Wypelnia spojny obszar o jednakowym kolorze. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedna X punktu poczatkowego. \\
+\hline
+{\em y} & Wspolrzedna Y punktu poczatkowego. \\
+\hline
+{\em color} & Nowy kolor wypelnienia.\\
+\hline
+\end{DoxyParams}
+Metoda wykorzystuje iteracyjny algorytm Flood Fill do zmiany koloru spojnego obszaru pikseli.
+
+Wypelnianie rozpoczyna sie od wskazanego punktu i obejmuje sasiadujace piksele o takim samym kolorze jak piksel poczatkowy.
+
+Do przeszukiwania obszaru wykorzystywany jest stos oraz sasiedztwo czterokierunkowe.
+
+\begin{DoxyNote}{Note}
+Jesli kolor poczatkowego piksela jest taki sam jak nowy kolor, metoda konczy dzialanie. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00503}{503}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb}\index{PrimitiveRenderer@{PrimitiveRenderer}!GetPixelColor@{GetPixelColor}}
+\index{GetPixelColor@{GetPixelColor}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{GetPixelColor()}{GetPixelColor()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_af3e66f4e0b7edb21e67edb42960bd7bb} 
+Color Primitive\+Renderer::\+\+Get\+Pixel\+Color (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption}) const}
+
+
+
+Pobiera kolor piksela z bufora. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedna X piksela. \\
+\hline
+{\em y} & Wspolrzedna Y piksela.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kolor piksela znajdujacego sie pod wskazanymi wspolrzednymi.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Jesli wspolrzedne znajduja sie poza granicami bufora, zwracany jest kolor BLANK. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00478}{478}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a3b67402b4afd78934814678380d6e135}\index{PrimitiveRenderer@{PrimitiveRenderer}!PutPixel@{PutPixel}}
+\index{PutPixel@{PutPixel}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{PutPixel()}{PutPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a3b67402b4afd78934814678380d6e135} 
+void Primitive\+Renderer::\+\+Put\+Pixel (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_point2_d}{Point2D}} \&}]{point}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Ustawia kolor pojedynczego piksela. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Punkt okreslajacy polozenie piksela. \\
+\hline
+{\em color} & Nowy kolor piksela.\\
+\hline
+\end{DoxyParams}
+Metoda wykorzystuje zaokraglone wspolrzedne podanego punktu do zmiany koloru piksela w buforze.
+
+\begin{DoxyNote}{Note}
+Piksele znajdujace sie poza granicami bufora sa pomijane. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00018}{18}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_a97a1784ead6483effb0dc9395f390777}\index{PrimitiveRenderer@{PrimitiveRenderer}!PutPixel@{PutPixel}}
+\index{PutPixel@{PutPixel}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{PutPixel()}{PutPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_a97a1784ead6483effb0dc9395f390777} 
+void Primitive\+Renderer::\+\+Put\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{Color}]{color}{}\end{DoxyParamCaption}) const}
+
+
+
+Ustawia kolor piksela o podanych wspolrzednych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Wspolrzedna X piksela. \\
+\hline
+{\em y} & Wspolrzedna Y piksela. \\
+\hline
+{\em color} & Nowy kolor piksela.\\
+\hline
+\end{DoxyParams}
+Metoda zapisuje kolor we wskazanym miejscu bufora.
+
+\begin{DoxyNote}{Note}
+Jesli wspolrzedne znajduja sie poza granicami bufora, operacja jest pomijana. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00022}{22}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+\Hypertarget{class_primitive_renderer_aaacfb057a95a46a84109768fde5adafe}\index{PrimitiveRenderer@{PrimitiveRenderer}!RenderBuffer@{RenderBuffer}}
+\index{RenderBuffer@{RenderBuffer}!PrimitiveRenderer@{PrimitiveRenderer}}
+\doxysubsubsection{\texorpdfstring{RenderBuffer()}{RenderBuffer()}}
+{\footnotesize\ttfamily \label{class_primitive_renderer_aaacfb057a95a46a84109768fde5adafe} 
+void Primitive\+Renderer::\+\+Render\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Wyswietla zawartosc bufora pikseli. 
+
+Metoda przechodzi przez wszystkie piksele bufora i rysuje je w oknie aplikacji za pomoca biblioteki graficznej.
+
+\begin{DoxyNote}{Note}
+Metoda nie zmienia zawartosci bufora. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_primitive_renderer_8cpp_source_l00492}{492}} of file \doxymbox{\hyperlink{_primitive_renderer_8cpp_source}{Primitive\+Renderer.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_primitive_renderer_8h}{Primitive\+Renderer.\+h}}\item 
+\doxymbox{\hyperlink{_primitive_renderer_8cpp}{Primitive\+Renderer.\+cpp}}\end{DoxyCompactItemize}

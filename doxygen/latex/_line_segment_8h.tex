@@ -1,0 +1,64 @@
+\doxysection{Line\+Segment.\+h File Reference}
+\hypertarget{_line_segment_8h}{}\label{_line_segment_8h}\index{LineSegment.h@{LineSegment.h}}
+
+
+Definicja klasy sluzacej do rysowania odcinkow.  
+
+
+{\ttfamily \+\#include "{}Shape\+Object.\+h"{}}\newline
+{\ttfamily \+\#include "{}Point2\+D.\+h"{}}\newline
+{\ttfamily \+\#include "{}raylib.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_line_segment}{Line\+Segment}}
+\begin{DoxyCompactList}\small\item\em Klasa reprezentujaca odcinek w przestrzeni dwuwymiarowej. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{Line\+Algorithm}} \{ \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}{DDA}}
+, \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aa20b83bc3afd59d747cc745d5f70f3695}{Bresenham}}
+ \}
+\begin{DoxyCompactList}\small\item\em Dostepne algorytmy rysowania odcinkow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicja klasy sluzacej do rysowania odcinkow. 
+
+
+
+Definition in file \doxymbox{\hyperlink{_line_segment_8h_source}{Line\+Segment.\+h}}.
+
+
+
+\label{_line_segment_8h_doc-enum-members}
+\Hypertarget{_line_segment_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}\index{LineSegment.h@{LineSegment.h}!LineAlgorithm@{LineAlgorithm}}
+\index{LineAlgorithm@{LineAlgorithm}!LineSegment.h@{LineSegment.h}}
+\doxysubsubsection{\texorpdfstring{LineAlgorithm}{LineAlgorithm}}
+{\footnotesize\ttfamily \label{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a} 
+enum class \doxymbox{\hyperlink{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109a}{Line\+Algorithm}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Dostepne algorytmy rysowania odcinkow. 
+
+Typ wyliczeniowy okreslajacy algorytm wykorzystywany podczas rysowania odcinka. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DDA@{DDA}!LineSegment.h@{LineSegment.h}}
+\index{LineSegment.h@{LineSegment.h}!DDA@{DDA}}
+}\Hypertarget{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec}\label{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aadc907b4fb49bcda4f6360644735c97ec} 
+DDA&Algorytm przyrostowy DDA. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Bresenham@{Bresenham}!LineSegment.h@{LineSegment.h}}
+\index{LineSegment.h@{LineSegment.h}!Bresenham@{Bresenham}}
+}\Hypertarget{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aa20b83bc3afd59d747cc745d5f70f3695}\label{_line_segment_8h_a9cebccf04a0df5b7413f68d3119f109aa20b83bc3afd59d747cc745d5f70f3695} 
+Bresenham&Algorytm Bresenhama. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{_line_segment_8h_source_l00017}{17}} of file \doxymbox{\hyperlink{_line_segment_8h_source}{Line\+Segment.\+h}}.
+
