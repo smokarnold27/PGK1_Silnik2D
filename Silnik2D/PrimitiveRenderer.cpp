@@ -667,7 +667,7 @@ void PrimitiveRenderer::DrawBitmap(const BitmapHandler& bitmap, const RectangleO
 			if (color.a == 0)
 				continue;
 
-			// Zastosowanie tinty (jeśli nie jest czystą bielą)
+			// Zastosowanie tint
 			if (tint.r != 255 || tint.g != 255 || tint.b != 255)
 			{
 				color.r = static_cast<unsigned char>((color.r * tint.r) / 255);
