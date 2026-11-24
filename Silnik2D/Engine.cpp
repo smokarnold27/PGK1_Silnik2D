@@ -139,7 +139,7 @@ void Engine::Run()
 	// Bufor pomocniczy przechowujący wycinek tła pod graczem
 	const int player_size = 64;
 	std::vector<Color> underPlayerBuffer(player_size * player_size, WHITE);
-
+	
 	while (is_running && !WindowShouldClose())
 	{
 		float delta_time = GetFrameTime();
@@ -175,7 +175,6 @@ void Engine::Run()
 			// Narysowanie gracza do bufora pikseli PRZED wywołaniem RenderBuffer()
 			player_ptr->Draw(renderer);
 		}
-
 		// Wyświetlenie bufora (tło + gracz) na ekranie
 		BeginDrawing();
 		ClearBackground(WHITE);
